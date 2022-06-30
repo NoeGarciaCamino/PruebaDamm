@@ -35,7 +35,7 @@ public class ConfigCapabilities {
     private DesiredCapabilities setCommonsCapabilities() {
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, capabilities.getAutomationName());
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, capabilities.getPlatformName());
-        desiredCapabilities.setCapability(MobileCapabilityType.APP, capabilities.getApp());
+        desiredCapabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + capabilities.getApp());
         desiredCapabilities.setCapability(MobileCapabilityType.UDID, capabilities.getUdid());
         if (!isAppiumGridOn) {//grid esta apagado
             desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, capabilities.getPlatformVersion());
