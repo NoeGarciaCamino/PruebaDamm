@@ -30,12 +30,12 @@ public class LoginStepDefinition {
         accesoStep.accederConCuenta();
     }
 
-    @Cuando("hago login con el email {string} y la pass {string}")
-    public void queHagoLoginConElEmailYLaPass(String email, String pass) {
+    @Cuando("hago login con el email y la pass")
+    public void queHagoLoginConElEmailYLaPass() {
         loginStep.aceptarTerminosGoogle();
         loginStep.aceptarSync();
-        loginStep.introducirEmail(email);
-        loginStep.introducirPass(pass);
+        loginStep.introducirEmail();
+        loginStep.introducirPass();
         loginStep.accederHome();
 
     }
@@ -50,21 +50,3 @@ public class LoginStepDefinition {
         loginStep.cambioEst();
     }
 }
-
-
-//    @Value("#{${capabilities.config}}")
-//    private Map<String,Object> capsMap;
-//    @Value("${capabilities.appiumHub}")
-//    private String appiumHub;
-//
-//    @Test
-//    public void android() throws MalformedURLException {
-//        System.out.println("myYamlMap: " + capsMap);
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        for(Map.Entry<String, Object> caps : capsMap.entrySet()){
-//            capabilities.setCapability(caps.getKey(), caps.getValue());
-//        }
-//        AppiumDriver<MobileElement> driver = new AndroidDriver<>(new URL(appiumHub), capabilities);
-//
-//        System.out.println("getCapabilities(): " + driver.getCapabilities());
-//        System.out.println("getSessionDetails(): " + driver.getSessionDetails());

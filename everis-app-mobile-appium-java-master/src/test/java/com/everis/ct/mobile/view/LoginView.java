@@ -27,6 +27,22 @@ public class LoginView extends MobileBase {
     @AndroidFindBy(xpath = "//*[contains(@text,'Acceder')]")
     protected MobileElement botonAcceder;
 
+
+    public void sendEmail(String user) {
+        waitUntilElementIsVisible(campoEmail, 20);
+        campoEmail.sendKeys(user);
+    }
+
+    public void sendPass(String pass) {
+        waitUntilElementIsVisible(campoPass, 15);
+        campoPass.sendKeys(pass);
+    }
+
+    public void tapAcceder() {
+        waitUntilElementIsVisible(botonAcceder, 15);
+        tap(botonAcceder);
+    }
+
     public void tapTerminosGoogle(){
         waitUntilElementIsVisible(botonGoogle, 15);
         tap(botonGoogle);
@@ -35,20 +51,5 @@ public class LoginView extends MobileBase {
     public void tapSync(){
         waitUntilElementIsVisible(botonSync, 15);
         tap(botonSync);
-    }
-
-    public void sendEmail(String email) {
-        waitUntilElementIsVisible(campoEmail, 20);
-        type(campoEmail,email,10);
-    }
-
-    public void sendPass(String pass) {
-        waitUntilElementIsVisible(campoPass, 15);
-        type(campoPass,pass,10);
-    }
-
-    public void tapAcceder() {
-        waitUntilElementIsVisible(botonAcceder, 15);
-        tap(botonAcceder);
     }
 }

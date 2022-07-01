@@ -1,5 +1,4 @@
 #language: es
-  #Hola
 @DEMO
 Característica: Regresion Damm - Bar Manager
 

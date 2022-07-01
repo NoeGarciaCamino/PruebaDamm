@@ -3,6 +3,7 @@ package com.everis.ct.mobile.step;
 import com.everis.ct.mobile.service.aspect.evidence.ScreenShot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import java.util.ResourceBundle;
 
 @Component
 @ScreenShot
@@ -23,12 +24,14 @@ public class LoginStep {
         view.login().tapSync();
     }
 
-    public void introducirEmail(String email) {
-        view.login().sendEmail(email);
+    public void introducirEmail() {
+        ResourceBundle datosUser = ResourceBundle.getBundle("application");
+        view.login().sendEmail(datosUser.getString("userName"));
     }
 
-    public void introducirPass(String pass) {
-        view.login().sendPass(pass);
+    public void introducirPass() {
+        ResourceBundle datosUser = ResourceBundle.getBundle("application");
+        view.login().sendPass(datosUser.getString("password"));
     }
 
     public void accederHome() {
@@ -42,9 +45,5 @@ public class LoginStep {
     public void cambioEst(){
         view.home().desplegarSelectorEstab();
     }
-
-//    public int getSizeResult() {
-//        return view.results().getResults();
-//    }
 
 }

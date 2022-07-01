@@ -4,6 +4,8 @@ import com.everis.ct.mobile.service.aspect.evidence.ScreenShot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ResourceBundle;
+
 @Component
 @ScreenShot
 public class AccesoStep {
@@ -18,9 +20,10 @@ public class AccesoStep {
         view.acceso().tapRegistrarEstablecimiento();
     }
 
-    public void introducirPincode(String pincode) {
+    public void introducirPincode() {
+        ResourceBundle datosUser = ResourceBundle.getBundle("application");
         view.acceso().verificarPantallaIntroduccionCodigo();
-        view.acceso().sendCodigoAcceso(pincode);
+        view.acceso().sendCodigoAcceso(datosUser.getString("pincode"));
         view.acceso().tapSiguiente();
     }
 

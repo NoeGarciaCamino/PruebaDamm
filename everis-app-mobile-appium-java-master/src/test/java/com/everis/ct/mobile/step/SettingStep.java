@@ -4,6 +4,8 @@ import com.everis.ct.mobile.service.aspect.evidence.ScreenShot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ResourceBundle;
+
 @Component
 @ScreenShot
 public class SettingStep {
@@ -28,8 +30,9 @@ public class SettingStep {
         view.setting().cambiarPass();
     }
 
-    public void introducirPassActual(String pass){
-        view.setting().passActual(pass);
+    public void introducirPassActual(){
+        ResourceBundle datosUser = ResourceBundle.getBundle("application");
+        view.login().sendPass(datosUser.getString("password"));
     }
 
     public void introducirPassNueva(String pass2){

@@ -54,9 +54,9 @@ public class AccesoStepDefinition {
         accesoStep.avanceTutorial();
     }
 
-    @Cuando("informo el pincode {string} invalido")
-    public void informoElPincodeInvalido(String pincode) {
-        accesoStep.introducirPincode(pincode);
+    @Cuando("informo el pincode invalido")
+    public void informoElPincodeInvalido() {
+        accesoStep.introducirPincode();
     }
 
     @Entonces("validar que aparece un mensaje de error indicando que el pincode no es valido")

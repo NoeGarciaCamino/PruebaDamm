@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 @CucumberOptions(plugin = {"pretty", "json:target/build/cucumber.json"},
         publish = false,
         stepNotifications = true,
-        features = {"src/test/resources/features/barManager.feature"},
+        features = {"src/test/resources/features/login.feature"},
         glue = {"com.everis.ct.mobile.hooks", "com.everis.ct.mobile.glue"},
         tags = "@DEMO"
 )

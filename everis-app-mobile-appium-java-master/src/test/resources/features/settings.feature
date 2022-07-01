@@ -7,11 +7,11 @@ Característica: Regresion Damm - Settings
 
   Esquema del escenario: Caso3- Cambio contraseña
     Dado que ya estoy registrado
-    Cuando hago login con el email "<email>" y la pass "<pass>"
+    Cuando hago login con el email y la pass
     Y validar que se accede a la home
-    Y cambio la pass antigua "<pass>" por la pass nueva "<passNueva>"
-    Entonces hago logout y login con el email "<email>" y la pass nueva "<passNueva>"
+    Y cambio la pass antigua por la pass nueva "<passNueva>"
+    Entonces hago logout y login con el email y la pass nueva "<passNueva>"
 
     Ejemplos:
-      | email                            | pass        | passNueva |
-      | automated.testing.bm+2@gmail.com | Damm2023!   | Damm2024! |
+      | passNueva |
+      | Damm2024! |
