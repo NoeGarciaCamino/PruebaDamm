@@ -4,6 +4,7 @@ import com.everis.ct.mobile.service.aspect.evidence.ScreenShot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Enumeration;
 import java.util.ResourceBundle;
 
 @Component
