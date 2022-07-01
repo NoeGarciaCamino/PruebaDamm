@@ -31,16 +31,15 @@ public class SettingStep {
     }
 
     public void introducirPassActual(){
-        ResourceBundle datosUser = ResourceBundle.getBundle("application");
-        view.login().sendPass(datosUser.getString("password"));
+        view.setting().passActual();
     }
 
-    public void introducirPassNueva(String pass2){
-        view.setting().passNueva(pass2);
+    public void introducirPassNueva(){
+        view.setting().passNueva();
     }
 
-    public void repetirPassNueva(String pass2){
-        view.setting().repitePass(pass2);
+    public void repetirPassNueva(){
+        view.setting().repitePass();
     }
 
     public void guardarPassNueva(){

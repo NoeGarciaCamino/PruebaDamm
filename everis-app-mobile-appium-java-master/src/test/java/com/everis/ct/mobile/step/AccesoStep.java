@@ -22,9 +22,8 @@ public class AccesoStep {
     }
 
     public void introducirPincode() {
-        ResourceBundle datosUser = ResourceBundle.getBundle("application");
         view.acceso().verificarPantallaIntroduccionCodigo();
-        view.acceso().sendCodigoAcceso(datosUser.getString("pincode"));
+        view.acceso().sendCodigoAcceso();
         view.acceso().tapSiguiente();
     }
 

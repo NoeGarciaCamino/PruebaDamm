@@ -1,6 +1,7 @@
 package com.everis.ct.mobile.view;
 
 import com.everis.ct.mobile.base.MobileBase;
+import com.everis.ct.mobile.service.util.ReadProperties;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -45,19 +46,25 @@ public class SettingView extends MobileBase{
         tap(cambiarPass);
     }
 
-    public void passActual(String pass){
+    public void passActual(){
+        ReadProperties properties = new ReadProperties();
         waitUntilElementIsVisible(passActual, 15);
-        type(passActual,pass,10);
+        passActual.sendKeys(properties.pasarPass());
     }
 
-    public void passNueva(String pass2){
+    public void passNueva(){
+        ReadProperties properties = new ReadProperties();
         waitUntilElementIsVisible(passNueva, 15);
-        type(passNueva,pass2,10);
+        passNueva.sendKeys(properties.pasarPassNueva());
+        properties.escribirArchivoProperties();
+        properties.cambiarPassNXPassA();
+        properties.escribirArchivoProperties();
     }
 
-    public void repitePass(String pass2){
+    public void repitePass(){
+        ReadProperties properties = new ReadProperties();
         waitUntilElementIsVisible(repitePass, 15);
-        type(repitePass,pass2,10);
+        repitePass.sendKeys(properties.pasarPass());
     }
 
     public void guardarPass(){

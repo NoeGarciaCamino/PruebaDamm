@@ -1,6 +1,7 @@
 package com.everis.ct.mobile.view;
 
 import com.everis.ct.mobile.base.MobileBase;
+import com.everis.ct.mobile.service.util.ReadProperties;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -58,9 +59,10 @@ public class AccesoView extends MobileBase {
         waitUntilElementIsVisible(tituloIntroduceTuCodigo, 15);
     }
 
-    public void sendCodigoAcceso(String pincode) {
+    public void sendCodigoAcceso() {
+        ReadProperties properties = new ReadProperties();
         waitUntilElementIsVisible(campoCodigoAcceso, 15);
-        type(campoCodigoAcceso,pincode,10);
+        campoCodigoAcceso.sendKeys(properties.pinCode());
     }
 
     public void verificarErrorCodigo() {

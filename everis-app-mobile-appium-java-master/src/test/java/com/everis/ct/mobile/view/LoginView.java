@@ -1,9 +1,14 @@
 package com.everis.ct.mobile.view;
 
 import com.everis.ct.mobile.base.MobileBase;
+import com.everis.ct.mobile.service.util.ReadProperties;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
 
 public class LoginView extends MobileBase {
 
@@ -28,14 +33,16 @@ public class LoginView extends MobileBase {
     protected MobileElement botonAcceder;
 
 
-    public void sendEmail(String user) {
+    public void sendEmail() {
+        ReadProperties properties = new ReadProperties();
         waitUntilElementIsVisible(campoEmail, 20);
-        campoEmail.sendKeys(user);
+        campoEmail.sendKeys(properties.pasarEmail());
     }
 
-    public void sendPass(String pass) {
+    public void sendPass() {
+        ReadProperties properties = new ReadProperties();
         waitUntilElementIsVisible(campoPass, 15);
-        campoPass.sendKeys(pass);
+        campoPass.sendKeys(properties.pasarPass());
     }
 
     public void tapAcceder() {

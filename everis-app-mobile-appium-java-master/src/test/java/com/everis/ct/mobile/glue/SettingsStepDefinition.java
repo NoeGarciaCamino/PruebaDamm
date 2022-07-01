@@ -24,20 +24,20 @@ public class SettingsStepDefinition {
     @Autowired
     private AccesoStep accesoStep;
 
-    @Y("cambio la pass antigua por la pass nueva {string}")
-    public void cambioLaPass(String passNueva) {
+    @Y("cambio la pass antigua por la pass nueva")
+    public void cambioLaPass() {
         settingStep.tapMenuHamburguesa();
         settingStep.tapConfiguracion();
         settingStep.verificarMenuConfig();
         settingStep.accesoCambioPass();
         settingStep.introducirPassActual();
-        settingStep.introducirPassNueva(passNueva);
-        settingStep.repetirPassNueva(passNueva);
+        settingStep.introducirPassNueva();
+        settingStep.repetirPassNueva();
         settingStep.guardarPassNueva();
     }
 
-    @Entonces("hago logout y login con el email y la pass nueva {string}")
-    public void hagoLogoutYLoginConElEmailYLaPassNueva(String pass) {
+    @Entonces("hago logout y login con el email y la pass nueva")
+    public void hagoLogoutYLoginConElEmailYLaPassNueva() {
         settingStep.pulsarCerrarSesion();
         manager.quitDriver();
         manager.setUpDriver();
