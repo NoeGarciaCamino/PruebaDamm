@@ -37,7 +37,19 @@ public class LoginStep {
             throw new RuntimeException(e);
         }
         view.login().sendEmail(properties.getProperty("userName"));
-        properties.setProperty("userName", "Hola");
+        properties.setProperty("userName", "!Damm2023");
+        try (final OutputStream outputstream = new FileOutputStream(path);) {
+            properties.store(outputstream, "File Updated");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        String userName = properties.getProperty("userName");
+        String digitos = userName.substring(5,9);
+        int numero = Integer.parseInt(digitos);
+        String passFinal = userName.substring(0,4) + String.valueOf(numero+1);
+        properties.setProperty("userName", passFinal);
         try (final OutputStream outputstream = new FileOutputStream(path);) {
             properties.store(outputstream, "File Updated");
         } catch (FileNotFoundException e) {
