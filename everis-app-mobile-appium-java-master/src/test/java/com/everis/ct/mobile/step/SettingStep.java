@@ -4,7 +4,6 @@ import com.everis.ct.mobile.service.aspect.evidence.ScreenShot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ResourceBundle;
 
 @Component
 @ScreenShot
@@ -13,14 +12,6 @@ public class SettingStep {
 
     @Autowired
     private Views view;
-
-    public void tapMenuHamburguesa(){
-        view.home().tapMenuLateral();
-    }
-
-    public void tapConfiguracion(){
-        view.menuLateral().tapBotonConfig();
-    }
 
     public void verificarMenuConfig(){
         view.setting().verificarTituloUsuario();

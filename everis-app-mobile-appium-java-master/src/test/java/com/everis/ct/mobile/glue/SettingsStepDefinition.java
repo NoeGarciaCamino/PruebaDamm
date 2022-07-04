@@ -2,9 +2,7 @@ package com.everis.ct.mobile.glue;
 
 import com.everis.ct.mobile.MobileAutomationApplication;
 import com.everis.ct.mobile.lib.MobileDriverManager;
-import com.everis.ct.mobile.step.AccesoStep;
-import com.everis.ct.mobile.step.SettingStep;
-import com.everis.ct.mobile.step.LoginStep;
+import com.everis.ct.mobile.step.*;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
@@ -19,6 +17,12 @@ public class SettingsStepDefinition {
     private LoginStep loginStep;
 
     @Autowired
+    private HomeStep homeStep;
+
+    @Autowired
+    private MenuLateralStep menuLateralStep;
+
+    @Autowired
     private MobileDriverManager manager;
 
     @Autowired
@@ -26,8 +30,8 @@ public class SettingsStepDefinition {
 
     @Y("cambio la pass antigua por la pass nueva")
     public void cambioLaPass() {
-        settingStep.tapMenuHamburguesa();
-        settingStep.tapConfiguracion();
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
         settingStep.verificarMenuConfig();
         settingStep.accesoCambioPass();
         settingStep.introducirPassActual();
