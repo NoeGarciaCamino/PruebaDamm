@@ -40,4 +40,11 @@ public class SettingStep {
     public void pulsarCerrarSesion(){
         view.setting().cerrarSesion();
     }
+    public void pulsarMisEstablecimientos(){
+        view.setting().accesoMisEstablecimientos();
+    }
+
+    public void verificacionBarDefecto(){
+        view.setting().verificarBarDefecto();
+    }
 }

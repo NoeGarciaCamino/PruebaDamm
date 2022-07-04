@@ -34,8 +34,20 @@ public class SettingView extends MobileBase{
     protected MobileElement botonGuardarPass;
 
     @iOSXCUITFindBy(xpath = "")
-    @AndroidFindBy(xpath = "//*[contains(@text,'Cerrar')]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Mis establecimientos')]")
     protected MobileElement botonCerrarSesion;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Bar')]")
+    protected MobileElement misEstablecimientos;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Cerrar')]")
+    protected MobileElement barMiguelito;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/image_right_view')])[1]")
+    protected MobileElement checkBoxMiguelito;
 
     public void verificarTituloUsuario(){
         waitUntilElementIsVisible(tituloUsuario, 15);
@@ -76,5 +88,16 @@ public class SettingView extends MobileBase{
         ScrollToElement(botonCerrarSesion);
         waitUntilElementIsVisible(botonCerrarSesion, 5);
         tap(botonCerrarSesion);
+    }
+
+    public void accesoMisEstablecimientos(){
+        ScrollToElement(misEstablecimientos);
+        waitUntilElementIsVisible(misEstablecimientos, 5);
+        tap(misEstablecimientos);
+    }
+
+    public void verificarBarDefecto(){
+        waitUntilElementIsVisible(barMiguelito,15);
+        checkBoxMiguelito.isSelected();
     }
 }

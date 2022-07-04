@@ -3,7 +3,8 @@ package com.everis.ct.mobile.glue;
 import com.everis.ct.mobile.MobileAutomationApplication;
 import com.everis.ct.mobile.lib.MobileDriverManager;
 import com.everis.ct.mobile.step.*;
-import io.cucumber.java.PendingException;
+import io.cucumber.java.es.Cuando;
+import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,23 @@ public class SettingsStepDefinition {
         loginStep.introducirPass();
         loginStep.accederHome();
         loginStep.verificarHome();
+    }
+
+    @Dado("que accedo al menu de configuración")
+    public void queAccedoAlMenuDeConfiguración() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.verificarMenuConfig();
+    }
+
+    @Cuando("accedo a mis establecimientos")
+    public void accedoAMisEstablecimientos() {
+        settingStep.pulsarMisEstablecimientos();
+    }
+
+    @Y("verifico el establecimiento por defecto")
+    public void verificoElEstablecimientoPorDefecto() {
+        settingStep.verificacionBarDefecto();
     }
 }
 

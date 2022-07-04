@@ -36,7 +36,6 @@ public class HomeView extends MobileBase {
     public void desplegarSelectorEstab(){
         waitUntilElementIsVisible(selectorEstablecimiento, 10);
         tap(selectorEstablecimiento);
-        waitUntilElementIsVisible(barMiguelito,10);
     }
 
     //public void verificarTituloBar(){
