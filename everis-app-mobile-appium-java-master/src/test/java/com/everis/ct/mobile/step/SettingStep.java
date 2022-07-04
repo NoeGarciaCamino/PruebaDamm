@@ -33,8 +33,8 @@ public class SettingStep {
         view.setting().repitePass();
     }
 
-    public void guardarPassNueva(){
-        view.setting().guardarPass();
+    public void tapGuardar(){
+        view.setting().botonGuardar();
     }
 
     public void pulsarCerrarSesion(){
@@ -46,5 +46,16 @@ public class SettingStep {
 
     public void verificacionBarDefecto(){
         view.setting().verificarBarDefecto();
+    }
+    public void tapAtras(){
+        view.setting().pulsarAtras();
+    }
+
+    public void tapOtroNegocio(){
+        view.setting().pulsarOtroNegocio();
+    }
+
+    public void tapBarMiguelito(){
+        view.setting().pulsarBarMiguelito();
     }
 }

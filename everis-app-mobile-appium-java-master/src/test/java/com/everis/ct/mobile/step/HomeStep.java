@@ -14,4 +14,23 @@ public class HomeStep {
     public void tapMenuHamburguesa(){
         view.home().tapMenuLateral();
     }
+
+    public void verificarEstDefecto(String Bar){
+        view.home().verificarTituloBar(Bar);
+        view.home().textoPromociones();
+    }
+
+    public void cambioEst(){
+        view.home().desplegarSelectorEstab();
+    }
+
+    public void tapOtroNegocio(){
+        view.home().pulsarOtroNegocio();
+    }
+
+    public void verificarOtroNegocio(String Bar){
+        view.home().verificarAcceso();
+        view.home().verificarTituloBar(Bar);
+        view.home().textoCartaDigital();
+    }
 }

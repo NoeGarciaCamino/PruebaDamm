@@ -31,23 +31,31 @@ public class SettingView extends MobileBase{
 
     @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/save_button_view")
-    protected MobileElement botonGuardarPass;
-
-    @iOSXCUITFindBy(xpath = "")
-    @AndroidFindBy(xpath = "//*[contains(@text,'Mis establecimientos')]")
-    protected MobileElement botonCerrarSesion;
-
-    @iOSXCUITFindBy(xpath = "")
-    @AndroidFindBy(xpath = "//*[contains(@text,'Bar')]")
-    protected MobileElement misEstablecimientos;
+    protected MobileElement botonGuardar;
 
     @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(xpath = "//*[contains(@text,'Cerrar')]")
+    protected MobileElement botonCerrarSesion;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Mis establecimientos')]")
+    protected MobileElement misEstablecimientos;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//*[contains(@text,'BAR')]")
     protected MobileElement barMiguelito;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//*[contains(@text,'RESID')]")
+    protected MobileElement otroNegocio;
 
     @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/image_right_view')])[1]")
     protected MobileElement checkBoxMiguelito;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(accessibility = "Desplazarse hacia arriba")
+    protected MobileElement botonAtras;
 
     public void verificarTituloUsuario(){
         waitUntilElementIsVisible(tituloUsuario, 15);
@@ -79,9 +87,9 @@ public class SettingView extends MobileBase{
         repitePass.sendKeys(properties.pasarPass());
     }
 
-    public void guardarPass(){
-        waitUntilElementIsVisible(botonGuardarPass, 15);
-        tap(botonGuardarPass);
+    public void botonGuardar(){
+        waitUntilElementIsVisible(botonGuardar, 15);
+        tap(botonGuardar);
     }
 
     public void cerrarSesion(){
@@ -99,5 +107,20 @@ public class SettingView extends MobileBase{
     public void verificarBarDefecto(){
         waitUntilElementIsVisible(barMiguelito,15);
         checkBoxMiguelito.isSelected();
+    }
+
+    public void pulsarAtras(){
+        waitUntilElementIsVisible(botonAtras,15);
+        tap(botonAtras);
+    }
+
+    public void pulsarOtroNegocio(){
+        waitUntilElementIsVisible(otroNegocio,15);
+        tap(otroNegocio);
+    }
+
+    public void pulsarBarMiguelito(){
+        waitUntilElementIsVisible(barMiguelito,15);
+        tap(barMiguelito);
     }
 }

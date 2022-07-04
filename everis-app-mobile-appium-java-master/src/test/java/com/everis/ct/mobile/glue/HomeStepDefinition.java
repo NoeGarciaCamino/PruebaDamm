@@ -3,6 +3,8 @@ package com.everis.ct.mobile.glue;
 import com.everis.ct.mobile.MobileAutomationApplication;
 import com.everis.ct.mobile.lib.MobileDriverManager;
 import com.everis.ct.mobile.step.*;
+import io.cucumber.java.es.Cuando;
+import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +14,7 @@ public class HomeStepDefinition {
 
     @Autowired
     private SettingStep settingStep;
+
     @Autowired
     private LoginStep loginStep;
 
@@ -29,6 +32,23 @@ public class HomeStepDefinition {
 
     @Entonces("retrocedo a la home y confirmo los datos del bar")
     public void retrocedoALaHomeYConfirmoLosDatosDelBar() {
+        settingStep.tapAtras();
+        settingStep.tapAtras();
+        homeStep.verificarEstDefecto("BAR MIGUELITO");
+    }
 
+    @Dado("que pulso el selector de establecimiento")
+    public void quePulsoElSelectorDeEstablecimiento() {
+        homeStep.cambioEst();
+    }
+
+    @Cuando("cambio de negocio")
+    public void cambioDeNegocio() {
+        homeStep.tapOtroNegocio();
+    }
+
+    @Entonces("verifico que se ha realizado el cambio")
+    public void verificoQueSeHaRealizadoElCambio() {
+        homeStep.verificarOtroNegocio("RESID");
     }
 }

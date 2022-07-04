@@ -38,7 +38,7 @@ public class SettingsStepDefinition {
         settingStep.introducirPassActual();
         settingStep.introducirPassNueva();
         settingStep.repetirPassNueva();
-        settingStep.guardarPassNueva();
+        settingStep.tapGuardar();
     }
 
     @Entonces("hago logout y login con el email y la pass nueva")
@@ -71,6 +71,23 @@ public class SettingsStepDefinition {
     @Y("verifico el establecimiento por defecto")
     public void verificoElEstablecimientoPorDefecto() {
         settingStep.verificacionBarDefecto();
+    }
+
+    @Y("cambio el establecimiento predeterminado")
+    public void cambioElEstablecimientoPredeterminado() {
+        settingStep.tapOtroNegocio();
+        settingStep.tapGuardar();
+    }
+
+    @Y("se reestablece el establecimiento por defecto")
+    public void seReestableceElEstablecimientoPorDefecto() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.verificarMenuConfig();
+        settingStep.pulsarMisEstablecimientos();
+        settingStep.tapBarMiguelito();
+        settingStep.tapGuardar();
+        homeStep.verificarEstDefecto("BAR MIGUELITO");
     }
 }
 

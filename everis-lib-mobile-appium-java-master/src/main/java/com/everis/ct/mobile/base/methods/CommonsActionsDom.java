@@ -174,4 +174,13 @@ public class CommonsActionsDom implements ICommonsActions {
             }
         }
     }
+
+    public void tapByCoordinates(int Y){
+        TouchAction touchAction = new TouchAction(driver);
+        Dimension size = driver.manage().window().getSize();
+        int width = (size.getWidth()/2);
+        int height = Y;
+        touchAction.tap(PointOption.point(width, height)).perform();
+    }
+
 }
