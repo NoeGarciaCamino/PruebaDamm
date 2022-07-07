@@ -10,7 +10,7 @@ import org.junit.Assert;
 public class SettingView extends MobileBase{
 
     @iOSXCUITFindBy(xpath = "")
-    @AndroidFindBy(xpath = "//*[contains(@text,'USUARIO')]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'USUARI')]")
     protected MobileElement tituloUsuario;
 
     @iOSXCUITFindBy(xpath = "")
@@ -56,6 +56,38 @@ public class SettingView extends MobileBase{
     @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(accessibility = "Desplazarse hacia arriba")
     protected MobileElement botonAtras;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(accessibility = "Navega cap a dalt")
+    protected MobileElement botonAtrasCat;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Idioma')]")
+    protected MobileElement botonIdioma;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/title_text_view')])[2]")
+    protected MobileElement idiomaCat;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/title_text_view')])[1]")
+    protected MobileElement idiomaEsp;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(id = "com.damm.dammbars.pre:id/accept_text_view")
+    protected MobileElement aceptarPopUp;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/switch_view')])[3]")
+    protected MobileElement flagConsumos;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//*[contains(@text,'SÍ')]")
+    protected MobileElement popUpSi;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Autorización')]")
+    protected MobileElement autorizacionDatos;
 
     public void verificarTituloUsuario(){
         waitUntilElementIsVisible(tituloUsuario, 15);
@@ -114,6 +146,11 @@ public class SettingView extends MobileBase{
         tap(botonAtras);
     }
 
+    public void pulsarAtrasCat(){
+        waitUntilElementIsVisible(botonAtrasCat,15);
+        tap(botonAtrasCat);
+    }
+
     public void pulsarOtroNegocio(){
         waitUntilElementIsVisible(otroNegocio,15);
         tap(otroNegocio);
@@ -122,5 +159,38 @@ public class SettingView extends MobileBase{
     public void pulsarBarMiguelito(){
         waitUntilElementIsVisible(barMiguelito,15);
         tap(barMiguelito);
+    }
+
+    public void accesoIdiomas(){
+        ScrollToElement(botonIdioma);
+        waitUntilElementIsVisible(botonIdioma, 5);
+        tap(botonIdioma);
+    }
+
+    public void pulsarCat(){
+        waitUntilElementIsVisible(idiomaCat,15);
+        tap(idiomaCat);
+    }
+
+    public void pulsarEsp(){
+        waitUntilElementIsVisible(idiomaEsp,15);
+        tap(idiomaEsp);
+    }
+
+    public void pulsarAceptar(){
+        waitUntilElementIsVisible(aceptarPopUp,15);
+        tap(aceptarPopUp);
+    }
+
+    public void flagConsumo(){
+        ScrollToElement(autorizacionDatos);
+        tap(flagConsumos);
+        sleep(8000);
+    }
+
+    public void aceptarPopUpConsumo(){
+        waitUntilElementIsVisible(popUpSi,15);
+        tap(popUpSi);
+        sleep(8000);
     }
 }

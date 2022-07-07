@@ -51,11 +51,39 @@ public class SettingStep {
         view.setting().pulsarAtras();
     }
 
+    public void tapAtrasCat(){
+        view.setting().pulsarAtrasCat();
+    }
+
     public void tapOtroNegocio(){
         view.setting().pulsarOtroNegocio();
     }
 
     public void tapBarMiguelito(){
         view.setting().pulsarBarMiguelito();
+    }
+
+    public void tapIdioma(){
+        view.setting().accesoIdiomas();
+    }
+
+    public void tapCat(){
+        view.setting().pulsarCat();
+    }
+
+    public void tapEsp(){
+        view.setting().pulsarEsp();
+    }
+
+    public void tapAceptar(){
+        view.setting().pulsarAceptar();
+    }
+
+    public void tapFlagConsumo(){
+        view.setting().flagConsumo();
+    }
+
+    public void tapPopUpSi(){
+        view.setting().aceptarPopUpConsumo();
     }
 }

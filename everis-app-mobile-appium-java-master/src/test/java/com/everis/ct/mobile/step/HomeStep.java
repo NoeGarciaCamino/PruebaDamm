@@ -28,9 +28,30 @@ public class HomeStep {
         view.home().pulsarOtroNegocio();
     }
 
+    public void tapMiguelito(){
+        view.home().pulsarMigueltio();
+    }
+
     public void verificarOtroNegocio(String Bar){
         view.home().verificarAcceso();
         view.home().verificarTituloBar(Bar);
-        view.home().textoCartaDigital();
+        view.home().tapMenuLateral();
+        view.menuLateral().tapBotonConfig();
+        view.setting().flagConsumo();
+        view.setting().aceptarPopUpConsumo();
+        view.setting().pulsarAtras();
+        view.home().verificarNoAparece("MI NEGOCIO");
+    }
+
+    public void verificacionCat(){
+        view.home().verificarCat("Consum total");
+    }
+
+    public void verificacionEsp(){
+        view.home().verificarEsp("Consumo total");
+    }
+
+    public void verificarAparece(){
+        view.home().verificarAparece("MI NEGOCIO");
     }
 }

@@ -29,11 +29,8 @@ public class SettingsStepDefinition {
     @Autowired
     private AccesoStep accesoStep;
 
-    @Y("cambio la pass antigua por la pass nueva")
+    @Cuando("cambio la pass antigua por la pass nueva")
     public void cambioLaPass() {
-        homeStep.tapMenuHamburguesa();
-        menuLateralStep.tapConfiguracion();
-        settingStep.verificarMenuConfig();
         settingStep.accesoCambioPass();
         settingStep.introducirPassActual();
         settingStep.introducirPassNueva();
@@ -88,6 +85,42 @@ public class SettingsStepDefinition {
         settingStep.tapBarMiguelito();
         settingStep.tapGuardar();
         homeStep.verificarEstDefecto("BAR MIGUELITO");
+    }
+
+    @Cuando("accedo a idiomas")
+    public void accedoAIdiomas() {
+        settingStep.tapIdioma();
+    }
+
+    @Entonces("cambio el idioma de la aplicación")
+    public void cambioElIdiomaDeLaAplicación() {
+        settingStep.tapCat();
+        settingStep.tapGuardar();
+        settingStep.tapAceptar();
+        settingStep.tapAtrasCat();
+        homeStep.verificacionCat();
+    }
+
+    @Y("reestablezco el idioma por defecto")
+    public void reestablezcoElIdiomaPorDefecto() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.verificarMenuConfig();
+        settingStep.tapIdioma();
+        settingStep.tapEsp();
+        settingStep.tapGuardar();
+        settingStep.tapAceptar();
+        settingStep.tapAtras();
+        homeStep.verificacionEsp();
+    }
+
+    @Y("activo el flag de consumo")
+    public void activoElFlagDeConsumo() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.tapFlagConsumo();
+        settingStep.tapAtras();
+        homeStep.verificarAparece();
     }
 }
 

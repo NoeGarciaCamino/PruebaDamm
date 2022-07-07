@@ -6,13 +6,16 @@ import io.appium.java_client.*;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import io.cucumber.java.PendingException;
+import org.testng.asserts.SoftAssert;
 
+import java.sql.Array;
 import java.sql.Time;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -183,4 +186,32 @@ public class CommonsActionsDom implements ICommonsActions {
         touchAction.tap(PointOption.point(width, height)).perform();
     }
 
+
+    public boolean verifyElementInAList(List<MobileElement> listElement, String objeto, int timeOutOnSeconds) {
+        String[] elementos = new String[listElement.size()];
+        boolean isPresent = false;
+        System.out.println("El tamaño de la lista es "+listElement.size());
+            for (int i=0; i<listElement.size(); i++ ){
+                String tituloElementos = getText(listElement.get(i));
+                elementos[i] = tituloElementos;
+            }
+            for (int i=0; i<elementos.length; i++){
+                if (elementos[i].contains(objeto)) {
+                    System.out.println("The object is displayed");
+                    isPresent = true;
+                    break;
+                }else {
+                    System.out.println("La lista contiene:"+elementos[i]);
+                }
+            }
+        return isPresent;
+    }
+
+    public void sleep(int miliSegundos){
+        try {
+            Thread.sleep(miliSegundos);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
