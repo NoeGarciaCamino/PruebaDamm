@@ -2,20 +2,18 @@ package com.everis.ct.mobile.base.methods;
 
 import com.everis.ct.mobile.base.dom.ICommonsActions;
 import com.everis.ct.mobile.lib.MobileDriverManager;
-import io.appium.java_client.*;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import io.cucumber.java.PendingException;
 
-import java.sql.Time;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class CommonsActionsDom implements ICommonsActions {
 
@@ -149,29 +147,34 @@ public class CommonsActionsDom implements ICommonsActions {
         action.press(PointOption.point(x, top_y)).moveTo(PointOption.point(x, bottom_y)).release().perform();
     }
 
-    public void ScrollToElement(MobileElement elemento){
-        int numberOfTimes = 20;
-        Dimension size = driver.manage().window().getSize();
-        int width = (size.getWidth()/2);
-        int height = (size.getHeight()/2);
-        int endPoint = 10;
+    @Override
+    public void ScrollToElement(MobileElement elemento) {
+        try {
+            Thread.sleep(2000);
+            int numberOfTimes = 20;
+            Dimension size = driver.manage().window().getSize();
+            int anchor = (int) (size.width / 2);
+            // Swipe up to scroll down
+            int startPoint = (int) (size.height / 1.5);
+            int endPoint = 150;
 
-        for (int i = 0; i < numberOfTimes; i++) {
-            try {
-                new TouchAction(driver)
-                        .longPress(PointOption.point(width, height))
-                        .moveTo(PointOption.point(width, endPoint))
-                        .release()
-                        .perform();
-               boolean objeto = elemento.isDisplayed();
-               if(objeto){
-                   i = numberOfTimes;
-               } else{
-                   System.out.printf("Element not available. Scrolling (%s) times...%n", i + 1);
+
+            for (int i = 0; i < numberOfTimes; i++) {
+                try {
+                    new TouchAction(driver)
+                            .longPress(PointOption.point(anchor, startPoint))
+                            .moveTo(PointOption.point(anchor, endPoint))
+                            .release()
+                            .perform();
+                    elemento.isDisplayed();
+                    i = numberOfTimes;
+                } catch (NoSuchElementException ex) {
+                    System.out.println(String.format("Element not available. Scrolling (%s) times...", i + 1));
                 }
-            } catch (Exception ex) {
-                System.out.printf("Element not available. Scrolling (%s) times...%n", i + 1);
             }
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }

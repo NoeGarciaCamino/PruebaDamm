@@ -12,5 +12,5 @@ public interface IMobileDriverManager {
 
     boolean isDriverOn();
 
-
+    void clearCacheApp(String packageName);
 }

@@ -1,5 +1,6 @@
 package com.everis.ct.mobile.base.dom;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
@@ -48,5 +49,7 @@ public interface ICommonsActions {
     List<MobileElement> waitUntilElements(ExpectedCondition<List<MobileElement>> expectedCondition, int duration);
 
     void swipeToBottom(double topY, double bottonY);
+
+    void ScrollToElement(MobileElement elemento) throws InterruptedException;
 
 }

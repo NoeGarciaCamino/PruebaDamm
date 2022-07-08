@@ -29,8 +29,8 @@ public class ScreenRecorder implements IScreenRecorder{
     @Override
     public void androidStartRecording(AppiumDriver<MobileElement> driver) {
         UtilMobile.logger(this.getClass()).info("Recording video - Android.");
-//        ((CanRecordScreen) driver).startRecordingScreen(
-//                new AndroidStartScreenRecordingOptions().enableBugReport());
+        ((CanRecordScreen) driver).startRecordingScreen(
+                new AndroidStartScreenRecordingOptions().enableBugReport());
     }
 
     /**

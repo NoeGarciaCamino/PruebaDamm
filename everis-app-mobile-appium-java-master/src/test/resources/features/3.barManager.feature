@@ -3,7 +3,7 @@
 Característica: Regresion Damm - Bar Manager
 
 Antecedentes:
-Dado que abro la aplicacion mobile
+Dado que abro la aplicacion
 Y que ya estoy registrado
 Entonces hago login con el email y la pass
 Y validar que se accede a la home

@@ -3,7 +3,7 @@
 Característica: Regresion Damm - Login
 
   Antecedentes:
-    Dado que abro la aplicacion mobile
+    Dado que abro la aplicacion
 
 #  @PincodeNoValido
 #  Esquema del escenario: Outline: caso1- Alta pincode no válido

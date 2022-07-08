@@ -3,14 +3,19 @@ package com.everis.ct.mobile.service.config;
 import com.everis.ct.mobile.model.Capabilities;
 import com.everis.ct.mobile.service.constans.Platform;
 import com.everis.ct.mobile.service.util.UtilMobile;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Locale;
 import java.util.Map;
 
@@ -35,7 +40,7 @@ public class ConfigCapabilities {
     private DesiredCapabilities setCommonsCapabilities() {
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, capabilities.getAutomationName());
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, capabilities.getPlatformName());
-        desiredCapabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + capabilities.getApp());
+        desiredCapabilities.setCapability(MobileCapabilityType.APP, capabilities.getApp());
         desiredCapabilities.setCapability(MobileCapabilityType.UDID, capabilities.getUdid());
         if (!isAppiumGridOn) {//grid esta apagado
             desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, capabilities.getPlatformVersion());
@@ -51,8 +56,8 @@ public class ConfigCapabilities {
     public DesiredCapabilities setAndroidCapabilities() {
         propertiesVault.fetchingAndroidCapabilities(); //active recovery
         DesiredCapabilities desiredCapabilities = setCommonsCapabilities();
-//        desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, capabilities.getAppActivity());
-//        desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, capabilities.getAppPackage());
+        //desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, capabilities.getAppActivity());
+        //desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, capabilities.getAppPackage());
         UtilMobile.logger(this.getClass()).info("Android Capabilities: " + desiredCapabilities);
         return desiredCapabilities;
     }
@@ -73,7 +78,7 @@ public class ConfigCapabilities {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName.toUpperCase(Locale.ROOT));
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, udid);
-        desiredCapabilities.setCapability(MobileCapabilityType.UDID, udid);
+//        desiredCapabilities.setCapability(MobileCapabilityType.UDID, udid);
         desiredCapabilities.setCapability(MobileCapabilityType.APP, app);
         if (platformName.toUpperCase(Locale.ROOT).equals(Platform.IOS)) {
             desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, propertiesVault.getBundleId());
@@ -105,5 +110,18 @@ public class ConfigCapabilities {
         UtilMobile.logger(this.getClass()).info("Capabilities configured: " + capabilities);
         return capabilities;
     }
+
+//    public DesiredCapabilities setiOSCapabilitiesSauceLabs() throws MalformedURLException {
+//        MutableCapabilities caps = new MutableCapabilities();
+//        caps.setCapability("platformName", "iOS");
+//        caps.setCapability("appium:deviceName", "iPhone_12_mini_14_POC12");
+//        caps.setCapability("appium:app", "storage:filename=YDRAY-My-Hey.ipa");
+//        MutableCapabilities sauceOptions = new MutableCapabilities();
+//        sauceOptions.setCapability("username", "nttmobile");
+//        sauceOptions.setCapability("accessKey", "549a6cab-6d6e-4250-af08-576a1dd69ac0");
+//        caps.setCapability("sauce:options", sauceOptions);
+//        URL url = new URL("https://nttmobile:549a6cab-6d6e-4250-af08-576a1dd69ac0@ondemand.eu-central-1.saucelabs.com:443/wd/hub");
+//        return desiredCapabilities;
+//    }
 
 }

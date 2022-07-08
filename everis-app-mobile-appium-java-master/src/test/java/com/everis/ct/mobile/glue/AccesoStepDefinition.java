@@ -11,6 +11,11 @@ import io.cucumber.spring.CucumberContextConfiguration;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.testng.Reporter;
+import org.testng.xml.XmlTest;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
 
 import static com.everis.ct.mobile.service.util.UtilMobile.getValueFromDataTable;
 
@@ -37,6 +42,18 @@ public class AccesoStepDefinition {
         manager.setUpDriver();
         manager.driverOnDetails();
         manager.clearCacheApp("com.android.chrome");
+    }
+
+    @Dado("^que abro la aplicacion$")
+    public void queAbroLaAplicacion() throws MalformedURLException {
+        //Parametros de la suite testng definida en xml
+        XmlTest xmlTest = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest();
+        String port = xmlTest.getParameter("port");
+        String udid = xmlTest.getParameter("udid");
+        String patformName = xmlTest.getParameter("platformName");
+        manager.setUpDriver(port, udid, patformName);
+        manager.clearCacheApp("com.android.chrome");
+        manager.driverOnDetails();
     }
 
 //    @Dado("que busco el nuevo video {string}")

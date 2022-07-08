@@ -54,4 +54,8 @@ public class SetDriver {
         return new IOSDriver<>(new URL(appiumHub), configCapabilities.configCapabilities(Platform.IOS, udid, app));
     }
 
+//    protected IOSDriver<MobileElement> configIosSauceLabsDriver() throws MalformedURLException {
+//        return new IOSDriver<>(new URL("https://nttmobile:549a6cab-6d6e-4250-af08-576a1dd69ac0@ondemand.eu-central-1.saucelabs.com:443/wd/hub"), configCapabilities.setiOSCapabilitiesSauceLabs());
+//    }
+
 }

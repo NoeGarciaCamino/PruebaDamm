@@ -4,6 +4,7 @@ import com.everis.ct.mobile.model.Capabilities;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -17,16 +18,16 @@ public class PropertiesVault {
 
     @Value("${mobiledriver.implicitWaitOnSeconds:15}")
     private int implicitWait;
-    @Value("${mobiledriver.appiumGrid:false}")
+    @Value("${mobiledriver.appiumGrid:true}")
     private boolean appiumDriverOn;
     @Value("${mobiledriver.screenRecorder:false}")
     private boolean screenRecorderOn;
     @Value("${mobiledriver.screenRecorderPath:target}")
     private String screenRecorderPath;
 
-    @Value("${capabilities.appiumHub:}")
+    @Value("${capabilities.appiumHubSauceLabs:}")
     private String appiumHub;
-    @Value("${capabilities.automationName:}")
+    @Value("${capabilities.automationName:NOT_DEFINED}")
     private String automationName;
     @Value("${capabilities.platformName:}")
     private String platformName;
@@ -36,7 +37,7 @@ public class PropertiesVault {
     private String deviceName;
     @Value("${capabilities.app:}")
     private String app;
-    @Value("${capabilities.udid:}")
+    @Value("${capabilities.udid:NOT_DEFINED}")
     private String udid;
     @Value("${capabilities.noReset:}")
     private boolean noReset;
@@ -46,11 +47,11 @@ public class PropertiesVault {
     /**
      * ANDROID CAPABILITIES
      */
-    @Value("${capabilities.app.android:}")
+    @Value("${capabilities.app.android:NOT_DEFINED}")
     private String appAndroid;
-    @Value("${capabilities.android.appActivity:NOT_DEFINED}")
+    @Value("${capabilities.android.appActivity:}")
     private String appActivity;
-    @Value("${capabilities.android.appPackage:NOT_DEFINED}")
+    @Value("${capabilities.android.appPackage:}")
     private String appPackage;
 
     /**

@@ -6,16 +6,17 @@ import com.everis.ct.mobile.service.io.ManageFiles;
 import com.everis.ct.mobile.service.screenrecorder.ScreenRecorder;
 import com.everis.ct.mobile.service.stepdefinition.ManageScenario;
 import com.everis.ct.mobile.service.util.UtilMobile;
+import com.google.common.collect.Lists;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import com.google.common.collect.Lists;
+import org.openqa.selenium.MutableCapabilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import java.net.MalformedURLException;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Locale;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
@@ -118,15 +119,6 @@ public class MobileDriverManager extends SetDriver implements IMobileDriverManag
                             getDriver().getStatus()});
     }
 
-    public void clearCacheApp(String packageName) {
-        Map<String, Object> clearPackageCache = new HashMap<>();
-        clearPackageCache.put("command", "pm");
-        clearPackageCache.put("args", Lists.newArrayList("clear", packageName));
-        getDriver().executeScript("mobile: shell", clearPackageCache);
-        logger(this.getClass()).info("Cache cleared: {}" + packageName);
-    }
-
-
     @Override
     public void quitDriver() {
         if (isDriverOn()) {
@@ -142,5 +134,30 @@ public class MobileDriverManager extends SetDriver implements IMobileDriverManag
         return getDriver() != null;
     }
 
+    @Override
+    public void clearCacheApp(String packageName) {
+        Map<String, Object> clearPackageCache = new HashMap<>();
+        clearPackageCache.put("command", "pm");
+        clearPackageCache.put("args", Lists.newArrayList("clear", packageName));
+        getDriver().executeScript("mobile: shell", clearPackageCache);
+        logger(this.getClass()).info("Cache cleared: {}" + packageName);
+    }
 
+//    public void setUpiOSSauceLabsDriver() throws MalformedURLException {
+//        AppiumDriver<MobileElement> driver;
+//        driver = configIosSauceLabsDriver();
+//    }
+
+    public String getUdid() {
+        String udid=propertiesVault.getUdid();
+        return udid;
+    }
+
+    public String getScenario(){
+        return scenario.getScenario().getName();
+    }
+
+    public String getDevice(){
+        return propertiesVault.getDeviceName();
+    }
 }

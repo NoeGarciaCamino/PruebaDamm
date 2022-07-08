@@ -3,7 +3,7 @@
 Característica: Regresion Damm - Settings
 
   Antecedentes:
-    Dado que abro la aplicacion mobile
+    Dado que abro la aplicacion
 
   Escenario: Caso3- Cambio contraseña
     Dado que ya estoy registrado
