@@ -5,7 +5,6 @@ import com.everis.ct.mobile.service.util.ReadProperties;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.junit.Assert;
 
 public class SettingView extends MobileBase{
 

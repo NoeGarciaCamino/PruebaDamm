@@ -139,8 +139,6 @@ public class SettingsStepDefinition {
 
     @Cuando("desactivo el flag de consumo")
     public void desactivoElFlagDeConsumo() {
-        homeStep.tapMenuHamburguesa();
-        menuLateralStep.tapConfiguracion();
         settingStep.tapFlagConsumo();
         settingStep.tapPopUpSi();
         settingStep.tapAtras();
@@ -149,8 +147,6 @@ public class SettingsStepDefinition {
 
     @Cuando("desactivo el flag de promociones")
     public void desactivoElFlagDePromociones() {
-        homeStep.tapMenuHamburguesa();
-        menuLateralStep.tapConfiguracion();
         settingStep.tapFlagPromociones();
         settingStep.tapAtras();
         homeStep.verificacionNoAparece("PROMOCIONES");

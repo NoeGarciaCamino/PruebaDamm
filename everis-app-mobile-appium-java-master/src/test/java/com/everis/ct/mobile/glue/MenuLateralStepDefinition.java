@@ -3,10 +3,7 @@ package com.everis.ct.mobile.glue;
 import com.everis.ct.mobile.MobileAutomationApplication;
 import com.everis.ct.mobile.lib.MobileDriverManager;
 import com.everis.ct.mobile.step.*;
-import io.cucumber.java.es.Cuando;
-import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
-import io.cucumber.java.es.Y;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -47,8 +44,8 @@ public class MenuLateralStepDefinition {
     public void entroAPromocionesDesdeElMenuLateral() {
         homeStep.tapMenuHamburguesa();
         menuLateralStep.tapMiNegocio();
-        menuLateralStep.tapConsumo();
-        homeStep.verificarEncabezado("Promociones");
+        menuLateralStep.tapPromociones();
+        homeStep.verificarEncabezado("Promo");
         toolsStep.verificarPromociones();
     }
 }

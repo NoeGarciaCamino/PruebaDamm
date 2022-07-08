@@ -3,7 +3,6 @@ package com.everis.ct.mobile.view;
 import com.everis.ct.mobile.base.MobileBase;
 import com.everis.ct.mobile.service.util.ReadProperties;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 

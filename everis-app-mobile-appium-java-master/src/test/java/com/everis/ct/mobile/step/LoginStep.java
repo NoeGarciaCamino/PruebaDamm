@@ -3,9 +3,6 @@ package com.everis.ct.mobile.step;
 import com.everis.ct.mobile.service.aspect.evidence.ScreenShot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.everis.ct.mobile.service.util.ReadProperties;
-import java.io.*;
-import java.util.Properties;
 
 @Component
 @ScreenShot

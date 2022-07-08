@@ -20,4 +20,9 @@ public class ToolsStep {
         view.tools().textoTodas();
         view.tools().textoMeInteresa();
     }
+
+    public void verificarCartaDigital(){
+        view.tools().logoHoreca();
+        view.tools().botonVerCarta();
+    }
 }
