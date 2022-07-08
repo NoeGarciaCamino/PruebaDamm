@@ -22,10 +22,6 @@ public class HomeView extends MobileBase {
     protected MobileElement campoUltNovCat;
 
     @iOSXCUITFindBy(xpath = "")
-    @AndroidFindBy(xpath = "//*[contains(@text,'PROMOCIONES')]")
-    protected MobileElement campoPromociones;
-
-    @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(xpath = "//*[contains(@text,'CARTA DIGITAL')]")
     protected MobileElement campoCartaDigital;
 
@@ -35,7 +31,7 @@ public class HomeView extends MobileBase {
 
     @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/toolbar_title")
-    protected MobileElement selectorEstablecimiento;
+    protected MobileElement encabezado;
 
     @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/business_title_view")
@@ -56,19 +52,14 @@ public class HomeView extends MobileBase {
     }
 
     public void desplegarSelectorEstab(){
-        waitUntilElementIsVisible(selectorEstablecimiento, 10);
-        tap(selectorEstablecimiento);
+        waitUntilElementIsVisible(encabezado, 10);
+        tap(encabezado);
     }
 
-    public void verificarTituloBar(String Bar){
-        String tituloBar = getText(selectorEstablecimiento,5);
-        boolean condicionTituloBar = tituloBar.contains(Bar);
-        Assert.assertTrue(Bar,condicionTituloBar);
-    }
-
-    public void textoPromociones(){
-        ScrollToElement(campoPromociones);
-        waitUntilElementIsVisible(campoPromociones, 5);
+    public void verificarTituloEncabezado(String Titulo){
+        String tituloBar = getText(encabezado,5);
+        boolean condicionTituloBar = tituloBar.contains(Titulo);
+        Assert.assertTrue(Titulo,condicionTituloBar);
     }
 
     public void pulsarOtroNegocio(){

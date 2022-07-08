@@ -16,8 +16,13 @@ public class HomeStep {
     }
 
     public void verificarEstDefecto(String Bar){
-        view.home().verificarTituloBar(Bar);
-        view.home().textoPromociones();
+        view.home().verificarTituloEncabezado(Bar);
+        view.home().tapMenuLateral();
+        view.menuLateral().tapBotonConfig();
+        view.setting().flagConsumo();
+        view.setting().aceptarPopUpConsumo();
+        view.setting().pulsarAtras();
+        view.home().verificarNoAparece("MI NEGOCIO");
     }
 
     public void cambioEst(){
@@ -32,9 +37,9 @@ public class HomeStep {
         view.home().pulsarMigueltio();
     }
 
-    public void verificarOtroNegocio(String Bar){
+    public void verificarOtroNegocio(String Titulo){
         view.home().verificarAcceso();
-        view.home().verificarTituloBar(Bar);
+        view.home().verificarTituloEncabezado(Titulo);
         view.home().tapMenuLateral();
         view.menuLateral().tapBotonConfig();
         view.setting().flagConsumo();
@@ -51,7 +56,15 @@ public class HomeStep {
         view.home().verificarEsp("Consumo total");
     }
 
-    public void verificarAparece(){
-        view.home().verificarAparece("MI NEGOCIO");
+    public void verificarAparece(String Texto){
+        view.home().verificarAparece(Texto);
+    }
+
+    public void verificacionNoAparece(String texto){
+        view.home().verificarNoAparece(texto);
+    }
+
+    public void verificarEncabezado(String Titulo){
+        view.home().verificarTituloEncabezado(Titulo);
     }
 }

@@ -13,6 +13,7 @@ Escenario: Caso5- Acceso a Bar Manager
   Cuando accedo a mis establecimientos
   Y verifico el establecimiento por defecto
   Entonces retrocedo a la home y confirmo los datos del bar
+  Y activo el flag de consumo
 
 
 Escenario: Caso6- Cambio de establecimiento
@@ -27,4 +28,5 @@ Escenario: Caso7- Cambio de establecimiento predeterminado
   Cuando accedo a mis establecimientos
   Y cambio el establecimiento predeterminado
   Entonces verifico que se ha realizado el cambio
-  Y se reestablece el establecimiento por defecto
+  Y hago logout, login y se reestablece el establecimiento por defecto
+  Y activo el flag de consumo

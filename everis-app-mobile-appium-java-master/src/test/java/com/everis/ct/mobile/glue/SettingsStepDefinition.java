@@ -38,8 +38,8 @@ public class SettingsStepDefinition {
         settingStep.tapGuardar();
     }
 
-    @Entonces("hago logout y login con el email y la pass nueva")
-    public void hagoLogoutYLoginConElEmailYLaPassNueva() {
+    @Entonces("hago logout y login con el email y la pass")
+    public void hagoLogoutYLoginConElEmailYLaPass() {
         settingStep.pulsarCerrarSesion();
         manager.quitDriver();
         manager.setUpDriver();
@@ -76,8 +76,22 @@ public class SettingsStepDefinition {
         settingStep.tapGuardar();
     }
 
-    @Y("se reestablece el establecimiento por defecto")
-    public void seReestableceElEstablecimientoPorDefecto() {
+    @Y("hago logout, login y se reestablece el establecimiento por defecto")
+    public void hagoLogoutLoginYSeReestableceElEstablecimientoPorDefecto() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.verificarMenuConfig();
+        settingStep.pulsarCerrarSesion();
+        manager.quitDriver();
+        manager.setUpDriver();
+        manager.clearCacheApp("com.android.chrome");
+        accesoStep.accederConCuenta();
+        loginStep.aceptarTerminosGoogle();
+        loginStep.aceptarSync();
+        loginStep.introducirEmail();
+        loginStep.introducirPass();
+        loginStep.accederHome();
+        loginStep.verificarHome();
         homeStep.tapMenuHamburguesa();
         menuLateralStep.tapConfiguracion();
         settingStep.verificarMenuConfig();
@@ -120,7 +134,35 @@ public class SettingsStepDefinition {
         menuLateralStep.tapConfiguracion();
         settingStep.tapFlagConsumo();
         settingStep.tapAtras();
-        homeStep.verificarAparece();
+        homeStep.verificarAparece("MI NEGOCIO");
+    }
+
+    @Cuando("desactivo el flag de consumo")
+    public void desactivoElFlagDeConsumo() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.tapFlagConsumo();
+        settingStep.tapPopUpSi();
+        settingStep.tapAtras();
+        homeStep.verificacionNoAparece("MI NEGOCIO");
+    }
+
+    @Cuando("desactivo el flag de promociones")
+    public void desactivoElFlagDePromociones() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.tapFlagPromociones();
+        settingStep.tapAtras();
+        homeStep.verificacionNoAparece("PROMOCIONES");
+    }
+
+    @Y("activo el flag de promociones")
+    public void activoElFlagDePromociones() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.tapFlagPromociones();
+        settingStep.tapAtras();
+        homeStep.verificarAparece("PROMOCIONES");
     }
 }
 

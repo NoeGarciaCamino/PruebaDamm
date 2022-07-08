@@ -82,12 +82,20 @@ public class SettingView extends MobileBase{
     protected MobileElement flagConsumos;
 
     @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/switch_view')])[2]")
+    protected MobileElement flagPromociones;
+
+    @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(xpath = "//*[contains(@text,'SÍ')]")
     protected MobileElement popUpSi;
 
     @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(xpath = "//*[contains(@text,'Autorización')]")
     protected MobileElement autorizacionDatos;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Comunicaciones')]")
+    protected MobileElement comunicacionComercial;
 
     public void verificarTituloUsuario(){
         waitUntilElementIsVisible(tituloUsuario, 15);
@@ -191,6 +199,12 @@ public class SettingView extends MobileBase{
     public void aceptarPopUpConsumo(){
         waitUntilElementIsVisible(popUpSi,15);
         tap(popUpSi);
+        sleep(8000);
+    }
+
+    public void flagPromociones(){
+        ScrollToElement(comunicacionComercial);
+        tap(flagPromociones);
         sleep(8000);
     }
 }

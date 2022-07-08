@@ -83,6 +83,10 @@ public class SettingStep {
         view.setting().flagConsumo();
     }
 
+    public void tapFlagPromociones(){
+        view.setting().flagPromociones();
+    }
+
     public void tapPopUpSi(){
         view.setting().aceptarPopUpConsumo();
     }

@@ -11,7 +11,7 @@ Característica: Regresion Damm - Settings
   Escenario: Caso3- Cambio contraseña
     Dado que accedo al menu de configuración
     Cuando cambio la pass antigua por la pass nueva
-    Entonces hago logout y login con el email y la pass nueva
+    Entonces hago logout y login con el email y la pass
 
 
   Escenario: Caso4- Cambio de idioma
