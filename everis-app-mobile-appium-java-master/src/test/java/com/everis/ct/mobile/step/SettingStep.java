@@ -33,8 +33,8 @@ public class SettingStep {
         view.setting().repitePass();
     }
 
-    public void guardarPassNueva(){
-        view.setting().guardarPass();
+    public void tapGuardar(){
+        view.setting().botonGuardar();
     }
 
     public void pulsarCerrarSesion(){
@@ -46,5 +46,48 @@ public class SettingStep {
 
     public void verificacionBarDefecto(){
         view.setting().verificarBarDefecto();
+    }
+    public void tapAtras(){
+        view.setting().pulsarAtras();
+    }
+
+    public void tapAtrasCat(){
+        view.setting().pulsarAtrasCat();
+    }
+
+    public void tapOtroNegocio(){
+        view.setting().pulsarOtroNegocio();
+    }
+
+    public void tapBarMiguelito(){
+        view.setting().pulsarBarMiguelito();
+    }
+
+    public void tapIdioma(){
+        view.setting().accesoIdiomas();
+    }
+
+    public void tapCat(){
+        view.setting().pulsarCat();
+    }
+
+    public void tapEsp(){
+        view.setting().pulsarEsp();
+    }
+
+    public void tapAceptar(){
+        view.setting().pulsarAceptar();
+    }
+
+    public void tapFlagConsumo(){
+        view.setting().flagConsumo();
+    }
+
+    public void tapFlagPromociones(){
+        view.setting().flagPromociones();
+    }
+
+    public void tapPopUpSi(){
+        view.setting().aceptarPopUpConsumo();
     }
 }

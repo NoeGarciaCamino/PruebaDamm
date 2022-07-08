@@ -30,7 +30,7 @@ public class ReadProperties {
         String pass = properties.getProperty("password");
         String digitos = pass.substring(5,9);
         int numero = Integer.parseInt(digitos);
-        String passFinal = pass.substring(0,4) + String.valueOf(numero+1);
+        String passFinal = pass.substring(0,5) + String.valueOf(numero+1);
         properties.setProperty("passNueva", passFinal);
         return properties.getProperty("passNueva");
     }

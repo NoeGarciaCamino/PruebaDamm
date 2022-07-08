@@ -16,4 +16,16 @@ public class MenuLateralView extends MobileBase {
         waitUntilElementIsVisible(botonEngranaje, 15);
         tap(botonEngranaje);
     }
+
+    public void pulsarMiNegocio(){
+        tapByCoordinates(808);
+    }
+
+    public void pulsarConsumo(){
+        tapByCoordinates(971);
+    }
+
+    public void pulsarPromociones(){
+        tapByCoordinates(1236);
+    }
 }

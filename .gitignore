@@ -21,6 +21,7 @@ app/
 *.ipr
 *.DS_Store
 **/*.DS_Store
+.idea/
 
 ### NetBeans ###
 /nbproject/private/

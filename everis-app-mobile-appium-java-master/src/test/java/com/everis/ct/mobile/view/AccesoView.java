@@ -46,7 +46,7 @@ public class AccesoView extends MobileBase {
     }
 
     public void tapSiguiente() {
-        waitUntilElementIsVisible(botonSiguiente, 30);
+        waitUntilElementIsVisible(botonSiguiente, 50);
         tap(botonSiguiente);
     }
 

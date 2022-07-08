@@ -8,13 +8,11 @@ import io.cucumber.java.ast.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.spring.CucumberContextConfiguration;
-import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.Reporter;
 import org.testng.xml.XmlTest;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 
 import static com.everis.ct.mobile.service.util.UtilMobile.getValueFromDataTable;

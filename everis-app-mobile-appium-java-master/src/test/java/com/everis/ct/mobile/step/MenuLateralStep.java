@@ -14,4 +14,10 @@ public class MenuLateralStep {
     public void tapConfiguracion(){
         view.menuLateral().tapBotonConfig();
     }
+
+    public void tapMiNegocio(){view.menuLateral().pulsarMiNegocio();}
+
+    public void tapConsumo(){view.menuLateral().pulsarConsumo();}
+
+    public void tapPromociones(){view.menuLateral().pulsarPromociones();}
 }

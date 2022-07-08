@@ -42,8 +42,4 @@ public class LoginStep {
         view.home().verificarAcceso();
     }
 
-    public void cambioEst(){
-        view.home().desplegarSelectorEstab();
-    }
-
 }

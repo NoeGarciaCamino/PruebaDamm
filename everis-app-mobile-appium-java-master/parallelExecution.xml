@@ -5,14 +5,14 @@
     <listeners>
         <listener class-name="com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter"/>
     </listeners>
-<!--    <test name="Google_Pixel_3a_POC03">-->
-<!--        <parameter name="udid" value="Google_Pixel_3a_POC03"/>-->
-<!--        <parameter name="port" value="443"/>-->
-<!--        <parameter name="platformName" value="android"/>-->
-<!--        <classes>-->
-<!--            <class name="com.everis.ct.mobile.runner.RunnerGooglePixel"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Google_Pixel_3a_POC03">
+        <parameter name="udid" value="Google_Pixel_3a_POC03"/>
+        <parameter name="port" value="443"/>
+        <parameter name="platformName" value="android"/>
+        <classes>
+            <class name="com.everis.ct.mobile.runner.RunnerGooglePixel"/>
+        </classes>
+    </test>
 <!--    <test name="Samsung Galaxy S10+">-->
 <!--        <parameter name="udid" value="R58M64FXQ6B"/>-->
 <!--        <parameter name="port" value="4724"/>-->
@@ -20,12 +20,12 @@
 <!--            <class name="com.everis.ct.mobile.runner.RunnerSamsungS10"/>-->
 <!--        </classes>-->
 <!--    </test>-->
-    <test name="iPhone 12 mini">
-        <parameter name="udid" value="iPhone_12_mini_14_POC12"/>
-        <parameter name="port" value="443"/>
-        <parameter name="platformName" value="ios"/>
-        <classes>
-            <class name="com.everis.ct.mobile.runner.RunneriPhone12mini"/>
-        </classes>
-    </test>
+<!--    <test name="iPhone 12 mini">-->
+<!--        <parameter name="udid" value="iPhone_12_mini_14_POC12"/>-->
+<!--        <parameter name="port" value="443"/>-->
+<!--        <parameter name="platformName" value="ios"/>-->
+<!--        <classes>-->
+<!--            <class name="com.everis.ct.mobile.runner.RunneriPhone12mini"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

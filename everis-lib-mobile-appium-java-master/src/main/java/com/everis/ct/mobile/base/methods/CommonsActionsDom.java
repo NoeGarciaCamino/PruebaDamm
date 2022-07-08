@@ -3,12 +3,10 @@ package com.everis.ct.mobile.base.methods;
 import com.everis.ct.mobile.base.dom.ICommonsActions;
 import com.everis.ct.mobile.lib.MobileDriverManager;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -147,34 +145,66 @@ public class CommonsActionsDom implements ICommonsActions {
         action.press(PointOption.point(x, top_y)).moveTo(PointOption.point(x, bottom_y)).release().perform();
     }
 
-    @Override
-    public void ScrollToElement(MobileElement elemento) {
-        try {
-            Thread.sleep(2000);
-            int numberOfTimes = 20;
-            Dimension size = driver.manage().window().getSize();
-            int anchor = (int) (size.width / 2);
-            // Swipe up to scroll down
-            int startPoint = (int) (size.height / 1.5);
-            int endPoint = 150;
+    public void ScrollToElement(MobileElement elemento){
+        int numberOfTimes = 20;
+        Dimension size = driver.manage().window().getSize();
+        int width = (size.getWidth()/2);
+        int height = (size.getHeight()/2);
+        int endPoint = 10;
+
+        for (int i = 0; i < numberOfTimes; i++) {
+            try {
+                new TouchAction(driver)
+                        .longPress(PointOption.point(width, height))
+                        .moveTo(PointOption.point(width, endPoint))
+                        .release()
+                        .perform();
+               boolean objeto = elemento.isDisplayed();
+               if(objeto){
+                   i = numberOfTimes;
+               } else{
+                   System.out.printf("Element not available. Scrolling (%s) times...%n", i + 1);
+                }
+            } catch (Exception ex) {
+                System.out.printf("Element not available. Scrolling (%s) times...%n", i + 1);
+            }
+        }
+    }
+
+    public void tapByCoordinates(int Y){
+        TouchAction touchAction = new TouchAction(driver);
+        Dimension size = driver.manage().window().getSize();
+        int width = (size.getWidth()/2);
+        int height = Y;
+        touchAction.tap(PointOption.point(width, height)).perform();
+    }
 
 
-            for (int i = 0; i < numberOfTimes; i++) {
-                try {
-                    new TouchAction(driver)
-                            .longPress(PointOption.point(anchor, startPoint))
-                            .moveTo(PointOption.point(anchor, endPoint))
-                            .release()
-                            .perform();
-                    elemento.isDisplayed();
-                    i = numberOfTimes;
-                } catch (NoSuchElementException ex) {
-                    System.out.println(String.format("Element not available. Scrolling (%s) times...", i + 1));
+    public boolean verifyElementInAList(List<MobileElement> listElement, String objeto, int timeOutOnSeconds) {
+        String[] elementos = new String[listElement.size()];
+        boolean isPresent = false;
+        System.out.println("El tamaño de la lista es "+listElement.size());
+            for (int i=0; i<listElement.size(); i++ ){
+                String tituloElementos = getText(listElement.get(i));
+                elementos[i] = tituloElementos;
+            }
+            for (int i=0; i<elementos.length; i++){
+                if (elementos[i].contains(objeto)) {
+                    System.out.println("The object is displayed");
+                    isPresent = true;
+                    break;
+                }else {
+                    System.out.println("La lista contiene:"+elementos[i]);
                 }
             }
-            Thread.sleep(2000);
+        return isPresent;
+    }
+
+    public void sleep(int miliSegundos){
+        try {
+            Thread.sleep(miliSegundos);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }

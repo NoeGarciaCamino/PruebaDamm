@@ -23,4 +23,57 @@ public class HomeStep {
             throw new RuntimeException(e);
         }
     }
+
+    public void verificarEstDefecto(String Bar){
+        view.home().verificarTituloEncabezado(Bar);
+        view.home().tapMenuLateral();
+        view.menuLateral().tapBotonConfig();
+        view.setting().flagConsumo();
+        view.setting().aceptarPopUpConsumo();
+        view.setting().pulsarAtras();
+        view.home().verificarNoAparece("MI NEGOCIO");
+    }
+
+    public void cambioEst(){
+        view.home().desplegarSelectorEstab();
+    }
+
+    public void tapOtroNegocio(){
+        view.home().pulsarOtroNegocio();
+    }
+
+    public void tapMiguelito(){
+        view.home().pulsarMigueltio();
+    }
+
+    public void verificarOtroNegocio(String Titulo){
+        view.home().verificarAcceso();
+        view.home().verificarTituloEncabezado(Titulo);
+        view.home().tapMenuLateral();
+        view.menuLateral().tapBotonConfig();
+        view.setting().flagConsumo();
+        view.setting().aceptarPopUpConsumo();
+        view.setting().pulsarAtras();
+        view.home().verificarNoAparece("MI NEGOCIO");
+    }
+
+    public void verificacionCat(){
+        view.home().verificarCat("Consum total");
+    }
+
+    public void verificacionEsp(){
+        view.home().verificarEsp("Consumo total");
+    }
+
+    public void verificarAparece(String Texto){
+        view.home().verificarAparece(Texto);
+    }
+
+    public void verificacionNoAparece(String texto){
+        view.home().verificarNoAparece(texto);
+    }
+
+    public void verificarEncabezado(String Titulo){
+        view.home().verificarTituloEncabezado(Titulo);
+    }
 }

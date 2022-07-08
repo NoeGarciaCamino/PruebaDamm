@@ -29,20 +29,17 @@ public class SettingsStepDefinition {
     @Autowired
     private AccesoStep accesoStep;
 
-    @Y("cambio la pass antigua por la pass nueva")
+    @Cuando("cambio la pass antigua por la pass nueva")
     public void cambioLaPass() {
-        homeStep.tapMenuHamburguesa();
-        menuLateralStep.tapConfiguracion();
-        settingStep.verificarMenuConfig();
         settingStep.accesoCambioPass();
         settingStep.introducirPassActual();
         settingStep.introducirPassNueva();
         settingStep.repetirPassNueva();
-        settingStep.guardarPassNueva();
+        settingStep.tapGuardar();
     }
 
-    @Entonces("hago logout y login con el email y la pass nueva")
-    public void hagoLogoutYLoginConElEmailYLaPassNueva() {
+    @Entonces("hago logout y login con el email y la pass")
+    public void hagoLogoutYLoginConElEmailYLaPass() {
         settingStep.pulsarCerrarSesion();
         manager.quitDriver();
         manager.setUpDriver();
@@ -71,6 +68,101 @@ public class SettingsStepDefinition {
     @Y("verifico el establecimiento por defecto")
     public void verificoElEstablecimientoPorDefecto() {
         settingStep.verificacionBarDefecto();
+    }
+
+    @Y("cambio el establecimiento predeterminado")
+    public void cambioElEstablecimientoPredeterminado() {
+        settingStep.tapOtroNegocio();
+        settingStep.tapGuardar();
+    }
+
+    @Y("hago logout, login y se reestablece el establecimiento por defecto")
+    public void hagoLogoutLoginYSeReestableceElEstablecimientoPorDefecto() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.verificarMenuConfig();
+        settingStep.pulsarCerrarSesion();
+        manager.quitDriver();
+        manager.setUpDriver();
+        manager.clearCacheApp("com.android.chrome");
+        accesoStep.accederConCuenta();
+        loginStep.aceptarTerminosGoogle();
+        loginStep.aceptarSync();
+        loginStep.introducirEmail();
+        loginStep.introducirPass();
+        loginStep.accederHome();
+        loginStep.verificarHome();
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.verificarMenuConfig();
+        settingStep.pulsarMisEstablecimientos();
+        settingStep.tapBarMiguelito();
+        settingStep.tapGuardar();
+        homeStep.verificarEstDefecto("BAR MIGUELITO");
+    }
+
+    @Cuando("accedo a idiomas")
+    public void accedoAIdiomas() {
+        settingStep.tapIdioma();
+    }
+
+    @Entonces("cambio el idioma de la aplicación")
+    public void cambioElIdiomaDeLaAplicación() {
+        settingStep.tapCat();
+        settingStep.tapGuardar();
+        settingStep.tapAceptar();
+        settingStep.tapAtrasCat();
+        homeStep.verificacionCat();
+    }
+
+    @Y("reestablezco el idioma por defecto")
+    public void reestablezcoElIdiomaPorDefecto() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.verificarMenuConfig();
+        settingStep.tapIdioma();
+        settingStep.tapEsp();
+        settingStep.tapGuardar();
+        settingStep.tapAceptar();
+        settingStep.tapAtras();
+        homeStep.verificacionEsp();
+    }
+
+    @Y("activo el flag de consumo")
+    public void activoElFlagDeConsumo() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.tapFlagConsumo();
+        settingStep.tapAtras();
+        homeStep.verificarAparece("MI NEGOCIO");
+    }
+
+    @Cuando("desactivo el flag de consumo")
+    public void desactivoElFlagDeConsumo() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.tapFlagConsumo();
+        settingStep.tapPopUpSi();
+        settingStep.tapAtras();
+        homeStep.verificacionNoAparece("MI NEGOCIO");
+    }
+
+    @Cuando("desactivo el flag de promociones")
+    public void desactivoElFlagDePromociones() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.tapFlagPromociones();
+        settingStep.tapAtras();
+        homeStep.verificacionNoAparece("PROMOCIONES");
+    }
+
+    @Y("activo el flag de promociones")
+    public void activoElFlagDePromociones() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapConfiguracion();
+        settingStep.tapFlagPromociones();
+        settingStep.tapAtras();
+        homeStep.verificarAparece("PROMOCIONES");
     }
 }
 

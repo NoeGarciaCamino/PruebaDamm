@@ -26,5 +26,9 @@ public class Views {
     public MenuLateralView menuLateral() {
         return new MenuLateralView();
     }
+
+    public ToolsView tools() {
+        return new ToolsView();
+    }
 }
 

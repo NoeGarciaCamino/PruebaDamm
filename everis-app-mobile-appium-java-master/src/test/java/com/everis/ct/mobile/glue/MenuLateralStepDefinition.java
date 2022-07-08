@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(classes = MobileAutomationApplication.class)
-public class HomeStepDefinition {
+public class MenuLateralStepDefinition {
 
     @Autowired
     private SettingStep settingStep;
@@ -31,25 +31,24 @@ public class HomeStepDefinition {
     @Autowired
     private AccesoStep accesoStep;
 
-    @Entonces("retrocedo a la home y confirmo los datos del bar")
-    public void retrocedoALaHomeYConfirmoLosDatosDelBar() {
-        settingStep.tapAtras();
-        settingStep.tapAtras();
-        homeStep.verificarEstDefecto("BAR MIGUELITO");
+    @Autowired
+    private ToolsStep toolsStep;
+
+    @Entonces("entro al consumo desde el menu lateral")
+    public void entroAlConsumoDesdeElMenuLateral() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapMiNegocio();
+        menuLateralStep.tapConsumo();
+        homeStep.verificarEncabezado("Consumos");
+        toolsStep.verificarConsumo();
     }
 
-    @Dado("que pulso el selector de establecimiento")
-    public void quePulsoElSelectorDeEstablecimiento() {
-        homeStep.cambioEst();
-    }
-
-    @Cuando("cambio de negocio")
-    public void cambioDeNegocio() {
-        homeStep.tapOtroNegocio();
-    }
-
-    @Entonces("verifico que se ha realizado el cambio")
-    public void verificoQueSeHaRealizadoElCambio() {
-        homeStep.verificarOtroNegocio("RESID");
+    @Entonces("entro a promociones desde el menu lateral")
+    public void entroAPromocionesDesdeElMenuLateral() {
+        homeStep.tapMenuHamburguesa();
+        menuLateralStep.tapMiNegocio();
+        menuLateralStep.tapConsumo();
+        homeStep.verificarEncabezado("Promociones");
+        toolsStep.verificarPromociones();
     }
 }

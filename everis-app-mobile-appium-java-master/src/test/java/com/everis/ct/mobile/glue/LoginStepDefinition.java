@@ -3,6 +3,7 @@ package com.everis.ct.mobile.glue;
 import com.everis.ct.mobile.MobileAutomationApplication;
 import com.everis.ct.mobile.lib.MobileDriverManager;
 import com.everis.ct.mobile.step.AccesoStep;
+import com.everis.ct.mobile.step.HomeStep;
 import com.everis.ct.mobile.step.LoginStep;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.ast.Cuando;
@@ -25,6 +26,9 @@ public class LoginStepDefinition {
     @Autowired
     private LoginStep loginStep;
 
+    @Autowired
+    private HomeStep homeStep;
+
     @Dado("que ya estoy registrado")
     public void queYaEstoyRegistrado() {
         accesoStep.accederConCuenta();
@@ -45,8 +49,4 @@ public class LoginStepDefinition {
         loginStep.verificarHome();
     }
 
-    @Entonces("cambio de establecimiento")
-    public void cambioDeEstablecimiento() {
-        loginStep.cambioEst();
-    }
 }
