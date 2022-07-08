@@ -4,7 +4,8 @@ import com.everis.ct.mobile.base.MobileBase;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.testng.Assert;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
@@ -18,10 +19,6 @@ public class HomeView extends MobileBase {
     @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(xpath = "//*[contains(@text,'ÚLTIMES NOVETATS')]")
     protected MobileElement campoUltNovCat;
-
-    @iOSXCUITFindBy(xpath = "")
-    @AndroidFindBy(xpath = "//*[contains(@text,'CARTA DIGITAL')]")
-    protected MobileElement campoCartaDigital;
 
     @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(accessibility = "Open navigation drawer")
@@ -39,6 +36,14 @@ public class HomeView extends MobileBase {
     @AndroidFindBy(className = "android.widget.TextView")
     protected List <MobileElement> bloquesDom;
 
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(id = "com.damm.dammbars.pre:id/image_menu")
+    protected MobileElement bloqueCartaDigital;
+
+    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//*[contains(@text,'ESTE DISPOSITIVO')]")
+    protected MobileElement botonEsteDispositivo;
+
 
     public void verificarAcceso(){
         waitUntilElementIsVisible(campoUltNov, 15);
@@ -55,9 +60,9 @@ public class HomeView extends MobileBase {
     }
 
     public void verificarTituloEncabezado(String Titulo){
-        String tituloBar = getText(encabezado,5);
-        boolean condicionTituloBar = tituloBar.contains(Titulo);
-        Assert.assertTrue(condicionTituloBar, Titulo);
+        String tituloEncabezado = getText(encabezado,5);
+        boolean condicionTitulo = tituloEncabezado.contains(Titulo);
+        Assert.assertTrue(Titulo,condicionTitulo);
     }
 
     public void pulsarOtroNegocio(){
@@ -68,22 +73,29 @@ public class HomeView extends MobileBase {
         tapByCoordinates(1361);
     }
 
-    public void textoCartaDigital(){
-        waitUntilElementIsVisible(campoCartaDigital,15);
+
+    public void pulsarCartaDigital(){
+        waitUntilElementIsVisible(bloqueCartaDigital,15);
+        tap(bloqueCartaDigital);
+    }
+
+    public void pulsarEsteDispositivo(){
+        waitUntilElementIsVisible(botonEsteDispositivo,15);
+        tap(botonEsteDispositivo);
     }
 
     public void verificarCat(String Consumo){
         waitUntilElementIsVisible(campoUltNovCat,15);
         String consumoTotal = getText(consumoTotalHome,5);
         boolean condicionTituloConsumo = consumoTotal.contains(Consumo);
-        Assert.assertTrue(condicionTituloConsumo, Consumo);
+        Assert.assertTrue(Consumo,condicionTituloConsumo);
     }
 
     public void verificarEsp(String Consumo){
         waitUntilElementIsVisible(campoUltNov,15);
         String consumoTotal = getText(consumoTotalHome,5);
         boolean condicionTituloConsumo = consumoTotal.contains(Consumo);
-        Assert.assertTrue(condicionTituloConsumo, Consumo);
+        Assert.assertTrue(Consumo,condicionTituloConsumo);
     }
 
     public void verificarNoAparece(String texto){

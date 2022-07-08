@@ -1,20 +1,14 @@
 package com.everis.ct.mobile.glue;
 
 import com.everis.ct.mobile.MobileAutomationApplication;
-import com.everis.ct.mobile.lib.MobileDriverManager;
 import com.everis.ct.mobile.step.AccesoStep;
 import com.everis.ct.mobile.step.HomeStep;
 import com.everis.ct.mobile.step.LoginStep;
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.ast.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
-import io.cucumber.java.es.Y;
-import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static com.everis.ct.mobile.service.util.UtilMobile.getValueFromDataTable;
 
 
 @SpringBootTest(classes = MobileAutomationApplication.class)
@@ -41,7 +35,6 @@ public class LoginStepDefinition {
         loginStep.introducirEmail();
         loginStep.introducirPass();
         loginStep.accederHome();
-
     }
 
     @Entonces("validar que se accede a la home")

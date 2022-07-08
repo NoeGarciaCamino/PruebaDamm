@@ -1,7 +1,6 @@
 package com.everis.ct.mobile.step;
 
 import com.everis.ct.mobile.view.*;
-//import com.everis.ct.mobile.view.ResultsView;
 import org.springframework.stereotype.Component;
 
 @Component

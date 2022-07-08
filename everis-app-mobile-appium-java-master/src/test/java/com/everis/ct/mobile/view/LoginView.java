@@ -6,10 +6,6 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.Properties;
-
 public class LoginView extends MobileBase {
 
     @iOSXCUITFindBy(xpath = "")

@@ -17,7 +17,7 @@ public class HomeStepDefinition {
     private SettingStep settingStep;
 
     @Autowired
-    private LoginStep loginStep;
+    private ToolsStep toolsStep;
 
     @Autowired
     private HomeStep homeStep;
@@ -51,5 +51,12 @@ public class HomeStepDefinition {
     @Entonces("verifico que se ha realizado el cambio")
     public void verificoQueSeHaRealizadoElCambio() {
         homeStep.verificarOtroNegocio("RESID");
+    }
+
+    @Entonces("accedo a Carta digital")
+    public void accedoACartaDigital() {
+        homeStep.tapCartaDigital();
+        homeStep.tapEsteDispositivo();
+        toolsStep.verificarCartaDigital();
     }
 }

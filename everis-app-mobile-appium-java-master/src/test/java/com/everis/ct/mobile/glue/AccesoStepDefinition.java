@@ -54,16 +54,6 @@ public class AccesoStepDefinition {
         manager.driverOnDetails();
     }
 
-//    @Dado("que busco el nuevo video {string}")
-//    public void queBuscoElNuevoVideo(String nombreVideo) {
-//        homeStep.searchVideo(nombreVideo);
-//    }
-//
-//    @Entonces("validar si hay mas de un resultado")
-//    public void validarSiHayMasDeUnResultado() {
-//        Assertions.assertTrue(homeStep.getSizeResult() > 0, "El numero de resultados es igual a 0.");
-//    }
-
     @Dado("que registro mi establecimiento")
     public void queRegistroMiEstablecimiento() throws InterruptedException {
         accesoStep.avanceTutorial();
@@ -81,21 +71,3 @@ public class AccesoStepDefinition {
 
 
 }
-
-
-//    @Value("#{${capabilities.config}}")
-//    private Map<String,Object> capsMap;
-//    @Value("${capabilities.appiumHub}")
-//    private String appiumHub;
-//
-//    @Test
-//    public void android() throws MalformedURLException {
-//        System.out.println("myYamlMap: " + capsMap);
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        for(Map.Entry<String, Object> caps : capsMap.entrySet()){
-//            capabilities.setCapability(caps.getKey(), caps.getValue());
-//        }
-//        AppiumDriver<MobileElement> driver = new AndroidDriver<>(new URL(appiumHub), capabilities);
-//
-//        System.out.println("getCapabilities(): " + driver.getCapabilities());
-//        System.out.println("getSessionDetails(): " + driver.getSessionDetails());

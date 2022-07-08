@@ -76,4 +76,12 @@ public class HomeStep {
     public void verificarEncabezado(String Titulo){
         view.home().verificarTituloEncabezado(Titulo);
     }
+
+    public void tapCartaDigital(){
+        view.home().pulsarCartaDigital();
+    }
+
+    public void tapEsteDispositivo(){
+        view.home().pulsarEsteDispositivo();
+    }
 }
