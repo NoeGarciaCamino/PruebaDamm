@@ -4,8 +4,8 @@ import com.everis.ct.mobile.base.MobileBase;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
@@ -62,7 +62,7 @@ public class HomeView extends MobileBase {
     public void verificarTituloEncabezado(String Titulo){
         String tituloEncabezado = getText(encabezado,5);
         boolean condicionTitulo = tituloEncabezado.contains(Titulo);
-        Assert.assertTrue(Titulo,condicionTitulo);
+        Assert.assertTrue(condicionTitulo, Titulo);
     }
 
     public void pulsarOtroNegocio(){
@@ -88,14 +88,14 @@ public class HomeView extends MobileBase {
         waitUntilElementIsVisible(campoUltNovCat,15);
         String consumoTotal = getText(consumoTotalHome,5);
         boolean condicionTituloConsumo = consumoTotal.contains(Consumo);
-        Assert.assertTrue(Consumo,condicionTituloConsumo);
+        Assert.assertTrue(condicionTituloConsumo, Consumo);
     }
 
     public void verificarEsp(String Consumo){
         waitUntilElementIsVisible(campoUltNov,15);
         String consumoTotal = getText(consumoTotalHome,5);
         boolean condicionTituloConsumo = consumoTotal.contains(Consumo);
-        Assert.assertTrue(Consumo,condicionTituloConsumo);
+        Assert.assertTrue(condicionTituloConsumo, Consumo);
     }
 
     public void verificarNoAparece(String texto){
