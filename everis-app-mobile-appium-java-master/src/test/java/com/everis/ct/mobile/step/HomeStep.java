@@ -16,12 +16,13 @@ public class HomeStep {
 
     public void tapMenuHamburguesa(){
         view.home().tapMenuLateral();
-        try {
-            Robot r = new Robot();
-            r.keyPress(KeyEvent.VK_END);
-        } catch (AWTException e) {
-            throw new RuntimeException(e);
-        }
+
+//        try {
+//            Robot r = new Robot();
+//            r.keyPress(KeyEvent.VK_END);
+//        } catch (AWTException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     public void verificarEstDefecto(String Bar){

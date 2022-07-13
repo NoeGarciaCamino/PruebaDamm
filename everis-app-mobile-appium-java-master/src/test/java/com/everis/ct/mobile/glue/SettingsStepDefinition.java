@@ -9,6 +9,8 @@ import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.testng.Reporter;
+import org.testng.xml.XmlTest;
 
 @SpringBootTest(classes = MobileAutomationApplication.class)
 public class SettingsStepDefinition {
@@ -42,11 +44,19 @@ public class SettingsStepDefinition {
     public void hagoLogoutYLoginConElEmailYLaPass() {
         settingStep.pulsarCerrarSesion();
         manager.quitDriver();
-        manager.setUpDriver();
-        manager.clearCacheApp("com.android.chrome");
+
+        XmlTest xmlTest = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest();
+        String port = xmlTest.getParameter("port");
+        String udid = xmlTest.getParameter("udid");
+        String platformName = xmlTest.getParameter("platformName");
+        manager.setUpDriver(port, udid, platformName);
+        manager.driverOnDetails();
+
+//        manager.setUpDriver();
+//        manager.clearCacheApp("com.android.chrome");
         accesoStep.accederConCuenta();
-        loginStep.aceptarTerminosGoogle();
-        loginStep.aceptarSync();
+//        loginStep.aceptarTerminosGoogle();
+//        loginStep.aceptarSync();
         loginStep.introducirEmail();
         loginStep.introducirPass();
         loginStep.accederHome();

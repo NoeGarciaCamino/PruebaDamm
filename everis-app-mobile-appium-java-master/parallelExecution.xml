@@ -6,7 +6,8 @@
         <listener class-name="com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter"/>
     </listeners>
     <test name="Google_Pixel_3a_POC03">
-        <parameter name="udid" value="Google_Pixel_3a_POC03"/>
+<!--        <parameter name="udid" value="Google_Pixel_3a_POC03"/>-->
+        <parameter name="udid" value="Google_Pixel_3a_real"/>
         <parameter name="port" value="443"/>
         <parameter name="platformName" value="android"/>
         <classes>
@@ -20,12 +21,13 @@
 <!--            <class name="com.everis.ct.mobile.runner.RunnerSamsungS10"/>-->
 <!--        </classes>-->
 <!--    </test>-->
-<!--    <test name="iPhone 12 mini">-->
+    <test name="iPhone 12 mini">
 <!--        <parameter name="udid" value="iPhone_12_mini_14_POC12"/>-->
-<!--        <parameter name="port" value="443"/>-->
-<!--        <parameter name="platformName" value="ios"/>-->
-<!--        <classes>-->
-<!--            <class name="com.everis.ct.mobile.runner.RunneriPhone12mini"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+        <parameter name="udid" value="iPhone_12_mini_14_real"/>
+        <parameter name="port" value="443"/>
+        <parameter name="platformName" value="ios"/>
+        <classes>
+            <class name="com.everis.ct.mobile.runner.RunneriPhone12mini"/>
+        </classes>
+    </test>
 </suite>

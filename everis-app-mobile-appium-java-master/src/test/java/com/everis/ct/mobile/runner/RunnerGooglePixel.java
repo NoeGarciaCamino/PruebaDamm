@@ -18,11 +18,13 @@ import java.util.logging.Logger;
 //        stepNotifications = true,
 
 //      ******   Para lanzar una feature concreta   ******
-//        features = {"src/test/resources/features/MyHeyApp-MyHelpSupport.feature"},
+//        features = {"src/test/resources/features/1.login.feature"},
 //      ******   Para lanzar todas las features   ******
         features = {"src/test/resources/features"},
-        glue = {"com.everis.ct.mobile.hooks", "com.everis.ct.mobile.glue"}
+        glue = {"com.everis.ct.mobile.hooks", "com.everis.ct.mobile.glue"},
         //tags = "@DEMO"
+
+        plugin = {"html:target/cucumber-report.html", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
 )
 public class RunnerGooglePixel {
 

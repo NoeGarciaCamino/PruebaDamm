@@ -30,8 +30,9 @@ public class LoginStepDefinition {
 
     @Cuando("hago login con el email y la pass")
     public void queHagoLoginConElEmailYLaPass() {
-        loginStep.aceptarTerminosGoogle();
-        loginStep.aceptarSync();
+        ///*En Saucelabs no aparece aceptarTerminosGoogle*/
+//        loginStep.aceptarTerminosGoogle();
+//        loginStep.aceptarSync();
         loginStep.introducirEmail();
         loginStep.introducirPass();
         loginStep.accederHome();

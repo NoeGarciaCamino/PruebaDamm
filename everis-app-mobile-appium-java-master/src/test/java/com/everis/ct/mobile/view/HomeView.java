@@ -12,35 +12,35 @@ import java.util.List;
 
 public class HomeView extends MobileBase {
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "ÚLTIMAS NOVEDADES")
     @AndroidFindBy(xpath = "//*[contains(@text,'ÚLTIMAS NOVEDADES')]")
     protected MobileElement campoUltNov;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "ÚLTIMES NOVETATS")
     @AndroidFindBy(xpath = "//*[contains(@text,'ÚLTIMES NOVETATS')]")
     protected MobileElement campoUltNovCat;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar[`name == \"DammBarsPre.HomeView\"`]/XCUIElementTypeButton[1]")
     @AndroidFindBy(accessibility = "Open navigation drawer")
     protected MobileElement menuLateral;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name=\"DammBarsPre.HomeView\"]/XCUIElementTypeOther/XCUIElementTypeStaticText[1]")//accessibility = "  BAR MIGUELITO")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/toolbar_title")
     protected MobileElement encabezado;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "Consumo total")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/business_title_view")
     protected MobileElement consumoTotalHome;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText")
     @AndroidFindBy(className = "android.widget.TextView")
     protected List <MobileElement> bloquesDom;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeImage")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/image_menu")
     protected MobileElement bloqueCartaDigital;
 
-    @iOSXCUITFindBy(xpath = "")
+    //@iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(xpath = "//*[contains(@text,'ESTE DISPOSITIVO')]")
     protected MobileElement botonEsteDispositivo;
 
@@ -66,7 +66,11 @@ public class HomeView extends MobileBase {
     }
 
     public void pulsarOtroNegocio(){
-        tapByCoordinates(1572);
+        if(isAndroid()) {
+            tapByCoordinates(1572);
+        } else {
+
+        }
     }
 
     public void pulsarMigueltio(){

@@ -8,37 +8,51 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 public class LoginView extends MobileBase {
 
-    @iOSXCUITFindBy(xpath = "")
+
     @AndroidFindBy(id = "com.android.chrome:id/terms_accept")
     protected MobileElement botonGoogle;
 
-    @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(id = "com.android.chrome:id/positive_button")
     protected MobileElement botonSync;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`value == \"Correo Electrónico\"`]")
     @AndroidFindBy(xpath = "(//*[contains(@class,'android.widget.EditText')])[1]")
     protected MobileElement campoEmail;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSecureTextField[`value == \"Contraseña\"`]")
     @AndroidFindBy(xpath = "(//*[contains(@class,'android.widget.EditText')])[2]")
     protected MobileElement campoPass;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "Acceder")
     @AndroidFindBy(xpath = "//*[contains(@text,'Acceder')]")
     protected MobileElement botonAcceder;
+
+    @iOSXCUITFindBy(accessibility = "Done")
+    protected MobileElement btnDoneTecladoIos;
 
 
     public void sendEmail() {
         ReadProperties properties = new ReadProperties();
         waitUntilElementIsVisible(campoEmail, 20);
-        campoEmail.sendKeys(properties.pasarEmail());
+
+        if(isIOS()) {
+            campoEmail.sendKeys("a" + properties.pasarEmail());
+            tap(btnDoneTecladoIos);
+        } else {
+            campoEmail.sendKeys(properties.pasarEmail());
+        }
     }
 
     public void sendPass() {
         ReadProperties properties = new ReadProperties();
         waitUntilElementIsVisible(campoPass, 15);
-        campoPass.sendKeys(properties.pasarPass());
+
+        if(isIOS()) {
+            campoPass.sendKeys("a" + properties.pasarPass());
+            tap(btnDoneTecladoIos);
+        } else {
+            campoPass.sendKeys(properties.pasarPass());
+        }
     }
 
     public void tapAcceder() {

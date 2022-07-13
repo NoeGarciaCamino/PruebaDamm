@@ -11,6 +11,10 @@ public class AccesoStep {
     @Autowired
     private Views view;
 
+    public void aceptarNotificaciones() {
+        view.acceso().tapAllowNotifications();
+    }
+
     public void avanceTutorial() throws InterruptedException {
         view.acceso().verificarAperturaAplicacion();
         view.acceso().tapSiguiente();

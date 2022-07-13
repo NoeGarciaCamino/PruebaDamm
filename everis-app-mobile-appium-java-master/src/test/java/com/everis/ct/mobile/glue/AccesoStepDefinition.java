@@ -48,10 +48,15 @@ public class AccesoStepDefinition {
         XmlTest xmlTest = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest();
         String port = xmlTest.getParameter("port");
         String udid = xmlTest.getParameter("udid");
-        String patformName = xmlTest.getParameter("platformName");
-        manager.setUpDriver(port, udid, patformName);
-        manager.clearCacheApp("com.android.chrome");
+        String platformName = xmlTest.getParameter("platformName");
+        manager.setUpDriver(port, udid, platformName);
         manager.driverOnDetails();
+//        manager.clearCacheApp("com.android.chrome");
+
+
+        if(platformName.equalsIgnoreCase("iOS")) {
+            accesoStep.aceptarNotificaciones();
+        }
     }
 
     @Dado("que registro mi establecimiento")

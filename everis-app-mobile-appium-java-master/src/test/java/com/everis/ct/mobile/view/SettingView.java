@@ -8,93 +8,95 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 public class SettingView extends MobileBase{
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name,'USUARI')]")
     @AndroidFindBy(xpath = "//*[contains(@text,'USUARI')]")
     protected MobileElement tituloUsuario;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "Cambiar contraseña")
     @AndroidFindBy(xpath = "//*[contains(@text,'Cambiar contraseña')]")
     protected MobileElement cambiarPass;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSecureTextField[`value == \"Introduce tu contraseña actual\"`]")
     @AndroidFindBy(xpath = "//*[contains(@text,'Contraseña actual')]")
     protected MobileElement passActual;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSecureTextField[`value == \"Introduce tu contraseña nueva\"`]")
     @AndroidFindBy(xpath = "//*[contains(@text,'Introduce')]")
     protected MobileElement passNueva;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSecureTextField[`value == \"Repite tu contraseña nueva\"`]")
     @AndroidFindBy(xpath = "//*[contains(@text,'Repite')]")
     protected MobileElement repitePass;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"GUARDAR\"`]")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/save_button_view")
     protected MobileElement botonGuardar;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "Cerrar sesión")
     @AndroidFindBy(xpath = "//*[contains(@text,'Cerrar')]")
     protected MobileElement botonCerrarSesion;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "Mis Establecimientos")
     @AndroidFindBy(xpath = "//*[contains(@text,'Mis establecimientos')]")
     protected MobileElement misEstablecimientos;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "BAR MIGUELITO")
     @AndroidFindBy(xpath = "//*[contains(@text,'BAR')]")
     protected MobileElement barMiguelito;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "RESID.EL MIRADOR ALELLA SNFD")
     @AndroidFindBy(xpath = "//*[contains(@text,'RESID')]")
     protected MobileElement otroNegocio;
 
-    @iOSXCUITFindBy(xpath = "")
+    //TODO problemas ios. No encuentro el checkbox o imagen
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther")
     @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/image_right_view')])[1]")
     protected MobileElement checkBoxMiguelito;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "Atrás") //?
     @AndroidFindBy(accessibility = "Desplazarse hacia arriba")
     protected MobileElement botonAtras;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(xpath = "Atrás") //?
     @AndroidFindBy(accessibility = "Navega cap a dalt")
     protected MobileElement botonAtrasCat;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "Idioma")
     @AndroidFindBy(xpath = "//*[contains(@text,'Idioma')]")
     protected MobileElement botonIdioma;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "Catalán")
     @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/title_text_view')])[2]")
     protected MobileElement idiomaCat;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "Español")
     @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/title_text_view')])[1]")
     protected MobileElement idiomaEsp;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"ACCEPTAR\"`]")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/accept_text_view")
     protected MobileElement aceptarPopUp;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Autorización datos de compras\"]/../../XCUIElementTypeSwitch")
     @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/switch_view')])[3]")
     protected MobileElement flagConsumos;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Comunicaciones comerciales\"]/../../XCUIElementTypeSwitch")
     @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/switch_view')])[2]")
     protected MobileElement flagPromociones;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"SÍ\"`]")
     @AndroidFindBy(xpath = "//*[contains(@text,'SÍ')]")
     protected MobileElement popUpSi;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "Autorización datos de compras")
     @AndroidFindBy(xpath = "//*[contains(@text,'Autorización')]")
     protected MobileElement autorizacionDatos;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "Comunicaciones comerciales")
     @AndroidFindBy(xpath = "//*[contains(@text,'Comunicaciones')]")
     protected MobileElement comunicacionComercial;
+
 
     public void verificarTituloUsuario(){
         waitUntilElementIsVisible(tituloUsuario, 15);

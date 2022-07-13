@@ -7,7 +7,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 public class MenuLateralView extends MobileBase {
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/settings_icon")
     protected MobileElement botonEngranaje;
 

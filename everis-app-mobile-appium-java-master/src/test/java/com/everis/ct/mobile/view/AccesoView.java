@@ -1,46 +1,68 @@
 package com.everis.ct.mobile.view;
 
 import com.everis.ct.mobile.base.MobileBase;
+import com.everis.ct.mobile.service.constans.Platform;
 import com.everis.ct.mobile.service.util.ReadProperties;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
+import java.util.Locale;
+
 public class AccesoView extends MobileBase {
 
-    @iOSXCUITFindBy(xpath = "")
+
+    @iOSXCUITFindBy(accessibility = "Allow")
+    protected MobileElement btnAllow;
+
+    @iOSXCUITFindBy(accessibility = "Bienvenido a Bar Manager")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/appCompatTextView3")
     protected MobileElement tituloBienvenida;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"SIGUIENTE\"`]")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/next_button_view")
     protected MobileElement botonSiguiente;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"¿Ya tienes una cuenta? Accede aquí.\"`]")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/bottom_button_view")
     protected MobileElement enlaceYaTengoCuenta;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"REGISTRA TU ESTABLECIMIENTO\"`]")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/next_button_view")
     protected MobileElement botonRegistrarEstablecimiento;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "Introduce tu código de acceso")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/appCompatTextView")
     protected MobileElement tituloIntroduceTuCodigo;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`value == \"Escribe el código de acceso\"`]")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/input_text")
     protected MobileElement campoCodigoAcceso;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"Hecho\"`]")
+    protected MobileElement btnHechoTecladoIOS;
+
+    @iOSXCUITFindBy(accessibility = "¡Oh, vaya!")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/title_text_view")
     protected MobileElement tituloErrorCodigo;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"ACEPTAR\"`]")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/accept_text_view")
     protected MobileElement botonAceptar;
 
+
+    public void tapAllowNotifications() {
+        try {
+            tap(btnAllow, 10);
+        } catch (Exception ignore) {}
+    }
+
     public void verificarAperturaAplicacion() throws InterruptedException {
+        //TODO prueba. Borrar
+//        driver().activateApp("com.android.chrome");
+//
+//        sleep(20000);
+
         waitUntilElementIsVisible(tituloBienvenida, 30);
     }
 
@@ -62,6 +84,9 @@ public class AccesoView extends MobileBase {
         ReadProperties properties = new ReadProperties();
         waitUntilElementIsVisible(campoCodigoAcceso, 15);
         campoCodigoAcceso.sendKeys(properties.pinCode());
+        if(isIOS()) {
+            tap(btnHechoTecladoIOS);
+        }
     }
 
     public void verificarErrorCodigo() {
