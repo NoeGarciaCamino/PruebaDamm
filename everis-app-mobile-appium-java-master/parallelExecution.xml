@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Android-MyHeyApp" parallel="tests" thread-count="2">
+<suite name="DAMM" parallel="tests" thread-count="2">
 
     <listeners>
         <listener class-name="com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter"/>
@@ -14,13 +14,6 @@
             <class name="com.everis.ct.mobile.runner.RunnerGooglePixel"/>
         </classes>
     </test>
-<!--    <test name="Samsung Galaxy S10+">-->
-<!--        <parameter name="udid" value="R58M64FXQ6B"/>-->
-<!--        <parameter name="port" value="4724"/>-->
-<!--        <classes>-->
-<!--            <class name="com.everis.ct.mobile.runner.RunnerSamsungS10"/>-->
-<!--        </classes>-->
-<!--    </test>-->
     <test name="iPhone 12 mini">
 <!--        <parameter name="udid" value="iPhone_12_mini_14_POC12"/>-->
         <parameter name="udid" value="iPhone_12_mini_14_real"/>
