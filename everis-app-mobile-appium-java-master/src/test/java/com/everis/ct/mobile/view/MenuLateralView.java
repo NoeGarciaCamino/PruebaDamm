@@ -11,20 +11,45 @@ public class MenuLateralView extends MobileBase {
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/settings_icon")
     protected MobileElement botonEngranaje;
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"MI NEGOCIO\"`][1]")
+    protected MobileElement miNegocio;
+
+    @iOSXCUITFindBy(accessibility = "CONSUMOS")
+    protected MobileElement consumos;
+
+    @iOSXCUITFindBy(accessibility = "PROMOCIONES")
+    protected MobileElement promociones;
+
+
     public void tapBotonConfig(){
         waitUntilElementIsVisible(botonEngranaje, 15);
         tap(botonEngranaje);
     }
 
     public void pulsarMiNegocio(){
-        tapByCoordinates(808);
+        if(isAndroid()) {
+            tapByCoordinates(808);
+        } else {
+            waitUntilElementIsVisible(miNegocio, 15);
+            tap(miNegocio);
+        }
     }
 
     public void pulsarConsumo(){
-        tapByCoordinates(971);
+        if(isAndroid()) {
+            tapByCoordinates(971);
+        } else {
+            waitUntilElementIsVisible(consumos, 15);
+            tap(consumos);
+        }
     }
 
     public void pulsarPromociones(){
-        tapByCoordinates(1236);
+        if(isAndroid()) {
+            tapByCoordinates(1236);
+        } else {
+            waitUntilElementIsVisible(promociones, 15);
+            tap(promociones);
+        }
     }
 }

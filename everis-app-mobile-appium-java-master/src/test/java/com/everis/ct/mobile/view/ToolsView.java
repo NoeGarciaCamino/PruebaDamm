@@ -5,33 +5,65 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class ToolsView extends MobileBase {
 
-    @iOSXCUITFindBy(xpath = "")
+    @AndroidFindBy(id = "com.damm.dammbars.pre:id/toolbar_title")
+    private MobileElement encabezado;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"Consumos\"`]")
+    private MobileElement encabezadoConsumos;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"Promociones\"`]")
+    private MobileElement encabezadoPromociones;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`value == \"Cerveza\"`]")
     @AndroidFindBy(xpath = "//*[contains(@text,'Producto')]")
     protected MobileElement campoProducto;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`value == \"Todas las marcas\"`]")
     @AndroidFindBy(xpath = "//*[contains(@text,'marcas')]")
     protected MobileElement campoMarcas;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"TODAS\"`]")
     @AndroidFindBy(xpath = "//*[contains(@text,'TODAS')]")
     protected MobileElement campoTodas;
 
-    @iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"ME INTERESA\"`]")
     @AndroidFindBy(xpath = "//*[contains(@text,'ME INTERESA')]")
     protected MobileElement campoMeInteresa;
 
-    @iOSXCUITFindBy(xpath = "")
+//    @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(xpath = "//*[contains(@text,'Logo HorecaTec')]")
     protected MobileElement logoWebCartaDigital;
 
-    @iOSXCUITFindBy(xpath = "")
+//    @iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(xpath = "//*[contains(@text,'Visualizar carta')]")
     protected MobileElement botonVerCarta;
 
+
+    public void  verificarEncabezadoConsumo() {
+        if(isAndroid()) {
+            verificarTituloEncabezado("Consumos");
+        } else {
+            waitUntilElementIsVisible(encabezadoConsumos,15);
+        }
+    }
+
+    public void  verificarEncabezadoPromociones() {
+        if(isAndroid()) {
+            verificarTituloEncabezado("Promo");
+        } else {
+            waitUntilElementIsVisible(encabezadoPromociones,15);
+        }
+    }
+
+    private void verificarTituloEncabezado(String Titulo){
+        String tituloEncabezado = getText(encabezado,5);
+        boolean condicionTitulo = tituloEncabezado.contains(Titulo);
+        Assert.assertTrue(condicionTitulo, Titulo);
+    }
 
     public void textoProducto(){
         waitUntilElementIsVisible(campoProducto,15);

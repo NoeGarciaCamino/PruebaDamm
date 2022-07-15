@@ -12,11 +12,13 @@ public class ToolsStep {
     private Views view;
 
     public void verificarConsumo(){
+        view.tools().verificarEncabezadoConsumo();
         view.tools().textoProducto();
         view.tools().textoMarcas();
     }
 
     public void verificarPromociones(){
+        view.tools().verificarEncabezadoPromociones();
         view.tools().textoTodas();
         view.tools().textoMeInteresa();
     }

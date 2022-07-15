@@ -35,9 +35,29 @@ public class ReadProperties {
         return properties.getProperty("passNueva");
     }
 
+    public String pasarEmailNuevo() {
+        String email = properties.getProperty("userName");
+
+        int posicionArroba = email.indexOf("@");
+        char caracterPrevio = email.charAt(posicionArroba-1);
+
+        if(caracterPrevio == '.') {
+            email = email.replace(".@", "@");
+        } else {
+            email = email.replace("@", ".@");
+        }
+        properties.setProperty("userNameNuevo", email);
+        return email;
+    }
+
     public void cambiarPassNXPassA(){
         String passNueva = properties.getProperty("passNueva");
         properties.setProperty("password", passNueva);
+    }
+
+    public void cambiarEmailNXEmailA(){
+        String passNueva = properties.getProperty("userNameNuevo");
+        properties.setProperty("userName", passNueva);
     }
 
     public void escribirArchivoProperties(){

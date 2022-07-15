@@ -35,7 +35,7 @@ public class HomeStepDefinition {
     public void retrocedoALaHomeYConfirmoLosDatosDelBar() {
         settingStep.tapAtras();
         settingStep.tapAtras();
-        homeStep.verificarEstDefecto("BAR MIGUELITO");
+        homeStep.verificarEstDefecto("EL RACO ITALIA");
     }
 
     @Dado("que pulso el selector de establecimiento")
@@ -50,7 +50,7 @@ public class HomeStepDefinition {
 
     @Entonces("verifico que se ha realizado el cambio")
     public void verificoQueSeHaRealizadoElCambio() {
-        homeStep.verificarOtroNegocio("RESID");
+        homeStep.verificarOtroNegocio("FRANK");
     }
 
     @Entonces("accedo a Carta digital")

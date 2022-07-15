@@ -33,6 +33,14 @@ public class SettingStep {
         view.setting().repitePass();
     }
 
+    public void introducirEmailNuevo(){
+        view.setting().emailNuevo();
+    }
+
+    public void repetirEmailNuevo(){
+        view.setting().repiteEmail();
+    }
+
     public void tapGuardar(){
         view.setting().botonGuardar();
     }
@@ -59,12 +67,16 @@ public class SettingStep {
         view.setting().pulsarOtroNegocio();
     }
 
-    public void tapBarMiguelito(){
-        view.setting().pulsarBarMiguelito();
+    public void tapElRacoItalia(){
+        view.setting().pulsarElRacoItalia();
     }
 
     public void tapIdioma(){
         view.setting().accesoIdiomas();
+    }
+
+    public void tapEmail(){
+        view.setting().accesoEmail();
     }
 
     public void tapCat(){

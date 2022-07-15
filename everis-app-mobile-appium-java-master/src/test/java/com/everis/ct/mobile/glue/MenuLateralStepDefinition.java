@@ -36,7 +36,6 @@ public class MenuLateralStepDefinition {
         homeStep.tapMenuHamburguesa();
         menuLateralStep.tapMiNegocio();
         menuLateralStep.tapConsumo();
-        homeStep.verificarEncabezado("Consumos");
         toolsStep.verificarConsumo();
     }
 
@@ -45,7 +44,6 @@ public class MenuLateralStepDefinition {
         homeStep.tapMenuHamburguesa();
         menuLateralStep.tapMiNegocio();
         menuLateralStep.tapPromociones();
-        homeStep.verificarEncabezado("Promo");
         toolsStep.verificarPromociones();
     }
 }

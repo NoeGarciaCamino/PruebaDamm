@@ -4,7 +4,6 @@ import com.everis.ct.mobile.base.MobileBase;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
@@ -24,11 +23,11 @@ public class HomeView extends MobileBase {
     @AndroidFindBy(accessibility = "Open navigation drawer")
     protected MobileElement menuLateral;
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name=\"DammBarsPre.HomeView\"]/XCUIElementTypeOther/XCUIElementTypeStaticText[1]")//accessibility = "  BAR MIGUELITO")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name=\"DammBarsPre.HomeView\"]/XCUIElementTypeOther/XCUIElementTypeStaticText[1]")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/toolbar_title")
     protected MobileElement encabezado;
 
-    @iOSXCUITFindBy(accessibility = "Consumo total")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name,'Consum') and contains(@name,' total')]")
     @AndroidFindBy(id = "com.damm.dammbars.pre:id/business_title_view")
     protected MobileElement consumoTotalHome;
 
@@ -43,6 +42,14 @@ public class HomeView extends MobileBase {
     //@iOSXCUITFindBy(xpath = "")
     @AndroidFindBy(xpath = "//*[contains(@text,'ESTE DISPOSITIVO')]")
     protected MobileElement botonEsteDispositivo;
+
+
+
+    @iOSXCUITFindBy(accessibility = "FRANKFURT AVENIDA 90")
+    protected MobileElement otroNegocio;
+
+    @iOSXCUITFindBy(accessibility = "  EL RACO ITALIA")
+    protected MobileElement elRacoItalia;
 
 
     public void verificarAcceso(){
@@ -67,14 +74,21 @@ public class HomeView extends MobileBase {
 
     public void pulsarOtroNegocio(){
         if(isAndroid()) {
+            sleep(5000);
             tapByCoordinates(1572);
         } else {
-
+            waitUntilElementIsVisible(otroNegocio, 10);
+            tap(otroNegocio);
         }
     }
 
-    public void pulsarMigueltio(){
-        tapByCoordinates(1361);
+    public void pulsarElRacoItalia(){
+        if(isAndroid()) {
+            tapByCoordinates(1361);
+        } else {
+            waitUntilElementIsVisible(elRacoItalia, 10);
+            tap(elRacoItalia);
+        }
     }
 
 

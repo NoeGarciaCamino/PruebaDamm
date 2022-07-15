@@ -53,16 +53,12 @@ public class AccesoView extends MobileBase {
 
     public void tapAllowNotifications() {
         try {
-            tap(btnAllow, 10);
+            waitUntilElementIsVisible(btnAllow, 15);
+            tap(btnAllow);
         } catch (Exception ignore) {}
     }
 
-    public void verificarAperturaAplicacion() throws InterruptedException {
-        //TODO prueba. Borrar
-//        driver().activateApp("com.android.chrome");
-//
-//        sleep(20000);
-
+    public void verificarAperturaAplicacion() {
         waitUntilElementIsVisible(tituloBienvenida, 30);
     }
 

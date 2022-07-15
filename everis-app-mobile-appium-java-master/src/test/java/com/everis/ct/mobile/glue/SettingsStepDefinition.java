@@ -3,6 +3,7 @@ package com.everis.ct.mobile.glue;
 import com.everis.ct.mobile.MobileAutomationApplication;
 import com.everis.ct.mobile.lib.MobileDriverManager;
 import com.everis.ct.mobile.step.*;
+import com.everis.ct.mobile.utils.MailUtility;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.Reporter;
 import org.testng.xml.XmlTest;
+
+import java.util.concurrent.TimeoutException;
 
 @SpringBootTest(classes = MobileAutomationApplication.class)
 public class SettingsStepDefinition {
@@ -38,6 +41,24 @@ public class SettingsStepDefinition {
         settingStep.introducirPassNueva();
         settingStep.repetirPassNueva();
         settingStep.tapGuardar();
+    }
+
+    @Cuando("cambio el email antiguo por el nuevo email")
+    public void cambioElEmail() {
+        settingStep.introducirEmailNuevo();
+        settingStep.repetirEmailNuevo();
+        //TODO descomentar el guardar
+//        settingStep.tapGuardar();
+    }
+
+    @Y("recibo y valido el email")
+    public void reciboYValidoMail() {
+        //Espera para que llegue el mail
+        try {
+            Thread.sleep(15000);
+        } catch (InterruptedException ignore) { }
+
+        MailUtility.leerEmailYAccederAUrl();
     }
 
     @Entonces("hago logout y login con el email y la pass")
@@ -92,12 +113,20 @@ public class SettingsStepDefinition {
         menuLateralStep.tapConfiguracion();
         settingStep.verificarMenuConfig();
         settingStep.pulsarCerrarSesion();
-        manager.quitDriver();
-        manager.setUpDriver();
-        manager.clearCacheApp("com.android.chrome");
+        try {
+            settingStep.tapPopUpSi();
+        } catch(org.openqa.selenium.TimeoutException e) {
+            System.err.println("No ha aparecido el popup al cerrar sesión");
+            e.printStackTrace();
+            //TODO Lanzar excepción? aparece en ios pero no en android?
+//            throw new org.openqa.selenium.TimeoutException("No ha aparecido el popup al cerrar sesión", e);
+        }
+//        manager.quitDriver();
+//        manager.setUpDriver();
+//        manager.clearCacheApp("com.android.chrome");
         accesoStep.accederConCuenta();
-        loginStep.aceptarTerminosGoogle();
-        loginStep.aceptarSync();
+//        loginStep.aceptarTerminosGoogle();
+//        loginStep.aceptarSync();
         loginStep.introducirEmail();
         loginStep.introducirPass();
         loginStep.accederHome();
@@ -106,14 +135,19 @@ public class SettingsStepDefinition {
         menuLateralStep.tapConfiguracion();
         settingStep.verificarMenuConfig();
         settingStep.pulsarMisEstablecimientos();
-        settingStep.tapBarMiguelito();
+        settingStep.tapElRacoItalia();
         settingStep.tapGuardar();
-        homeStep.verificarEstDefecto("BAR MIGUELITO");
+        homeStep.verificarEstDefecto("EL RACO ITALIA");
     }
 
     @Cuando("accedo a idiomas")
     public void accedoAIdiomas() {
         settingStep.tapIdioma();
+    }
+
+    @Cuando("accedo al email")
+    public void accedoAlEmail() {
+        settingStep.tapEmail();
     }
 
     @Entonces("cambio el idioma de la aplicación")

@@ -4,9 +4,6 @@ import com.everis.ct.mobile.service.aspect.evidence.ScreenShot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
-
 @Component
 @ScreenShot
 public class HomeStep {
@@ -43,8 +40,8 @@ public class HomeStep {
         view.home().pulsarOtroNegocio();
     }
 
-    public void tapMiguelito(){
-        view.home().pulsarMigueltio();
+    public void tapElRacoItalia(){
+        view.home().pulsarElRacoItalia();
     }
 
     public void verificarOtroNegocio(String Titulo){
@@ -53,7 +50,12 @@ public class HomeStep {
         view.home().tapMenuLateral();
         view.menuLateral().tapBotonConfig();
         view.setting().flagConsumo();
-        view.setting().aceptarPopUpConsumo();
+        try {
+            view.setting().aceptarPopUpConsumo();
+        } catch(Exception e) {
+            System.err.println("No ha aparecido el popup de confirmación para el switch de consumo");
+            e.printStackTrace();
+        }
         view.setting().pulsarAtras();
         view.home().verificarNoAparece("MI NEGOCIO");
     }
