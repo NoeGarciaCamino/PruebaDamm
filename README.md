@@ -5,6 +5,12 @@
 
 Java + SpringBoot + Appium + Cucumber + TestNG + Maven
 
+## Credenciales
+
+He apuntado correos y usuarios de la app en un archivo:
+
+`everis-app-mobile-appium-java-master/credenciales.md`
+
 
 ## Estructura maven
 

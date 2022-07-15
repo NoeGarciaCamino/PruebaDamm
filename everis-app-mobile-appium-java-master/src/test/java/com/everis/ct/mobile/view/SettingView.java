@@ -71,14 +71,11 @@ public class SettingView extends MobileBase{
     @iOSXCUITFindBy(accessibility = "EL RACO ITALIA")
     @AndroidFindBy(xpath = "//*[contains(@text,'EL RACO')]")
     protected MobileElement elRacoItalia;
-    //EL RACO ITALIA
-    //FRANKFURT AVENIDA 90
 
     @iOSXCUITFindBy(accessibility = "FRANKFURT AVENIDA 90")
     @AndroidFindBy(xpath = "//*[contains(@text,'FRANKFURT')]")
     protected MobileElement otroNegocio;
 
-    //TODO problemas ios. No encuentro el checkbox o imagen
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther")
     @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/image_right_view')])[1]")
     protected MobileElement checkBoxElRacoItalia;
