@@ -4,9 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.everis.continuous-testing</groupId>
-    <artifactId>mobile-automation-example</artifactId>
+    <artifactId>mobile-automation-damm</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    <name>DAMM</name>
     <description>Mobile Test</description>
 
     <properties>

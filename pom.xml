@@ -6,7 +6,6 @@
     <groupId>com.everis.continuous-testing</groupId>
     <artifactId>mobile-automation-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
     <packaging>pom</packaging>
 
     <name>DAMM Parent</name>
@@ -23,6 +22,5 @@
         <module>everis-app-mobile-appium-java-master</module>
         <module>everis-lib-mobile-appium-java-master</module>
     </modules>
-
 
 </project>
