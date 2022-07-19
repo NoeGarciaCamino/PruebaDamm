@@ -11,7 +11,7 @@
         <parameter name="port" value="443"/>
         <parameter name="platformName" value="ios"/>
         <classes>
-            <class name="com.everis.ct.mobile.runner.RunneriPhone12mini"/>
+            <class name="com.everis.ct.mobile.runner.RunneriPhone"/>
         </classes>
     </test>
 </suite>

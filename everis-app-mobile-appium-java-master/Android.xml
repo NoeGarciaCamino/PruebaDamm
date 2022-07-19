@@ -11,7 +11,7 @@
         <parameter name="port" value="443"/>
         <parameter name="platformName" value="android"/>
         <classes>
-            <class name="com.everis.ct.mobile.runner.RunnerGooglePixel"/>
+            <class name="com.everis.ct.mobile.runner.RunnerAndroid"/>
         </classes>
     </test>
 </suite>
