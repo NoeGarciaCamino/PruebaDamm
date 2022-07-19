@@ -76,7 +76,7 @@
                 <version>2.18</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>parallelExecution.xml</suiteXmlFile>
+                        <suiteXmlFile>${suiteXmlFiles}</suiteXmlFile>
                     </suiteXmlFiles>
 
                     <testFailureIgnore>false</testFailureIgnore>
