@@ -41,10 +41,10 @@ public class ReadProperties {
         int posicionArroba = email.indexOf("@");
         char caracterPrevio = email.charAt(posicionArroba-1);
 
-        if(caracterPrevio == '.') {
-            email = email.replace(".@", "@");
+        if(caracterPrevio == '+') {
+            email = email.replace("+1@", "@");
         } else {
-            email = email.replace("@", ".@");
+            email = email.replace("@", "+1@");
         }
         properties.setProperty("userNameNuevo", email);
         return email;
