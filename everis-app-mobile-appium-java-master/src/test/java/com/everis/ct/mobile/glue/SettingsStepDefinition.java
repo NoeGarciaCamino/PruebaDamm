@@ -47,8 +47,7 @@ public class SettingsStepDefinition {
     public void cambioElEmail() {
         settingStep.introducirEmailNuevo();
         settingStep.repetirEmailNuevo();
-        //TODO descomentar el guardar
-//        settingStep.tapGuardar();
+        settingStep.tapGuardar();
     }
 
     @Y("recibo y valido el email")
