@@ -7,7 +7,8 @@
     </listeners>
     <test name="iPhone">
 <!--        <parameter name="udid" value="iPhone_12_mini_14_POC12"/>-->
-        <parameter name="udid" value="iPhone_8_15_real"/>
+<!--        <parameter name="udid" value="iPhone_8_15_real"/>-->
+        <parameter name="udid" value="iPhone 11"/>
         <parameter name="port" value="443"/>
         <parameter name="platformName" value="ios"/>
         <classes>
