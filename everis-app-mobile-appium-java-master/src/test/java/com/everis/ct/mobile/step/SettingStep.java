@@ -33,6 +33,10 @@ public class SettingStep {
         view.setting().repitePass();
     }
 
+    public void introducirEmailActual(){
+        view.setting().emailActual();
+    }
+
     public void introducirEmailNuevo(){
         view.setting().emailNuevo();
     }
@@ -67,8 +71,8 @@ public class SettingStep {
         view.setting().pulsarOtroNegocio();
     }
 
-    public void tapElRacoItalia(){
-        view.setting().pulsarElRacoItalia();
+    public void tapBar1(){
+        view.setting().pulsarBar1();
     }
 
     public void tapIdioma(){
@@ -101,5 +105,9 @@ public class SettingStep {
 
     public void tapPopUpSi(){
         view.setting().aceptarPopUpConsumo();
+    }
+
+    public void tapPopUpIOS(){
+        view.setting().aceptarPopUpIOS();
     }
 }

@@ -43,12 +43,10 @@ public class HomeView extends MobileBase {
     @AndroidFindBy(xpath = "//*[contains(@text,'ESTE DISPOSITIVO')]")
     protected MobileElement botonEsteDispositivo;
 
-
-
-    @iOSXCUITFindBy(accessibility = "FRANKFURT AVENIDA 90")
+    @iOSXCUITFindBy(accessibility = "PIKA PIKA")
     protected MobileElement otroNegocio;
 
-    @iOSXCUITFindBy(accessibility = "  EL RACO ITALIA")
+    @iOSXCUITFindBy(accessibility = "BAR AQUI MISMO")
     protected MobileElement elRacoItalia;
 
 
@@ -66,11 +64,14 @@ public class HomeView extends MobileBase {
         tap(encabezado);
     }
 
-    public void verificarTituloEncabezado(String Titulo){
-        String tituloEncabezado = getText(encabezado,5);
-        boolean condicionTitulo = tituloEncabezado.contains(Titulo);
-        Assert.assertTrue(condicionTitulo, Titulo);
+    public void verificarTituloEncabezado(){
+        waitUntilElementIsVisible(encabezado,15);
+//            String tituloEncabezado = getText(encabezado,5);
+//            boolean condicionTitulo = tituloEncabezado.contains(Titulo);
+//            Assert.assertTrue(condicionTitulo, Titulo);
     }
+
+
 
     public void pulsarOtroNegocio(){
         if(isAndroid()) {

@@ -17,6 +17,10 @@ public class SettingView extends MobileBase{
     @AndroidFindBy(xpath = "(//*[contains(@text,'Editar')])[1]")
     protected MobileElement botonEmail;
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`value == \"Dirección de correo electrónico actual\"`]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'actual')]")
+    protected MobileElement emailActual;
+
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`value == \"Nueva dirección de correo electrónico\"`]")
     @AndroidFindBy(xpath = "//*[contains(@text,'Nueva dir')]")
     protected MobileElement emailNuevo;
@@ -68,17 +72,17 @@ public class SettingView extends MobileBase{
     @AndroidFindBy(xpath = "//*[contains(@text,'Mis establecimientos')]")
     protected MobileElement misEstablecimientos;
 
-    @iOSXCUITFindBy(accessibility = "EL RACO ITALIA")
-    @AndroidFindBy(xpath = "//*[contains(@text,'EL RACO')]")
-    protected MobileElement elRacoItalia;
+    @iOSXCUITFindBy(accessibility = "BAR AQUI MISMO")
+    @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/title_text_view')])[1]")
+    protected MobileElement bar1;
 
-    @iOSXCUITFindBy(accessibility = "FRANKFURT AVENIDA 90")
-    @AndroidFindBy(xpath = "//*[contains(@text,'FRANKFURT')]")
+    @iOSXCUITFindBy(accessibility = "PIKA PIKA")
+    @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/title_text_view')])[2]")
     protected MobileElement otroNegocio;
 
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther")
     @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/image_right_view')])[1]")
-    protected MobileElement checkBoxElRacoItalia;
+    protected MobileElement checkBoxBar1;
 
     @iOSXCUITFindBy(accessibility = "Atrás")
     @AndroidFindBy(accessibility = "Desplazarse hacia arriba")
@@ -200,6 +204,18 @@ public class SettingView extends MobileBase{
 
     }
 
+    public void emailActual(){
+        ReadProperties properties = new ReadProperties();
+        waitUntilElementIsVisible(emailActual, 15);
+        emailActual.sendKeys(properties.pasarEmail());
+
+
+        if(isIOS()) {
+            waitUntilElementIsVisible(nextTeclado, 15);
+            tap(nextTeclado);
+        }
+    }
+
     public void emailNuevo(){
         ReadProperties properties = new ReadProperties();
         waitUntilElementIsVisible(emailNuevo, 15);
@@ -252,8 +268,8 @@ public class SettingView extends MobileBase{
     }
 
     public void verificarBarDefecto(){
-        waitUntilElementIsVisible(elRacoItalia,15);
-        checkBoxElRacoItalia.isSelected();
+        waitUntilElementIsVisible(bar1,15);
+        checkBoxBar1.isSelected();
     }
 
     public void pulsarAtras(){
@@ -271,9 +287,9 @@ public class SettingView extends MobileBase{
         tap(otroNegocio);
     }
 
-    public void pulsarElRacoItalia(){
-        waitUntilElementIsVisible(elRacoItalia,15);
-        tap(elRacoItalia);
+    public void pulsarBar1(){
+        waitUntilElementIsVisible(bar1,15);
+        tap(bar1);
     }
 
     public void accesoIdiomas(){
@@ -300,13 +316,21 @@ public class SettingView extends MobileBase{
     public void flagConsumo(){
         ScrollToElement(autorizacionDatos);
         tap(flagConsumos);
-        sleep(8000);
+        sleep(9000);
     }
 
     public void aceptarPopUpConsumo(){
         waitUntilElementIsVisible(popUpSi,15);
         tap(popUpSi);
         sleep(8000);
+    }
+
+    public void aceptarPopUpIOS(){
+        if(isIOS()){
+            waitUntilElementIsVisible(popUpSi,15);
+            tap(popUpSi);
+            sleep(8000);
+        }
     }
 
     public void flagPromociones(){

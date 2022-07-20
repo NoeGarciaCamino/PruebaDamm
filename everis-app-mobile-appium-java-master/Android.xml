@@ -7,7 +7,7 @@
     </listeners>
     <test name="Android">
 <!--        <parameter name="udid" value="Google_Pixel_3a_POC03"/>-->
-        <parameter name="udid" value="One_Plus_7_real"/>
+        <parameter name="udid" value="Google_Pixel_3a_real"/>
         <parameter name="port" value="443"/>
         <parameter name="platformName" value="android"/>
         <classes>

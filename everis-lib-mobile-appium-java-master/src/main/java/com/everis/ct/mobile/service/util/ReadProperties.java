@@ -2,8 +2,9 @@ package com.everis.ct.mobile.service.util;
 
 import java.io.*;
 import java.util.Properties;
+import com.everis.ct.mobile.base.MobileBase;
 
-public class ReadProperties {
+public class ReadProperties extends MobileBase {
     Properties properties = new Properties();
     String path = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "application.properties";
     {
@@ -19,45 +20,88 @@ public class ReadProperties {
      }
 
     public String pasarEmail(){
-        return properties.getProperty("userName");
+        if(isIOS()){
+            return properties.getProperty("userNameIOS");
+        }else{
+            return properties.getProperty("userName");
+        }
     }
 
     public String pasarPass(){
-        return properties.getProperty("password");
+        if(isIOS()){
+            return properties.getProperty("passwordIOS");
+        }else{
+            return properties.getProperty("password");
+        }
     }
 
     public String pasarPassNueva(){
-        String pass = properties.getProperty("password");
-        String digitos = pass.substring(5,9);
-        int numero = Integer.parseInt(digitos);
-        String passFinal = pass.substring(0,5) + String.valueOf(numero+1);
-        properties.setProperty("passNueva", passFinal);
-        return properties.getProperty("passNueva");
+        if (isIOS()){
+            String pass = properties.getProperty("passwordIOS");
+            String digitos = pass.substring(5, 9);
+            int numero = Integer.parseInt(digitos);
+            String passFinal = pass.substring(0, 5) + String.valueOf(numero + 1);
+            properties.setProperty("passNuevaIOS", passFinal);
+            return properties.getProperty("passNuevaIOS");
+        }else {
+            String pass = properties.getProperty("password");
+            String digitos = pass.substring(5, 9);
+            int numero = Integer.parseInt(digitos);
+            String passFinal = pass.substring(0, 5) + String.valueOf(numero + 1);
+            properties.setProperty("passNueva", passFinal);
+            return properties.getProperty("passNueva");
+        }
     }
 
     public String pasarEmailNuevo() {
-        String email = properties.getProperty("userName");
+        boolean isIOS = isIOS();
+        if(isIOS){
+            String email = properties.getProperty("userNameIOS");
 
-        int posicionArroba = email.indexOf("@");
-        char caracterPrevio = email.charAt(posicionArroba-1);
+            int posicionArroba = email.indexOf("@");
+            char caracterPrevio = email.charAt(posicionArroba-1);
 
-        if(caracterPrevio == '+') {
-            email = email.replace("+1@", "@");
-        } else {
-            email = email.replace("@", "+1@");
+            if(caracterPrevio == '3') {
+                email = email.replace("+3@", "+1@");
+            } else {
+                email = email.replace("+1@", "+3@");
+            }
+            properties.setProperty("userNameNuevoIOS", email);
+            return properties.getProperty("userNameNuevoIOS");
+        }else {
+            String email = properties.getProperty("userName");
+
+            int posicionArroba = email.indexOf("@");
+            char caracterPrevio = email.charAt(posicionArroba-1);
+
+            if(caracterPrevio == '2') {
+                email = email.replace("+2@", "@");
+            } else {
+                email = email.replace("@", "+2@");
+            }
+            properties.setProperty("userNameNuevo", email);
+            return properties.getProperty("userNameNuevo");
         }
-        properties.setProperty("userNameNuevo", email);
-        return email;
     }
 
     public void cambiarPassNXPassA(){
-        String passNueva = properties.getProperty("passNueva");
-        properties.setProperty("password", passNueva);
+        if (isIOS()) {
+            String passNueva = properties.getProperty("passNuevaIOS");
+            properties.setProperty("passwordIOS", passNueva);
+        }else{
+            String passNueva = properties.getProperty("passNueva");
+            properties.setProperty("password", passNueva);
+        }
     }
 
     public void cambiarEmailNXEmailA(){
-        String passNueva = properties.getProperty("userNameNuevo");
-        properties.setProperty("userName", passNueva);
+        if (isIOS()){
+            String userNuevo = properties.getProperty("userNameNuevoIOS");
+            properties.setProperty("userNameIOS", userNuevo);
+        }else {
+            String userNuevo = properties.getProperty("userNameNuevo");
+            properties.setProperty("userName", userNuevo);
+        }
     }
 
     public void escribirArchivoProperties(){

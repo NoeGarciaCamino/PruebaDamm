@@ -9,22 +9,22 @@ Característica: Regresion Damm - Settings
     Y validar que se accede a la home
 
   Escenario: Caso3- Cambio contraseña
-    Dado que accedo al menu de configuración
+    Dado que accedo al menu de configuracion
     Cuando cambio la pass antigua por la pass nueva
     Entonces hago logout y login con el email y la pass
 
 
   Escenario: Caso4- Cambio de idioma
-    Dado que accedo al menu de configuración
+    Dado que accedo al menu de configuracion
     Cuando accedo a idiomas
-    Entonces cambio el idioma de la aplicación
+    Entonces cambio el idioma de la aplicacion
     Y reestablezco el idioma por defecto
 
-  Escenario: CasoPrueba- Cambio de email
-    Dado que accedo al menu de configuración
-    Y accedo al email
+##  Escenario: CasoPrueba- Cambio de email
+##    Dado que accedo al menu de configuracion
+##    Y accedo al email
 ##  ##### Esta hecho para que le añada/quite un punto antes de la arroba @
 ##  ##### Quiza cambiar tactica en ReadProperties por +numero, por ejemplo +10@
-    Cuando cambio el email antiguo por el nuevo email
-    Y recibo y valido el email
-    Entonces hago logout y login con el email y la pass
+##    Cuando cambio el email antiguo por el nuevo email
+##    Y recibo y valido el email
+##    Entonces hago logout y login con el email y la pass

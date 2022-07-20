@@ -13,17 +13,10 @@ public class HomeStep {
 
     public void tapMenuHamburguesa(){
         view.home().tapMenuLateral();
-
-//        try {
-//            Robot r = new Robot();
-//            r.keyPress(KeyEvent.VK_END);
-//        } catch (AWTException e) {
-//            throw new RuntimeException(e);
-//        }
     }
 
-    public void verificarEstDefecto(String Bar){
-        view.home().verificarTituloEncabezado(Bar);
+    public void verificarEstDefecto(){
+        view.home().verificarTituloEncabezado();
         view.home().tapMenuLateral();
         view.menuLateral().tapBotonConfig();
         view.setting().flagConsumo();
@@ -44,18 +37,13 @@ public class HomeStep {
         view.home().pulsarElRacoItalia();
     }
 
-    public void verificarOtroNegocio(String Titulo){
+    public void verificarOtroNegocio(){
         view.home().verificarAcceso();
-        view.home().verificarTituloEncabezado(Titulo);
+        view.home().verificarTituloEncabezado();
         view.home().tapMenuLateral();
         view.menuLateral().tapBotonConfig();
         view.setting().flagConsumo();
-        try {
-            view.setting().aceptarPopUpConsumo();
-        } catch(Exception e) {
-            System.err.println("No ha aparecido el popup de confirmación para el switch de consumo");
-            e.printStackTrace();
-        }
+        view.setting().aceptarPopUpConsumo();
         view.setting().pulsarAtras();
         view.home().verificarNoAparece("MI NEGOCIO");
     }
@@ -76,8 +64,8 @@ public class HomeStep {
         view.home().verificarNoAparece(texto);
     }
 
-    public void verificarEncabezado(String Titulo){
-        view.home().verificarTituloEncabezado(Titulo);
+    public void verificarEncabezado(){
+        view.home().verificarTituloEncabezado();
     }
 
     public void tapCartaDigital(){

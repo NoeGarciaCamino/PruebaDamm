@@ -45,9 +45,11 @@ public class SettingsStepDefinition {
 
     @Cuando("cambio el email antiguo por el nuevo email")
     public void cambioElEmail() {
+        settingStep.introducirEmailActual();
         settingStep.introducirEmailNuevo();
         settingStep.repetirEmailNuevo();
         settingStep.tapGuardar();
+        settingStep.tapAceptar();
     }
 
     @Y("recibo y valido el email")
@@ -83,8 +85,8 @@ public class SettingsStepDefinition {
         loginStep.verificarHome();
     }
 
-    @Dado("que accedo al menu de configuración")
-    public void queAccedoAlMenuDeConfiguración() {
+    @Dado("que accedo al menu de configuracion")
+    public void queAccedoAlMenuDeConfiguracion() {
         homeStep.tapMenuHamburguesa();
         menuLateralStep.tapConfiguracion();
         settingStep.verificarMenuConfig();
@@ -112,14 +114,14 @@ public class SettingsStepDefinition {
         menuLateralStep.tapConfiguracion();
         settingStep.verificarMenuConfig();
         settingStep.pulsarCerrarSesion();
-        try {
-            settingStep.tapPopUpSi();
-        } catch(org.openqa.selenium.TimeoutException e) {
-            System.err.println("No ha aparecido el popup al cerrar sesión");
-            e.printStackTrace();
+//        try {
+        settingStep.tapPopUpIOS();
+//        } catch(org.openqa.selenium.TimeoutException e) {
+//            System.err.println("No ha aparecido el popup al cerrar sesión");
+//            e.printStackTrace();
             //TODO Lanzar excepción? aparece en ios pero no en android?
 //            throw new org.openqa.selenium.TimeoutException("No ha aparecido el popup al cerrar sesión", e);
-        }
+//        }
 //        manager.quitDriver();
 //        manager.setUpDriver();
 //        manager.clearCacheApp("com.android.chrome");
@@ -134,9 +136,9 @@ public class SettingsStepDefinition {
         menuLateralStep.tapConfiguracion();
         settingStep.verificarMenuConfig();
         settingStep.pulsarMisEstablecimientos();
-        settingStep.tapElRacoItalia();
+        settingStep.tapBar1();
         settingStep.tapGuardar();
-        homeStep.verificarEstDefecto("EL RACO ITALIA");
+        homeStep.verificarEstDefecto();
     }
 
     @Cuando("accedo a idiomas")
@@ -149,8 +151,8 @@ public class SettingsStepDefinition {
         settingStep.tapEmail();
     }
 
-    @Entonces("cambio el idioma de la aplicación")
-    public void cambioElIdiomaDeLaAplicación() {
+    @Entonces("cambio el idioma de la aplicacion")
+    public void cambioElIdiomaDeLaAplicacion() {
         settingStep.tapCat();
         settingStep.tapGuardar();
         settingStep.tapAceptar();
