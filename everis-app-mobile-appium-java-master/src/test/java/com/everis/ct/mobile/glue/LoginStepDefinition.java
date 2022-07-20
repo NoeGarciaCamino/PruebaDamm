@@ -47,5 +47,4 @@ public class LoginStepDefinition {
     public void validarQueSeAccedeALaHome() {
         loginStep.verificarHome();
     }
-
 }

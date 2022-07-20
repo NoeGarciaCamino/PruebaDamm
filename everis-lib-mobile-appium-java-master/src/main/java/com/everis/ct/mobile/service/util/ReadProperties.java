@@ -20,11 +20,19 @@ public class ReadProperties extends MobileBase {
      }
 
     public String pasarEmail(){
-        return properties.getProperty("userName");
+        if(isIOS()){
+            return properties.getProperty("userNameIOS");
+        }else{
+            return properties.getProperty("userName");
+        }
     }
 
     public String pasarPass(){
-        return properties.getProperty("password");
+        if(isIOS()){
+            return properties.getProperty("passwordIOS");
+        }else{
+            return properties.getProperty("password");
+        }
     }
 
     public String pasarPassNueva(){

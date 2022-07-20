@@ -9,20 +9,20 @@ Característica: Regresion Damm - Bar Tools
     Y validar que se accede a la home
 
   Escenario: Caso8- Flag Consumos
-    Dado que accedo al menu de configuración
+    Dado que accedo al menu de configuracion
     Cuando desactivo el flag de consumo
     Y activo el flag de consumo
     Entonces entro al consumo desde el menu lateral
 
 
-  Escenario: Caso9- Flag Promociones
-    Dado que accedo al menu de configuración
-    Cuando desactivo el flag de promociones
-    Y activo el flag de promociones
-    Entonces entro a promociones desde el menu lateral
-
-
-  Escenario: Caso10- Carta Digital
-    Dado que pulso el selector de establecimiento
-    Cuando cambio de negocio
-    Entonces accedo a Carta digital
+#  Escenario: Caso9- Flag Promociones
+#    Dado que accedo al menu de configuracion
+#    Cuando desactivo el flag de promociones
+#    Y activo el flag de promociones
+#    Entonces entro a promociones desde el menu lateral
+#
+#
+#  Escenario: Caso10- Carta Digital
+#    Dado que pulso el selector de establecimiento
+#    Cuando cambio de negocio
+#    Entonces accedo a Carta digital

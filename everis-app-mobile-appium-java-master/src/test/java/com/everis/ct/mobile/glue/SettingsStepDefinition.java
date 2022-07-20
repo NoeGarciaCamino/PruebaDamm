@@ -114,14 +114,14 @@ public class SettingsStepDefinition {
         menuLateralStep.tapConfiguracion();
         settingStep.verificarMenuConfig();
         settingStep.pulsarCerrarSesion();
-        try {
-            settingStep.tapPopUpSi();
-        } catch(org.openqa.selenium.TimeoutException e) {
-            System.err.println("No ha aparecido el popup al cerrar sesión");
-            e.printStackTrace();
+//        try {
+        settingStep.tapPopUpIOS();
+//        } catch(org.openqa.selenium.TimeoutException e) {
+//            System.err.println("No ha aparecido el popup al cerrar sesión");
+//            e.printStackTrace();
             //TODO Lanzar excepción? aparece en ios pero no en android?
 //            throw new org.openqa.selenium.TimeoutException("No ha aparecido el popup al cerrar sesión", e);
-        }
+//        }
 //        manager.quitDriver();
 //        manager.setUpDriver();
 //        manager.clearCacheApp("com.android.chrome");
@@ -136,9 +136,9 @@ public class SettingsStepDefinition {
         menuLateralStep.tapConfiguracion();
         settingStep.verificarMenuConfig();
         settingStep.pulsarMisEstablecimientos();
-        settingStep.tapElRacoItalia();
+        settingStep.tapBar1();
         settingStep.tapGuardar();
-        homeStep.verificarEstDefecto("EL RACO ITALIA");
+        homeStep.verificarEstDefecto();
     }
 
     @Cuando("accedo a idiomas")
