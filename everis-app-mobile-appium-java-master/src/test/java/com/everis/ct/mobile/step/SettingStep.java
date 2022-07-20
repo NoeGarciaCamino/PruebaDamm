@@ -33,6 +33,10 @@ public class SettingStep {
         view.setting().repitePass();
     }
 
+    public void introducirEmailActual(){
+        view.setting().emailActual();
+    }
+
     public void introducirEmailNuevo(){
         view.setting().emailNuevo();
     }

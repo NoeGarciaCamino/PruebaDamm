@@ -17,6 +17,10 @@ public class SettingView extends MobileBase{
     @AndroidFindBy(xpath = "(//*[contains(@text,'Editar')])[1]")
     protected MobileElement botonEmail;
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`value == \"Dirección de correo electrónico actual\"`]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'actual')]")
+    protected MobileElement emailActual;
+
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`value == \"Nueva dirección de correo electrónico\"`]")
     @AndroidFindBy(xpath = "//*[contains(@text,'Nueva dir')]")
     protected MobileElement emailNuevo;
@@ -198,6 +202,18 @@ public class SettingView extends MobileBase{
             tap(nextTeclado);
         }
 
+    }
+
+    public void emailActual(){
+        ReadProperties properties = new ReadProperties();
+        waitUntilElementIsVisible(emailActual, 15);
+        emailActual.sendKeys(properties.pasarEmail());
+
+
+        if(isIOS()) {
+            waitUntilElementIsVisible(nextTeclado, 15);
+            tap(nextTeclado);
+        }
     }
 
     public void emailNuevo(){

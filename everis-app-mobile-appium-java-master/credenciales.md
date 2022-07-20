@@ -32,4 +32,4 @@ Ojo con el + de los usuarios de la app. Dos correos para varios usuarios.
 * Pass: Damm2022!
 
 * User: a.t.bm+1@hotmail.com
-* Pass: Damm2022!
+* Pass: !Damm2020

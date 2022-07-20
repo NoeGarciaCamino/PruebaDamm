@@ -146,7 +146,7 @@ public class CommonsActionsDom implements ICommonsActions {
     }
 
     public void ScrollToElement(MobileElement elemento){
-        int numberOfTimes = 20;
+        int numberOfTimes = 4;
         Dimension size = driver.manage().window().getSize();
         int width = (size.getWidth()/2);
         int height = (size.getHeight()/2);

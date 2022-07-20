@@ -8,6 +8,9 @@ import javax.net.ssl.X509TrustManager;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.CookieHandler;
+import java.net.CookieManager;
+import java.net.CookiePolicy;
 import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
@@ -112,6 +115,7 @@ public class MailUtility {
         evitarProblemaSSL();
 
         try {
+            CookieHandler.setDefault( new CookieManager( null, CookiePolicy.ACCEPT_ALL ) );
             HttpsURLConnection c = (HttpsURLConnection) new URL(url).openConnection();
             c.setRequestMethod("GET");
             c.setRequestProperty("Content-Type", "text/html;charset=UTF-8");
@@ -119,6 +123,7 @@ public class MailUtility {
             c.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0");
             c.setDoOutput(true);
             c.setDoInput(true);
+
 
             BufferedReader br = new BufferedReader(new InputStreamReader(c.getInputStream()));
             String line;

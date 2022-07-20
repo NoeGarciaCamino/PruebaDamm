@@ -45,9 +45,11 @@ public class SettingsStepDefinition {
 
     @Cuando("cambio el email antiguo por el nuevo email")
     public void cambioElEmail() {
+        settingStep.introducirEmailActual();
         settingStep.introducirEmailNuevo();
         settingStep.repetirEmailNuevo();
         settingStep.tapGuardar();
+        settingStep.tapAceptar();
     }
 
     @Y("recibo y valido el email")
@@ -83,8 +85,8 @@ public class SettingsStepDefinition {
         loginStep.verificarHome();
     }
 
-    @Dado("que accedo al menu de configuración")
-    public void queAccedoAlMenuDeConfiguración() {
+    @Dado("que accedo al menu de configuracion")
+    public void queAccedoAlMenuDeConfiguracion() {
         homeStep.tapMenuHamburguesa();
         menuLateralStep.tapConfiguracion();
         settingStep.verificarMenuConfig();
@@ -149,8 +151,8 @@ public class SettingsStepDefinition {
         settingStep.tapEmail();
     }
 
-    @Entonces("cambio el idioma de la aplicación")
-    public void cambioElIdiomaDeLaAplicación() {
+    @Entonces("cambio el idioma de la aplicacion")
+    public void cambioElIdiomaDeLaAplicacion() {
         settingStep.tapCat();
         settingStep.tapGuardar();
         settingStep.tapAceptar();
