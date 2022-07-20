@@ -5,22 +5,13 @@
     <listeners>
         <listener class-name="com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter"/>
     </listeners>
-    <test name="Google_Pixel_3a_POC03">
+    <test name="Android">
 <!--        <parameter name="udid" value="Google_Pixel_3a_POC03"/>-->
-        <parameter name="udid" value="Google_Pixel_3a_real"/>
+        <parameter name="udid" value="One_Plus_7_real"/>
         <parameter name="port" value="443"/>
         <parameter name="platformName" value="android"/>
         <classes>
             <class name="com.everis.ct.mobile.runner.RunnerAndroid"/>
-        </classes>
-    </test>
-    <test name="iPhone 12 mini">
-           <parameter name="udid" value="iPhone_12_mini_14_POC12"/>
-        <parameter name="udid" value="iPhone_12_mini_14_real"/>
-        <parameter name="port" value="443"/>
-        <parameter name="platformName" value="ios"/>
-        <classes>
-            <class name="com.everis.ct.mobile.runner.RunneriPhone"/>
         </classes>
     </test>
 </suite>

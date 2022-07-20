@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DAMM" parallel="tests" thread-count="2">
+
+    <listeners>
+        <listener class-name="com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter"/>
+    </listeners>
+    <test name="iPhone">
+<!--        <parameter name="udid" value="iPhone_12_mini_14_POC12"/>-->
+        <parameter name="udid" value="iPhone_8_15_real"/>
+        <parameter name="port" value="443"/>
+        <parameter name="platformName" value="ios"/>
+        <classes>
+            <class name="com.everis.ct.mobile.runner.RunneriPhone"/>
+        </classes>
+    </test>
+</suite>

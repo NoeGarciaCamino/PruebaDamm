@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 //        stepNotifications = true,
 
 //      ******   Para lanzar una feature concreta   ******
-        features = {"src/test/resources/features/2.settings.feature"},
+        features = {"src/test/resources/features/1.login.feature"},
 //      ******   Para lanzar todas las features   ******
 //        features = {"src/test/resources/features"},
         glue = {"com.everis.ct.mobile.hooks", "com.everis.ct.mobile.glue"},
@@ -26,18 +26,18 @@ import java.util.logging.Logger;
 
         plugin = {"html:target/cucumber-report.html", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
 )
-public class RunnerGooglePixel {
+public class RunnerAndroid {
 
     private TestNGCucumberRunner testNGCucumberRunner;
 
     @BeforeClass
     public static void beforeExecution() {
-        Logger.getLogger(RunnerGooglePixel.class.getName()).log(Level.INFO, "BEFORE EXECUTION --->");
+        Logger.getLogger(RunnerAndroid.class.getName()).log(Level.INFO, "BEFORE EXECUTION --->");
     }
 
     @AfterClass
     public static void afterExecution() {
-        Logger.getLogger(RunnerGooglePixel.class.getName()).log(Level.INFO, "AFTER EXECUTION --->");
+        Logger.getLogger(RunnerAndroid.class.getName()).log(Level.INFO, "AFTER EXECUTION --->");
     }
 
     @Test(groups = "cucumber", description = "Run Cucumber Features.", dataProvider = "scenarios", invocationCount=1)
