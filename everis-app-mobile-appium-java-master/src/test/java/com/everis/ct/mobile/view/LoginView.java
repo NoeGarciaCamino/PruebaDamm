@@ -6,8 +6,6 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
-import static com.everis.ct.mobile.lib.MobileDriverManager.getDriver;
-
 public class LoginView extends MobileBase {
 
 
@@ -33,26 +31,38 @@ public class LoginView extends MobileBase {
     protected MobileElement btnDoneTecladoIos;
 
 
-    public void sendEmail() {
+    public void sendEmail(boolean scenario4) {
         ReadProperties properties = new ReadProperties();
+        String email = null;
+        if(scenario4){
+            email = properties.pasarEmailPromos();
+        } else {
+            email = properties.pasarEmail();
+        }
         waitUntilElementIsVisible(campoEmail, 20);
         if(isIOS()) {
-            campoEmail.sendKeys("a" + properties.pasarEmail());
+            campoEmail.sendKeys("a" + email);
             tap(btnDoneTecladoIos);
         } else {
-            campoEmail.sendKeys(properties.pasarEmail());
+            campoEmail.sendKeys(email);
         }
     }
 
-    public void sendPass() {
+    public void sendPass(boolean scenario4) {
         ReadProperties properties = new ReadProperties();
+        String pass = null;
+        if(scenario4){
+            pass = properties.pasarPassPromos();
+        } else {
+            pass = properties.pasarPass();
+        }
         waitUntilElementIsVisible(campoPass, 15);
 
         if(isIOS()) {
-            campoPass.sendKeys("a" + properties.pasarPass());
+            campoPass.sendKeys("a" + pass);
             tap(btnDoneTecladoIos);
         } else {
-            campoPass.sendKeys(properties.pasarPass());
+            campoPass.sendKeys(pass);
         }
     }
 

@@ -42,8 +42,10 @@ public class LoginStepDefinition {
         ///*En Saucelabs no aparece aceptarTerminosGoogle*/
 //        loginStep.aceptarTerminosGoogle();
 //        loginStep.aceptarSync();
-        loginStep.introducirEmail();
-        loginStep.introducirPass();
+        System.out.println("Scenario: " + manager.getScenario());
+        Boolean scenario4 = manager.getScenario().contains("4.barTools");
+        loginStep.introducirEmail(scenario4);
+        loginStep.introducirPass(scenario4);
         loginStep.accederHome();
     }
 

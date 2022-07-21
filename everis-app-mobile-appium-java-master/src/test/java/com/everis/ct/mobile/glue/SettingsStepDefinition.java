@@ -79,8 +79,9 @@ public class SettingsStepDefinition {
         accesoStep.accederConCuenta();
 //        loginStep.aceptarTerminosGoogle();
 //        loginStep.aceptarSync();
-        loginStep.introducirEmail();
-        loginStep.introducirPass();
+        Boolean scenario4 = manager.getScenario().contains("4.barTools");
+        loginStep.introducirEmail(scenario4);
+        loginStep.introducirPass(scenario4);
         loginStep.accederHome();
         loginStep.verificarHome();
     }
@@ -128,8 +129,9 @@ public class SettingsStepDefinition {
         accesoStep.accederConCuenta();
 //        loginStep.aceptarTerminosGoogle();
 //        loginStep.aceptarSync();
-        loginStep.introducirEmail();
-        loginStep.introducirPass();
+        Boolean scenario4 = manager.getScenario().contains("4.barTools");
+        loginStep.introducirEmail(scenario4);
+        loginStep.introducirPass(scenario4);
         loginStep.accederHome();
         loginStep.verificarHome();
         homeStep.tapMenuHamburguesa();

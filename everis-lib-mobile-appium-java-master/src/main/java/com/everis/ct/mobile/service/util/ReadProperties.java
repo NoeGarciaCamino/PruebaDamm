@@ -27,11 +27,27 @@ public class ReadProperties extends MobileBase {
         }
     }
 
+    public String pasarEmailPromos(){
+        if(isIOS()){
+            return properties.getProperty("userPromosiOS");
+        }else{
+            return properties.getProperty("userPromosAndroid");
+        }
+    }
+
     public String pasarPass(){
         if(isIOS()){
             return properties.getProperty("passwordIOS");
         }else{
             return properties.getProperty("password");
+        }
+    }
+
+    public String pasarPassPromos(){
+        if(isIOS()){
+            return properties.getProperty("passPromosiOS");
+        }else{
+            return properties.getProperty("passPromosAndroid");
         }
     }
 
