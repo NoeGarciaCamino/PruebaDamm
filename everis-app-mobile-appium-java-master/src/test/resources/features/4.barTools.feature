@@ -23,6 +23,7 @@ Característica: Regresion Damm - Bar Tools
 
 
   Escenario: Caso10- Carta Digital
-    Dado que pulso el selector de establecimiento
-    Cuando cambio de negocio
+### Esto se hace cuando el usuario tiene la carta digital en el segundo bar
+#    Dado que pulso el selector de establecimiento
+#    Cuando cambio de negocio
     Entonces accedo a Carta digital
