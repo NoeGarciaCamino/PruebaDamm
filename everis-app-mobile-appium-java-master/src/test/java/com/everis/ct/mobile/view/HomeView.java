@@ -51,7 +51,7 @@ public class HomeView extends MobileBase {
 
 
     public void verificarAcceso(){
-        waitUntilElementIsVisible(campoUltNov, 50);
+        waitUntilElementIsVisible(encabezado, 50);
     }
 
     public void tapMenuLateral(){
