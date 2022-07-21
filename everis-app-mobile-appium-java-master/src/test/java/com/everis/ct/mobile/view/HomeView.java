@@ -76,7 +76,7 @@ public class HomeView extends MobileBase {
     public void pulsarOtroNegocio(){
         if(isAndroid()) {
             sleep(5000);
-            tapByCoordinates(1572);
+            tapByCoordinates(1448);
         } else {
             waitUntilElementIsVisible(otroNegocio, 10);
             tap(otroNegocio);
