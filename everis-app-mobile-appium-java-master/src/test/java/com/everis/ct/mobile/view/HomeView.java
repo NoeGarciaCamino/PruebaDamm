@@ -113,6 +113,7 @@ public class HomeView extends MobileBase {
 
     public void verificarEsp(String Consumo){
         waitUntilElementIsVisible(campoUltNov,15);
+        ScrollToElement(consumoTotalHome);
         String consumoTotal = getText(consumoTotalHome,5);
         boolean condicionTituloConsumo = consumoTotal.contains(Consumo);
         Assert.assertTrue(condicionTituloConsumo, Consumo);
