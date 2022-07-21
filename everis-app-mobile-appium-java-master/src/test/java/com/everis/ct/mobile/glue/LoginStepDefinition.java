@@ -43,7 +43,7 @@ public class LoginStepDefinition {
 //        loginStep.aceptarTerminosGoogle();
 //        loginStep.aceptarSync();
         System.out.println("Scenario: " + manager.getScenario());
-        Boolean scenario4 = manager.getScenario().contains("4.barTools");
+        Boolean scenario4 = manager.getScenario().contains("(USER PROMO)");
         loginStep.introducirEmail(scenario4);
         loginStep.introducirPass(scenario4);
         loginStep.accederHome();
