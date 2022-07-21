@@ -1,6 +1,7 @@
 package com.everis.ct.mobile.glue;
 
 import com.everis.ct.mobile.MobileAutomationApplication;
+import com.everis.ct.mobile.lib.MobileDriverManager;
 import com.everis.ct.mobile.step.AccesoStep;
 import com.everis.ct.mobile.step.HomeStep;
 import com.everis.ct.mobile.step.LoginStep;
@@ -27,6 +28,9 @@ public class LoginStepDefinition {
 
     @Autowired
     private HomeStep homeStep;
+
+    @Autowired
+    private MobileDriverManager manager;
 
     @Dado("que ya estoy registrado")
     public void queYaEstoyRegistrado() {

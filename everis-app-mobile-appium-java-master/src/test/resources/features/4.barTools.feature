@@ -15,14 +15,14 @@ Característica: Regresion Damm - Bar Tools
     Entonces entro al consumo desde el menu lateral
 
 
-#  Escenario: Caso9- Flag Promociones
-#    Dado que accedo al menu de configuracion
-#    Cuando desactivo el flag de promociones
-#    Y activo el flag de promociones
-#    Entonces entro a promociones desde el menu lateral
-#
-#
-#  Escenario: Caso10- Carta Digital
-#    Dado que pulso el selector de establecimiento
-#    Cuando cambio de negocio
-#    Entonces accedo a Carta digital
+  Escenario: Caso9- Flag Promociones
+    Dado que accedo al menu de configuracion
+    Cuando desactivo el flag de promociones
+    Y activo el flag de promociones
+    Entonces entro a promociones desde el menu lateral
+
+
+  Escenario: Caso10- Carta Digital
+    Dado que pulso el selector de establecimiento
+    Cuando cambio de negocio
+    Entonces accedo a Carta digital

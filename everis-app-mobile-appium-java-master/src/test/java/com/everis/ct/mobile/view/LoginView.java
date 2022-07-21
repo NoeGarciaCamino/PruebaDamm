@@ -6,6 +6,8 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
+import static com.everis.ct.mobile.lib.MobileDriverManager.getDriver;
+
 public class LoginView extends MobileBase {
 
 
@@ -34,7 +36,6 @@ public class LoginView extends MobileBase {
     public void sendEmail() {
         ReadProperties properties = new ReadProperties();
         waitUntilElementIsVisible(campoEmail, 20);
-
         if(isIOS()) {
             campoEmail.sendKeys("a" + properties.pasarEmail());
             tap(btnDoneTecladoIos);
