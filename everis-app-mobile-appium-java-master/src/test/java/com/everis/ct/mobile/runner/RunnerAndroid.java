@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 //        stepNotifications = true,
 
 //      ******   Para lanzar una feature concreta   ******
-//        features = {"src/test/resources/features/4.barTools.feature"},
+//        features = {"src/test/resources/features/2.settings.feature"},
 //      ******   Para lanzar todas las features   ******
         features = {"src/test/resources/features"},
         glue = {"com.everis.ct.mobile.hooks", "com.everis.ct.mobile.glue"},

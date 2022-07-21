@@ -150,16 +150,14 @@ public class SettingView extends MobileBase{
         if(isIos) {
             waitUntilElementIsVisible(passActualVisible, 15);
             tap(passActualVisible);
-        }
-
-        waitUntilElementIsVisible(passActual, 15);
-        passActual.sendKeys(properties.pasarPass());
-
-        if(isIos) {
+            waitUntilElementIsVisible(passActual, 15);
+            passActual.sendKeys(properties.pasarPass());
             waitUntilElementIsVisible(nextTeclado, 15);
             tap(nextTeclado);
+        }else{
+            waitUntilElementIsVisible(passActual, 15);
+            passActual.sendKeys(properties.pasarPass());
         }
-
     }
 
     public void passNueva(){
@@ -168,21 +166,22 @@ public class SettingView extends MobileBase{
         if(isIos) {
             waitUntilElementIsVisible(passNuevaVisible, 15);
             tap(passNuevaVisible);
-        }
-
-        ReadProperties properties = new ReadProperties();
-        waitUntilElementIsVisible(passNueva, 15);
-        passNueva.sendKeys(properties.pasarPassNueva());
-        properties.escribirArchivoProperties();
-        properties.cambiarPassNXPassA();
-        properties.escribirArchivoProperties();
-
-
-        if(isIos) {
+            ReadProperties properties = new ReadProperties();
+            waitUntilElementIsVisible(passNueva, 15);
+            passNueva.sendKeys(properties.pasarPassNueva());
+            properties.escribirArchivoProperties();
+            properties.cambiarPassNXPassA();
+            properties.escribirArchivoProperties();
             waitUntilElementIsVisible(nextTeclado, 15);
             tap(nextTeclado);
+        }else{
+            ReadProperties properties = new ReadProperties();
+            waitUntilElementIsVisible(passNueva, 15);
+            passNueva.sendKeys(properties.pasarPassNueva());
+            properties.escribirArchivoProperties();
+            properties.cambiarPassNXPassA();
+            properties.escribirArchivoProperties();
         }
-
     }
 
     public void repitePass(){
@@ -191,17 +190,16 @@ public class SettingView extends MobileBase{
         if(isIos) {
             waitUntilElementIsVisible(repitePassVisible, 15);
             tap(repitePassVisible);
-        }
-
-        ReadProperties properties = new ReadProperties();
-        waitUntilElementIsVisible(repitePass, 15);
-        repitePass.sendKeys(properties.pasarPass());
-
-        if(isIos) {
+            ReadProperties properties = new ReadProperties();
+            waitUntilElementIsVisible(repitePass, 15);
+            repitePass.sendKeys(properties.pasarPass());
             waitUntilElementIsVisible(nextTeclado, 15);
             tap(nextTeclado);
+        }else{
+            ReadProperties properties = new ReadProperties();
+            waitUntilElementIsVisible(repitePass, 15);
+            repitePass.sendKeys(properties.pasarPass());
         }
-
     }
 
     public void emailActual(){

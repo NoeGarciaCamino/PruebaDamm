@@ -5,9 +5,6 @@ Característica: Regresion Damm - Login
   Antecedentes:
     Dado que abro la aplicacion
 
-#  @PincodeNoValido
-#  Esquema del escenario: Outline: caso1- Alta pincode no válido
-#    Dado que busco el nuevo video "<video>"
   Escenario: Caso1- Alta pincode no válido
     Dado que registro mi establecimiento
     Cuando informo el pincode invalido
