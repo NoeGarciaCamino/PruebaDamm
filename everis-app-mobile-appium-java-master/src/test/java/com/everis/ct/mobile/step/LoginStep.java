@@ -23,12 +23,12 @@ public class LoginStep {
         view.login().tapSync();
     }
 
-    public void introducirEmail(){
-        view.login().sendEmail();
+    public void introducirEmail(boolean scenario4){
+        view.login().sendEmail(scenario4);
     }
 
-    public void introducirPass() {
-        view.login().sendPass();
+    public void introducirPass(boolean scenario4) {
+        view.login().sendPass(scenario4);
     }
 
     public void accederHome() {
