@@ -23,8 +23,6 @@ Característica: Regresion Damm - Settings
 ##  Escenario: CasoPrueba- Cambio de email
 ##    Dado que accedo al menu de configuracion
 ##    Y accedo al email
-##  ##### Esta hecho para que le añada/quite un punto antes de la arroba @
-##  ##### Quiza cambiar tactica en ReadProperties por +numero, por ejemplo +10@
 ##    Cuando cambio el email antiguo por el nuevo email
 ##    Y recibo y valido el email
 ##    Entonces hago logout y login con el email y la pass

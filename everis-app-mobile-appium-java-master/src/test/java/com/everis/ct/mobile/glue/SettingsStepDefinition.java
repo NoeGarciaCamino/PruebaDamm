@@ -65,14 +65,14 @@ public class SettingsStepDefinition {
     @Entonces("hago logout y login con el email y la pass")
     public void hagoLogoutYLoginConElEmailYLaPass() {
         settingStep.pulsarCerrarSesion();
-        manager.quitDriver();
-
-        XmlTest xmlTest = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest();
-        String port = xmlTest.getParameter("port");
-        String udid = xmlTest.getParameter("udid");
-        String platformName = xmlTest.getParameter("platformName");
-        manager.setUpDriver(port, udid, platformName);
-        manager.driverOnDetails();
+//        manager.quitDriver();
+//
+//        XmlTest xmlTest = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest();
+//        String port = xmlTest.getParameter("port");
+//        String udid = xmlTest.getParameter("udid");
+//        String platformName = xmlTest.getParameter("platformName");
+//        manager.setUpDriver(port, udid, platformName);
+//        manager.driverOnDetails();
 
 //        manager.setUpDriver();
 //        manager.clearCacheApp("com.android.chrome");

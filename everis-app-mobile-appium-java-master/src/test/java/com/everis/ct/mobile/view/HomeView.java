@@ -94,6 +94,7 @@ public class HomeView extends MobileBase {
 
 
     public void pulsarCartaDigital(){
+        ScrollToElement(bloqueCartaDigital);
         waitUntilElementIsVisible(bloqueCartaDigital,15);
         tap(bloqueCartaDigital);
     }
