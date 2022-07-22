@@ -10,8 +10,6 @@ import io.cucumber.java.es.Entonces;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.testng.Reporter;
-import org.testng.xml.XmlTest;
 
 import java.net.MalformedURLException;
 
@@ -44,11 +42,10 @@ public class AccesoStepDefinition {
 
     @Dado("^que abro la aplicacion$")
     public void queAbroLaAplicacion() throws MalformedURLException {
-        //Parametros de la suite testng definida en xml
-        XmlTest xmlTest = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest();
-        String port = xmlTest.getParameter("port");
-        String udid = xmlTest.getParameter("udid");
-        String platformName = xmlTest.getParameter("platformName");
+        //Parametros del sistema enviado en la llamada al script
+        String port = System.getProperty("port","443");
+        String udid = System.getProperty("udid","Google_Pixel_3a_real");
+        String platformName = System.getProperty("platformName","android");
         manager.setUpDriver(port, udid, platformName);
         manager.driverOnDetails();
 //        manager.clearCacheApp("com.android.chrome");

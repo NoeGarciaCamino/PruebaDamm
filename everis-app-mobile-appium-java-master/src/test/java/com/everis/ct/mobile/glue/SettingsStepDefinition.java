@@ -10,10 +10,6 @@ import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.testng.Reporter;
-import org.testng.xml.XmlTest;
-
-import java.util.concurrent.TimeoutException;
 
 @SpringBootTest(classes = MobileAutomationApplication.class)
 public class SettingsStepDefinition {
