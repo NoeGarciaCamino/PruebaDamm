@@ -4,8 +4,8 @@ import com.everis.ct.mobile.base.MobileBase;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 public class ToolsView extends MobileBase {
 
@@ -62,7 +62,7 @@ public class ToolsView extends MobileBase {
     private void verificarTituloEncabezado(String Titulo){
         String tituloEncabezado = getText(encabezado,5);
         boolean condicionTitulo = tituloEncabezado.contains(Titulo);
-        Assert.assertTrue(condicionTitulo, Titulo);
+        Assert.assertTrue(Titulo, condicionTitulo);
     }
 
     public void textoProducto(){

@@ -4,8 +4,8 @@ import com.everis.ct.mobile.base.MobileBase;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
+import org.junit.Assert;
+import org.assertj.core.api.SoftAssertions;
 
 import java.util.List;
 
@@ -109,7 +109,7 @@ public class HomeView extends MobileBase {
         ScrollToElement(consumoTotalHome);
         String consumoTotal = getText(consumoTotalHome,5);
         boolean condicionTituloConsumo = consumoTotal.contains(Consumo);
-        Assert.assertTrue(condicionTituloConsumo, Consumo);
+        Assert.assertTrue(Consumo, condicionTituloConsumo);
     }
 
     public void verificarEsp(String Consumo){
@@ -117,20 +117,26 @@ public class HomeView extends MobileBase {
         ScrollToElement(consumoTotalHome);
         String consumoTotal = getText(consumoTotalHome,5);
         boolean condicionTituloConsumo = consumoTotal.contains(Consumo);
-        Assert.assertTrue(condicionTituloConsumo, Consumo);
+        Assert.assertTrue(Consumo, condicionTituloConsumo);
     }
 
     public void verificarNoAparece(String texto){
         waitUntilElementIsVisible(campoUltNov,15);
         boolean elemento =  verifyElementInAList(bloquesDom,texto, 15 );
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertFalse(elemento);
+        //SoftAssert softAssert = new SoftAssert();
+        //softAssert.assertFalse(elemento);
+        SoftAssertions softAssertions = new SoftAssertions();
+        softAssertions.assertThat(elemento);
+        softAssertions.assertAll();
     }
 
     public void verificarAparece(String texto){
         waitUntilElementIsVisible(campoUltNov,15);
         boolean elemento =  verifyElementInAList(bloquesDom,texto, 15 );
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(elemento);
+        //SoftAssert softAssert = new SoftAssert();
+        //softAssert.assertTrue(elemento);
+        SoftAssertions softAssertions = new SoftAssertions();
+        softAssertions.assertThat(elemento);
+        softAssertions.assertAll();
     }
 }
