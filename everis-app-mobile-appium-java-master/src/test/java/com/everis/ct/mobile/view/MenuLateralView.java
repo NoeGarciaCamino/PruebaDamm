@@ -28,7 +28,7 @@ public class MenuLateralView extends MobileBase {
 
     public void pulsarMiNegocio(){
         if(isAndroid()) {
-            tapByCoordinates(808);
+            tapByCoordinates(735);
         } else {
             waitUntilElementIsVisible(miNegocio, 15);
             tap(miNegocio);
@@ -37,7 +37,7 @@ public class MenuLateralView extends MobileBase {
 
     public void pulsarConsumo(){
         if(isAndroid()) {
-            tapByCoordinates(971);
+            tapByCoordinates(885);
         } else {
             waitUntilElementIsVisible(consumos, 15);
             tap(consumos);
@@ -46,7 +46,7 @@ public class MenuLateralView extends MobileBase {
 
     public void pulsarPromociones(){
         if(isAndroid()) {
-            tapByCoordinates(1236);
+            tapByCoordinates(1132);
         } else {
             waitUntilElementIsVisible(promociones, 15);
             tap(promociones);
