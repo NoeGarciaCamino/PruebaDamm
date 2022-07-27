@@ -1,5 +1,9 @@
 package com.everis.ct.mobile.utils;
 
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+
 import javax.mail.*;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -19,7 +23,13 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static io.restassured.RestAssured.given;
+
 public class MailUtility {
+
+    private static RequestSpecification request;
+    private static Response response;
+
 
     public static void leerEmailYAccederAUrl() {
         //Accede a hotmail y recupera la url del mensaje que contenga Bar Manager
@@ -116,21 +126,26 @@ public class MailUtility {
 
         try {
             CookieHandler.setDefault( new CookieManager( null, CookiePolicy.ACCEPT_ALL ) );
-            HttpsURLConnection c = (HttpsURLConnection) new URL(url).openConnection();
-            c.setRequestMethod("GET");
-            c.setRequestProperty("Content-Type", "text/html;charset=UTF-8");
-            c.setRequestProperty("Accept", "*/*");
-            c.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0");
-            c.setDoOutput(true);
-            c.setDoInput(true);
+//            HttpsURLConnection c = (HttpsURLConnection) new URL(url).openConnection();
+//            c.setRequestMethod("GET");
+//            c.setRequestProperty("Content-Type", "text/html;charset=UTF-8");
+//            c.setRequestProperty("Accept", "*/*");
+//            c.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0");
+//            c.setDoOutput(true);
+//            c.setDoInput(true);
+//            c.connect();
+            request = given().contentType(ContentType.JSON).log().all();
+   System.out.println(request);
+            response = request.when().get(url);
 
 
-            BufferedReader br = new BufferedReader(new InputStreamReader(c.getInputStream()));
-            String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-            }
-        } catch(IOException e) {
+
+//            BufferedReader br = new BufferedReader(new InputStreamReader(c.getInputStream()));
+//            String line;
+//            while ((line = br.readLine()) != null) {
+//                System.out.println(line);
+//            }
+        } catch(Exception e) {
             System.err.println("Error al realizar la llamada a la URL " + url + " del email");
             e.printStackTrace();
         }

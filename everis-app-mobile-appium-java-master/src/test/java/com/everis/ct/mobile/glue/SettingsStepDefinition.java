@@ -61,20 +61,8 @@ public class SettingsStepDefinition {
     @Entonces("hago logout y login con el email y la pass")
     public void hagoLogoutYLoginConElEmailYLaPass() {
         settingStep.pulsarCerrarSesion();
-//        manager.quitDriver();
-//
-//        XmlTest xmlTest = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest();
-//        String port = xmlTest.getParameter("port");
-//        String udid = xmlTest.getParameter("udid");
-//        String platformName = xmlTest.getParameter("platformName");
-//        manager.setUpDriver(port, udid, platformName);
-//        manager.driverOnDetails();
-
-//        manager.setUpDriver();
-//        manager.clearCacheApp("com.android.chrome");
+        settingStep.tapPopUpIOS();
         accesoStep.accederConCuenta();
-//        loginStep.aceptarTerminosGoogle();
-//        loginStep.aceptarSync();
         Boolean scenario4 = manager.getScenario().contains("4.barTools");
         loginStep.introducirEmail(scenario4);
         loginStep.introducirPass(scenario4);
@@ -111,20 +99,8 @@ public class SettingsStepDefinition {
         menuLateralStep.tapConfiguracion();
         settingStep.verificarMenuConfig();
         settingStep.pulsarCerrarSesion();
-//        try {
         settingStep.tapPopUpIOS();
-//        } catch(org.openqa.selenium.TimeoutException e) {
-//            System.err.println("No ha aparecido el popup al cerrar sesión");
-//            e.printStackTrace();
-            //TODO Lanzar excepción? aparece en ios pero no en android?
-//            throw new org.openqa.selenium.TimeoutException("No ha aparecido el popup al cerrar sesión", e);
-//        }
-//        manager.quitDriver();
-//        manager.setUpDriver();
-//        manager.clearCacheApp("com.android.chrome");
         accesoStep.accederConCuenta();
-//        loginStep.aceptarTerminosGoogle();
-//        loginStep.aceptarSync();
         Boolean scenario4 = manager.getScenario().contains("4.barTools");
         loginStep.introducirEmail(scenario4);
         loginStep.introducirPass(scenario4);

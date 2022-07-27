@@ -1,5 +1,5 @@
 #language: es
-@DEMO
+#  @Test
 Característica: Regresion Damm - Login
 
   Antecedentes:

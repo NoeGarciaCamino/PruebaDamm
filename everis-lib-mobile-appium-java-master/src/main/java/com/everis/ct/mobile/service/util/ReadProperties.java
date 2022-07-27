@@ -45,7 +45,7 @@ public class ReadProperties extends MobileBase {
 
     public String pasarPassPromos(){
         if(isIOS()){
-            return properties.getProperty("passPromosiOS");
+            return properties.getProperty("passwordIOS");
         }else{
             return properties.getProperty("passPromosAndroid");
         }

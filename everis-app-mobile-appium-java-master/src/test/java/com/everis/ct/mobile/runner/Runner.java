@@ -13,9 +13,9 @@ import java.util.logging.Logger;
 @CucumberOptions(plugin = {"pretty", "json:target/build/cucumber.json", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         publish = false,
         stepNotifications = true,
-        features = {"src/test/resources/features/"},
-        glue = {"com.everis.ct.mobile.hooks", "com.everis.ct.mobile.glue"}
-        //tags = "@DEMO"
+        features = {"src/test/resources/features"},
+        glue = {"com.everis.ct.mobile.hooks", "com.everis.ct.mobile.glue"},
+        tags = "@Test"
 )
 public class Runner {
 

@@ -1,5 +1,5 @@
 #language: es
-@DEMO
+#  @Test
 Característica: Regresion Damm - Bar Manager
 
 Antecedentes:
@@ -8,7 +8,7 @@ Antecedentes:
   Entonces hago login con el email y la pass
   Y validar que se accede a la home
 
-Escenario: Caso5- Acceso a Bar Manager
+  Escenario: Caso5- Acceso a Bar Manager
   Dado que accedo al menu de configuracion
   Cuando accedo a mis establecimientos
   Y verifico el establecimiento por defecto
