@@ -39,9 +39,6 @@ public class LoginStepDefinition {
 
     @Cuando("hago login con el email y la pass")
     public void queHagoLoginConElEmailYLaPass() {
-        ///*En Saucelabs no aparece aceptarTerminosGoogle*/
-//        loginStep.aceptarTerminosGoogle();
-//        loginStep.aceptarSync();
         System.out.println("Scenario: " + manager.getScenario());
         Boolean scenario4 = manager.getScenario().contains("(USER PROMO)");
         loginStep.introducirEmail(scenario4);

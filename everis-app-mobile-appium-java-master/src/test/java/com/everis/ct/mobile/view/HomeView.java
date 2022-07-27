@@ -36,7 +36,7 @@ public class HomeView extends MobileBase {
     protected List <MobileElement> bloquesDom;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeImage")
-    @AndroidFindBy(id = "com.damm.dammbars.pre:id/image_menu")
+    @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/image_menu')])[4]")
     protected MobileElement bloqueCartaDigital;
 
     //@iOSXCUITFindBy(xpath = "")
@@ -113,7 +113,7 @@ public class HomeView extends MobileBase {
     }
 
     public void verificarEsp(String Consumo){
-        waitUntilElementIsVisible(campoUltNov,15);
+        waitUntilElementIsVisible(encabezado,15);
         ScrollToElement(consumoTotalHome);
         String consumoTotal = getText(consumoTotalHome,5);
         boolean condicionTituloConsumo = consumoTotal.contains(Consumo);
