@@ -1,8 +1,10 @@
 package com.everis.ct.mobile.utils;
 
+import com.everis.ct.mobile.lib.MobileDriverManager;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.openqa.selenium.remote.Command;
 
 import javax.mail.*;
 import javax.net.ssl.HttpsURLConnection;
@@ -24,11 +26,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.urlEncodingEnabled;
 
 public class MailUtility {
 
-    private static RequestSpecification request;
-    private static Response response;
+    private static MobileDriverManager manager = new MobileDriverManager();
 
 
     public static void leerEmailYAccederAUrl() {
@@ -83,11 +85,11 @@ public class MailUtility {
         Message message = null;
         Message[] messages = folder.getMessages();
 
-        for (int i = (messages.length)-1; i >= messages.length-5; i--) {
+        for (int i = (messages.length) - 1; i >= messages.length - 5; i--) {
             message = messages[i];
             System.out.println("Subject: " + message.getSubject());
 
-            if(message.getSubject().contains("[Bar Manager] Activación de la cuenta")) {
+            if (message.getSubject().contains("[Bar Manager] Activación de la cuenta")) {
                 break;
             }
         }
@@ -108,7 +110,7 @@ public class MailUtility {
 
         Pattern pattern = Pattern.compile("^ http.*$", Pattern.MULTILINE);
         Matcher matcher = pattern.matcher(text);
-        if(matcher.find()) {
+        if (matcher.find()) {
             System.out.println("Match found");
             url = matcher.group().trim();
             System.out.println(url);
@@ -125,18 +127,20 @@ public class MailUtility {
         evitarProblemaSSL();
 
         try {
-            CookieHandler.setDefault( new CookieManager( null, CookiePolicy.ACCEPT_ALL ) );
-//            HttpsURLConnection c = (HttpsURLConnection) new URL(url).openConnection();
-//            c.setRequestMethod("GET");
+            CookieHandler.setDefault(new CookieManager(null, CookiePolicy.ACCEPT_ALL));
+//            HttpsURLConnection c =  (HttpsURLConnection)(new URL(url).openConnection());
+//            c.setRequestMethod("PUT");
 //            c.setRequestProperty("Content-Type", "text/html;charset=UTF-8");
 //            c.setRequestProperty("Accept", "*/*");
 //            c.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0");
-//            c.setDoOutput(true);
-//            c.setDoInput(true);
+//            c.setDoOutput(tr);
+//            c.setDoInput(false);
 //            c.connect();
-            request = given().contentType(ContentType.JSON).log().all();
-   System.out.println(request);
-            response = request.when().get(url);
+
+//                manager.getDriver().activateApp();
+
+            Runtime.getRuntime().exec(new String[]{"google-chrome", url});
+//            Runtime.getRuntime().exec(new String[]{"%windir%/system32/cmd.exe", "exit chrome"});
 
 
 
@@ -145,7 +149,7 @@ public class MailUtility {
 //            while ((line = br.readLine()) != null) {
 //                System.out.println(line);
 //            }
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.err.println("Error al realizar la llamada a la URL " + url + " del email");
             e.printStackTrace();
         }
@@ -156,8 +160,10 @@ public class MailUtility {
             public X509Certificate[] getAcceptedIssuers() {
                 return null;
             }
+
             public void checkClientTrusted(X509Certificate[] certs, String authType) {
             }
+
             public void checkServerTrusted(X509Certificate[] certs, String authType) {
             }
         };
@@ -165,9 +171,9 @@ public class MailUtility {
         try {
             SSLContext sc = null;
             sc = SSLContext.getInstance("SSL");
-            sc.init(null, new TrustManager[] { tm }, null);
+            sc.init(null, new TrustManager[]{tm}, null);
             HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-        } catch (NoSuchAlgorithmException | KeyManagementException e ) {
+        } catch (NoSuchAlgorithmException | KeyManagementException e) {
             e.printStackTrace();
         }
     }
