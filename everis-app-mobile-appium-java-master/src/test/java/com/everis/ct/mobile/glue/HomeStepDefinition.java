@@ -57,6 +57,6 @@ public class HomeStepDefinition {
     public void accedoACartaDigital() {
         homeStep.tapCartaDigital();
         homeStep.tapEsteDispositivo();
-        toolsStep.verificarCartaDigital();
+//        toolsStep.verificarCartaDigital();
     }
 }

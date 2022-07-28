@@ -26,11 +26,11 @@ public class ToolsView extends MobileBase {
     @AndroidFindBy(xpath = "//*[contains(@text,'marcas')]")
     protected MobileElement campoMarcas;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"TODAS\"`]")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[`label == \"TODAS\"`]/XCUIElementTypeOther")
     @AndroidFindBy(xpath = "//*[contains(@text,'TODAS')]")
     protected MobileElement campoTodas;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"ME INTERESA\"`]")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[`label == \"ME INTERESA\"`]/XCUIElementTypeOther")
     @AndroidFindBy(xpath = "//*[contains(@text,'ME INTERESA')]")
     protected MobileElement campoMeInteresa;
 
