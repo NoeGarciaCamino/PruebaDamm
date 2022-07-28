@@ -35,16 +35,17 @@ public class HomeView extends MobileBase {
     @AndroidFindBy(className = "android.widget.TextView")
     protected List <MobileElement> bloquesDom;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeImage")
+    @iOSXCUITFindBy(xpath = "(*//XCUIElementTypeOther[2]/XCUIElementTypeImage[1])[3]")
     @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/image_menu')])[4]")
     protected MobileElement bloqueCartaDigital;
 
-    //@iOSXCUITFindBy(xpath = "")
+    @iOSXCUITFindBy(accessibility = "CARTA DIGITAL")
+    protected MobileElement cartaDigital;
+
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"ESTE DISPOSITIVO\"`]")
     @AndroidFindBy(xpath = "//*[contains(@text,'ESTE DISPOSITIVO')]")
     protected MobileElement botonEsteDispositivo;
-
-    @iOSXCUITFindBy(accessibility = "PIKA PIKA")
-    protected MobileElement otroNegocio;
 
     @iOSXCUITFindBy(accessibility = "BAR AQUI MISMO")
     protected MobileElement elRacoItalia;
@@ -78,8 +79,8 @@ public class HomeView extends MobileBase {
             sleep(5000);
             tapByCoordinates(1448);
         } else {
-            waitUntilElementIsVisible(otroNegocio, 10);
-            tap(otroNegocio);
+            sleep(5000);
+            tapByCoordinates(460);
         }
     }
 
@@ -94,9 +95,15 @@ public class HomeView extends MobileBase {
 
 
     public void pulsarCartaDigital(){
-        ScrollToElement(bloqueCartaDigital);
-        waitUntilElementIsVisible(bloqueCartaDigital,15);
-        tap(bloqueCartaDigital);
+        if(isIOS()){
+         ScrollToElement(cartaDigital);
+         waitUntilElementIsVisible(cartaDigital,15);
+         tapByCoordinates(733);
+        }else {
+            ScrollToElement(bloqueCartaDigital);
+            waitUntilElementIsVisible(bloqueCartaDigital, 15);
+            tap(bloqueCartaDigital);
+        }
     }
 
     public void pulsarEsteDispositivo(){
@@ -123,8 +130,6 @@ public class HomeView extends MobileBase {
     public void verificarNoAparece(String texto){
         waitUntilElementIsVisible(campoUltNov,15);
         boolean elemento =  verifyElementInAList(bloquesDom,texto, 15 );
-        //SoftAssert softAssert = new SoftAssert();
-        //softAssert.assertFalse(elemento);
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(elemento);
         softAssertions.assertAll();
@@ -133,8 +138,6 @@ public class HomeView extends MobileBase {
     public void verificarAparece(String texto){
         waitUntilElementIsVisible(campoUltNov,15);
         boolean elemento =  verifyElementInAList(bloquesDom,texto, 15 );
-        //SoftAssert softAssert = new SoftAssert();
-        //softAssert.assertTrue(elemento);
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(elemento);
         softAssertions.assertAll();

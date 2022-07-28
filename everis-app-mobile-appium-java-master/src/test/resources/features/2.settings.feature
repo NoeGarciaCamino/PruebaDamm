@@ -20,7 +20,7 @@ Característica: Regresion Damm - Settings
     Entonces cambio el idioma de la aplicacion
     Y reestablezco el idioma por defecto
 
-    @Test
+
   Escenario: CasoPrueba- Cambio de email
     Dado que accedo al menu de configuracion
     Y accedo al email
