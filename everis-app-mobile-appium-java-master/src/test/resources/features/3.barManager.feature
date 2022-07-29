@@ -30,3 +30,4 @@ Característica: Regresion Damm - Bar Manager
     Entonces verifico que se ha realizado el cambio
     Y activo el flag de consumo
     Y hago logout, login y se reestablece el establecimiento por defecto
+    Y activo el flag de consumo
