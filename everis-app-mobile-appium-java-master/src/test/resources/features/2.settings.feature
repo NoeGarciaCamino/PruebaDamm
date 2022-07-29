@@ -8,6 +8,7 @@ Característica: Regresion Damm - Settings
     Entonces hago login con el email y la pass
     Y validar que se accede a la home
 
+    @Test
   Escenario: Caso3- Cambio contraseña
     Dado que accedo al menu de configuracion
     Cuando cambio la pass antigua por la pass nueva
