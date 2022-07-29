@@ -48,7 +48,6 @@ public class AccesoStepDefinition {
         String platformName = System.getProperty("platformName","android");
         manager.setUpDriver(port, udid, platformName);
         manager.driverOnDetails();
-//        manager.clearCacheApp("com.android.chrome");
 
 
         if(platformName.equalsIgnoreCase("iOS")) {

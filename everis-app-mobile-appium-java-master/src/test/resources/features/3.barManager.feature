@@ -1,5 +1,5 @@
 #language: es
-#  @Test
+  @Test
 Característica: Regresion Damm - Bar Manager
 
   Antecedentes:
@@ -28,5 +28,5 @@ Característica: Regresion Damm - Bar Manager
     Cuando accedo a mis establecimientos
     Y cambio el establecimiento predeterminado
     Entonces verifico que se ha realizado el cambio
-    Y hago logout, login y se reestablece el establecimiento por defecto
     Y activo el flag de consumo
+    Y hago logout, login y se reestablece el establecimiento por defecto
