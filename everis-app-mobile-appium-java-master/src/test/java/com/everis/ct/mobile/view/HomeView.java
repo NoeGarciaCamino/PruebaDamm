@@ -36,7 +36,7 @@ public class HomeView extends MobileBase {
     protected List <MobileElement> bloquesDom;
 
     @iOSXCUITFindBy(xpath = "(*//XCUIElementTypeOther[2]/XCUIElementTypeImage[1])[3]")
-    @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/image_menu')])[4]")
+    @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/image_menu')])[3]")
     protected MobileElement bloqueCartaDigital;
 
     @iOSXCUITFindBy(accessibility = "CARTA DIGITAL")
@@ -136,7 +136,7 @@ public class HomeView extends MobileBase {
     }
 
     public void verificarAparece(String texto){
-        waitUntilElementIsVisible(campoUltNov,15);
+        waitUntilElementIsVisible(encabezado,15);
         boolean elemento =  verifyElementInAList(bloquesDom,texto, 15 );
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(elemento);

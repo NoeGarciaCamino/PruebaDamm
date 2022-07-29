@@ -86,10 +86,10 @@
                                 <include>**/*Runner.java</include>
                                 <include>**/RunnerTest.java</include>
                             </includes>
-                            <forkCount>4</forkCount>
-                            <reuseForks>false</reuseForks>
-                            <parallel>all</parallel>
-                            <threadCount>4</threadCount>
+<!--                            <forkCount>4</forkCount>-->
+<!--                            <reuseForks>false</reuseForks>-->
+<!--                            <parallel>all</parallel>-->
+<!--                            <threadCount>4</threadCount>-->
                         </configuration>
                         <goals>
                             <goal>integration-test</goal>
