@@ -22,7 +22,7 @@ Característica: Regresion Damm - Bar Manager
     Entonces verifico que se ha realizado el cambio
     Y activo el flag de consumo
 
-@Test
+
   Escenario: Caso7- Cambio de establecimiento predeterminado
     Dado que accedo al menu de configuracion
     Cuando accedo a mis establecimientos

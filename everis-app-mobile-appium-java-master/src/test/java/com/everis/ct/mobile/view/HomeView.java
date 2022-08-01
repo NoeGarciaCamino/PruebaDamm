@@ -98,7 +98,7 @@ public class HomeView extends MobileBase {
         if(isIOS()){
          ScrollToElement(cartaDigital);
          waitUntilElementIsVisible(cartaDigital,15);
-         tapByCoordinates(733);
+         tap(bloqueCartaDigital);
         }else {
             ScrollToElement(bloqueCartaDigital);
             waitUntilElementIsVisible(bloqueCartaDigital, 15);
