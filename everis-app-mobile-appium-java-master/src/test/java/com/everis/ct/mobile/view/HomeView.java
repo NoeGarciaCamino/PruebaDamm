@@ -35,7 +35,7 @@ public class HomeView extends MobileBase {
     @AndroidFindBy(className = "android.widget.TextView")
     protected List <MobileElement> bloquesDom;
 
-    @iOSXCUITFindBy(xpath = "(*//XCUIElementTypeOther[2]/XCUIElementTypeImage[1])[3]")
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeOther[2])[5]")
     @AndroidFindBy(xpath = "(//*[contains(@resource-id,'com.damm.dammbars.pre:id/image_menu')])[3]")
     protected MobileElement bloqueCartaDigital;
 
@@ -43,7 +43,7 @@ public class HomeView extends MobileBase {
     protected MobileElement cartaDigital;
 
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"ESTE DISPOSITIVO\"`]")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"ESTE DISPOSITIVO\"`]")
     @AndroidFindBy(xpath = "//*[contains(@text,'ESTE DISPOSITIVO')]")
     protected MobileElement botonEsteDispositivo;
 
