@@ -22,7 +22,7 @@ Característica: Regresion Damm - Bar Tools
     Y activo el flag de promociones
     Entonces entro a promociones desde el menu lateral
 
-@Test
+
   Escenario: Caso10- Carta Digital (USER PROMO)
 ##     Se utiliza cuando la carta digital esta en el segundo establecimiento
     Dado que pulso el selector de establecimiento
