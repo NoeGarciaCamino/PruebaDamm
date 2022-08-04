@@ -15,7 +15,7 @@ import java.util.logging.Logger;
         stepNotifications = true,
         features = {"src/test/resources/features"},
         glue = {"com.everis.ct.mobile.hooks", "com.everis.ct.mobile.glue"}
-//        tags = "@Test"
+        //tags = "@Test"
 )
 public class Runner {
 

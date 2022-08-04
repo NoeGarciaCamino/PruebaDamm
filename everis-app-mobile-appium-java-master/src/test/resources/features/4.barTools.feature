@@ -1,5 +1,5 @@
 #language: es
-#  @Test
+ # @Test
 Característica: Regresion Damm - Bar Tools
 
   Antecedentes:
