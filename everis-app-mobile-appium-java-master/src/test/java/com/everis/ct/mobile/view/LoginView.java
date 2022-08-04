@@ -59,6 +59,7 @@ public class LoginView extends MobileBase {
         waitUntilElementIsVisible(campoPass, 15);
 
         if(isIOS()) {
+            sleep(1000);
             campoPass.sendKeys("a" + pass);
             tap(btnDoneTecladoIos);
         } else {
