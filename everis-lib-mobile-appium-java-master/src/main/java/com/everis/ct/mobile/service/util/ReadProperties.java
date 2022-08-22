@@ -45,9 +45,10 @@ public class ReadProperties extends MobileBase {
 
     public String pasarPassPromos(){
         if(isIOS()){
+//            Se coge el passwordIOS por problemas con el usuario, habra que modificarlo cuando tengamos users estables
             return properties.getProperty("passwordIOS");
         }else{
-            return properties.getProperty("passPromosAndroid");
+            return properties.getProperty("passwordIOS");
         }
     }
 

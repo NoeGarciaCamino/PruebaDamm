@@ -12,12 +12,15 @@ public class MenuLateralView extends MobileBase {
     protected MobileElement botonEngranaje;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"MI NEGOCIO\"`][1]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'MI NEGOCIO')]")
     protected MobileElement miNegocio;
 
     @iOSXCUITFindBy(accessibility = "CONSUMOS")
+    @AndroidFindBy(xpath = "//*[contains(@text,'CONSUMOS')]")
     protected MobileElement consumos;
 
     @iOSXCUITFindBy(accessibility = "PROMOCIONES")
+    @AndroidFindBy(xpath = "//*[contains(@text,'PROMOCIONES')]")
     protected MobileElement promociones;
 
 
@@ -28,7 +31,9 @@ public class MenuLateralView extends MobileBase {
 
     public void pulsarMiNegocio(){
         if(isAndroid()) {
-            tapByCoordinates(735);
+            //tapByCoordinates(735);
+            waitUntilElementIsVisible(miNegocio, 15);
+            tap(miNegocio);
         } else {
             waitUntilElementIsVisible(miNegocio, 15);
             tap(miNegocio);
@@ -37,7 +42,9 @@ public class MenuLateralView extends MobileBase {
 
     public void pulsarConsumo(){
         if(isAndroid()) {
-            tapByCoordinates(885);
+            //tapByCoordinates(885);
+            waitUntilElementIsVisible(consumos, 15);
+            tap(consumos);
         } else {
             waitUntilElementIsVisible(consumos, 15);
             tap(consumos);
@@ -46,7 +53,9 @@ public class MenuLateralView extends MobileBase {
 
     public void pulsarPromociones(){
         if(isAndroid()) {
-            tapByCoordinates(1132);
+            //tapByCoordinates(1132);
+            waitUntilElementIsVisible(promociones, 15);
+            tap(promociones);
         } else {
             waitUntilElementIsVisible(promociones, 15);
             tap(promociones);
