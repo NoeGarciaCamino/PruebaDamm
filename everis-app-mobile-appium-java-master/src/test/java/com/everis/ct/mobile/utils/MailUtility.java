@@ -1,6 +1,7 @@
 package com.everis.ct.mobile.utils;
 
 import com.everis.ct.mobile.lib.MobileDriverManager;
+import io.appium.java_client.android.AndroidDriver;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -26,6 +27,8 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 
 import static io.restassured.RestAssured.given;
 
@@ -197,12 +200,18 @@ public class MailUtility {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        manager.getDriver().findElement(By.id("com.android.chrome:id/url_bar")).sendKeys(url+"\n");
+        manager.getDriver().findElement(By.id("com.android.chrome:id/url_bar")).sendKeys(url);
+        ((AndroidDriver) manager.getDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        manager.getDriver().launchApp();
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        manager.getDriver().launchApp();
     }
 }
