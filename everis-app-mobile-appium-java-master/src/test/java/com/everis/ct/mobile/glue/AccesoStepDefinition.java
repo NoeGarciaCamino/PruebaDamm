@@ -2,6 +2,7 @@ package com.everis.ct.mobile.glue;
 
 import com.everis.ct.mobile.MobileAutomationApplication;
 import com.everis.ct.mobile.lib.MobileDriverManager;
+import com.everis.ct.mobile.service.stepdefinition.ManageScenario;
 import com.everis.ct.mobile.step.AccesoStep;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.ast.Cuando;
