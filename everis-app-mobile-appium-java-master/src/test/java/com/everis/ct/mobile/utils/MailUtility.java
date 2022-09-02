@@ -41,11 +41,7 @@ public class MailUtility {
 
 
     public static void leerEmailYAccederAUrl() {
-        //Accede a hotmail y recupera la url del mensaje que contenga Bar Manager
         String url = readEmailUrl();
-
-        //Si esto no funciona como activacion, se puede hacer driver.get(url)
-        //llamarUrl(url);
         goToNavigatorAndURL(url);
     }
 
