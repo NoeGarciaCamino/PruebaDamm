@@ -22,9 +22,9 @@ Característica: Regresion Damm - Settings
     Y reestablezco el idioma por defecto
 
 
-#  Escenario: CasoPrueba- Cambio de email
-#    Dado que accedo al menu de configuracion
-#    Y accedo al email
-#    Cuando cambio el email antiguo por el nuevo email
-#    Y recibo y valido el email
-#    Entonces hago logout y login con el email y la pass
+  Escenario: CasoPrueba- Cambio de email
+    Dado que accedo al menu de configuracion
+    Y accedo al email
+    Cuando cambio el email antiguo por el nuevo email
+    Y recibo y valido el email
+    Entonces hago logout y login con el email y la pass

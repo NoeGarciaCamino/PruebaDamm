@@ -1,8 +1,12 @@
 package com.everis.ct.mobile.utils;
 
+import com.everis.ct.mobile.lib.MobileDriverManager;
+import io.appium.java_client.android.AndroidDriver;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 import javax.mail.*;
 import javax.net.ssl.HttpsURLConnection;
@@ -19,9 +23,12 @@ import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 
 import static io.restassured.RestAssured.given;
 
@@ -30,13 +37,12 @@ public class MailUtility {
     private static RequestSpecification request;
     private static Response response;
 
+    private static MobileDriverManager manager = new MobileDriverManager();;
+
 
     public static void leerEmailYAccederAUrl() {
-        //Accede a hotmail y recupera la url del mensaje que contenga Bar Manager
         String url = readEmailUrl();
-
-        //Si esto no funciona como activacion, se puede hacer driver.get(url)
-        llamarUrl(url);
+        goToNavigatorAndURL(url);
     }
 
     private static String readEmailUrl() {
@@ -169,6 +175,39 @@ public class MailUtility {
             HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
         } catch (NoSuchAlgorithmException | KeyManagementException e ) {
             e.printStackTrace();
+        }
+    }
+
+    private static void goToNavigatorAndURL(String url) {
+        //JavascriptExecutor jss;
+        //JavascriptExecutor js = (JavascriptExecutor)manager.getDriver();
+        //HashMap<String, String> map = new HashMap<>();
+        //map.put("com.android.chrome","");//ID of the app which you want to switch
+        //js.executeScript("mobile: lunachApp", map);
+        manager.getDriver().activateApp("com.android.chrome");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        manager.getDriver().findElement(By.id("com.android.chrome:id/search_box_text")).click();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        manager.getDriver().findElement(By.id("com.android.chrome:id/url_bar")).sendKeys(url);
+        ((AndroidDriver) manager.getDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        manager.getDriver().launchApp();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }
