@@ -1,6 +1,7 @@
 package com.everis.ct.mobile.utils;
 
 import com.everis.ct.mobile.lib.MobileDriverManager;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -29,6 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
+import org.openqa.selenium.ScreenOrientation;
 
 import static io.restassured.RestAssured.given;
 
@@ -184,12 +186,14 @@ public class MailUtility {
         //HashMap<String, String> map = new HashMap<>();
         //map.put("com.android.chrome","");//ID of the app which you want to switch
         //js.executeScript("mobile: lunachApp", map);
-        manager.getDriver().activateApp("com.android.chrome");
+       AppiumDriver driver= manager.getDriver();
+       driver.activateApp("com.android.chrome");
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        driver.rotate(ScreenOrientation.PORTRAIT);
         manager.getDriver().findElement(By.id("com.android.chrome:id/search_box_text")).click();
         try {
             Thread.sleep(3000);
