@@ -12,7 +12,7 @@ public class MenuLateralView extends MobileBase {
     protected MobileElement botonEngranaje;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"MI NEGOCIO\"`][1]")
-    @AndroidFindBy(xpath = "//*[contains(@text,'MI NEGOCIO')]")
+    @AndroidFindBy(xpath = "(//*[contains(@text,'MI NEGOCIO')])[2]")
     protected MobileElement miNegocio;
 
     @iOSXCUITFindBy(accessibility = "CONSUMOS")
