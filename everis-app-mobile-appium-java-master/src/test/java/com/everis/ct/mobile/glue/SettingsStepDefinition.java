@@ -60,7 +60,7 @@ public class SettingsStepDefinition {
 
     @Entonces("hago logout y login con el email y la pass")
     public void hagoLogoutYLoginConElEmailYLaPass() {
-        settingStep.pulsarCerrarSesion();
+        //settingStep.pulsarCerrarSesion();
         settingStep.tapPopUpIOS();
         accesoStep.accederConCuenta();
         Boolean scenario4 = manager.getScenario().contains("4.barTools");
